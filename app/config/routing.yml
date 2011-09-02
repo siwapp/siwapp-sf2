@@ -1,3 +1,28 @@
+SiwappConfigBundle:
+    resource: "@SiwappConfigBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+SiwappProductBundle:
+    resource: "@SiwappProductBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+SiwappEstimateBundle:
+    resource: "@SiwappEstimateBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+SiwappCustomerBundle:
+    resource: "@SiwappCustomerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+SiwappRecurringInvoiceBundle:
+    resource: "@SiwappRecurringInvoiceBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 SiwappDashboardBundle:
     resource: "@SiwappDashboardBundle/Controller/"
     type:     annotation

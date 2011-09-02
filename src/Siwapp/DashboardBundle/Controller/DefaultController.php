@@ -1,6 +1,6 @@
 <?php
 
-namespace Markhaus\SiwappBundle\Controller;
+namespace Siwapp\DashboardBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

@@ -6,11 +6,11 @@
 
     <!--
     <parameters>
-        <parameter key="markhaus_siwapp.example.class">Markhaus\SiwappBundle\Example</parameter>
+        <parameter key="siwapp_invoice.example.class">Siwapp\InvoiceBundle\Example</parameter>
     </parameters>
 
     <services>
-        <service id="markhaus_siwapp.example" class="%markhaus_siwapp.example.class%">
+        <service id="siwapp_invoice.example" class="%siwapp_invoice.example.class%">
             <argument type="service" id="service_id" />
             <argument>plain_value</argument>
             <argument>%parameter_name%</argument>

@@ -1,5 +1,10 @@
-MarkhausSiwappBundle:
-    resource: "@MarkhausSiwappBundle/Controller/"
+SiwappDashboardBundle:
+    resource: "@SiwappDashboardBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+SiwappInvoiceBundle:
+    resource: "@SiwappInvoiceBundle/Controller/"
     type:     annotation
     prefix:   /
 

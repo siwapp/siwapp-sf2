@@ -1,6 +1,6 @@
 <?php
 
-namespace Markhaus\SiwappBundle\Tests\Controller;
+namespace Siwapp\InvoiceBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

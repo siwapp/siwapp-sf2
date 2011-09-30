@@ -16,6 +16,13 @@ use Doctrine\ORM\Mapping as ORM;
  *    @ORM\index(name="cntct_idx", columns={"contact_person"})
  * })
  * @ORM\Entity(repositoryClass="Siwapp\CoreBundle\Entity\CommonRepository")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({
+ *    "Invoice" = "Siwapp\InvoiceBundle\Entity\Invoice", 
+ *    "Estimate" = "Siwapp\EstimateBundle\Entity\Estimate",
+ *    "RecurringInvoice" = "Siwapp\RecurringInvoiceBundle\Entity\RecurringInvoice"
+ * })
  */
 class Common
 {

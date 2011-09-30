@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Siwapp\EstimateBundle\SiwappEstimateBundle(),
             new Siwapp\ProductBundle\SiwappProductBundle(),
             new Siwapp\ConfigBundle\SiwappConfigBundle(),
+            new Siwapp\CoreBundle\SiwappCoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

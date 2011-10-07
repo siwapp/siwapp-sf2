@@ -8,20 +8,16 @@ use Siwapp\CoreBundle\Entity\Common;
 /**
  * Siwapp\RecurringInvoiceBundle\Entity\RecurringInvoice
  *
- * @ORM\Table()
+ * @ORM\Table(indexes={
+ *    @ORM\index(name="cstnm_idx", columns={"customer_name"}),
+ *    @ORM\index(name="cstid_idx", columns={"customer_identification"}),
+ *    @ORM\index(name="cstml_idx", columns={"customer_email"}),
+ *    @ORM\index(name="cntct_idx", columns={"contact_person"})
+ * })
  * @ORM\Entity(repositoryClass="Siwapp\RecurringInvoiceBundle\Entity\RecurringInvoiceRepository")
  */
 class RecurringInvoice extends Common
 {
-    /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
     /**
      * @var integer $days_to_due
      *
@@ -85,16 +81,6 @@ class RecurringInvoice extends Common
      */
     private $last_execution_date;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set days_to_due

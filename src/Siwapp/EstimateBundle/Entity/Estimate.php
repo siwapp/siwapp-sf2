@@ -8,20 +8,16 @@ use Siwapp\CoreBundle\Entity\Common;
 /**
  * Siwapp\EstimateBundle\Entity\Estimate
  *
- * @ORM\Table()
+ * @ORM\Table(indexes={
+ *    @ORM\index(name="cstnm_idx", columns={"customer_name"}),
+ *    @ORM\index(name="cstid_idx", columns={"customer_identification"}),
+ *    @ORM\index(name="cstml_idx", columns={"customer_email"}),
+ *    @ORM\index(name="cntct_idx", columns={"contact_person"})
+ * })
  * @ORM\Entity(repositoryClass="Siwapp\EstimateBundle\Entity\EstimateRepository")
  */
 class Estimate extends Common
 {
-    /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
     /**
      * @var boolean $draft
      *
@@ -43,16 +39,6 @@ class Estimate extends Common
      */
     private $sent_by_email;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set draft

@@ -9,20 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * TODO: Customer and Series relations. Timestampable and Taggable
  *
- * @ORM\Table(name="common", indexes={
- *    @ORM\index(name="cstnm_idx", columns={"customer_name"}),
- *    @ORM\index(name="cstid_idx", columns={"customer_identification"}),
- *    @ORM\index(name="cstml_idx", columns={"customer_email"}),
- *    @ORM\index(name="cntct_idx", columns={"contact_person"})
- * })
- * @ORM\Entity(repositoryClass="Siwapp\CoreBundle\Entity\CommonRepository")
- * @ORM\InheritanceType("SINGLE_TABLE")
- * @ORM\DiscriminatorColumn(name="type", type="string")
- * @ORM\DiscriminatorMap({
- *    "Invoice" = "Siwapp\InvoiceBundle\Entity\Invoice", 
- *    "Estimate" = "Siwapp\EstimateBundle\Entity\Estimate",
- *    "RecurringInvoice" = "Siwapp\RecurringInvoiceBundle\Entity\RecurringInvoice"
- * })
+ * @ORM\MappedSuperclass
  */
 class Common
 {

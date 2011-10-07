@@ -1,1 +1,11 @@
-Hello {{ name }}!
+{% extends "::base.html.twig" %}
+
+{% block body %}
+  
+  <h1>Invoices</h1>
+  
+  <p>
+    <button class="btn primary icon share alternative">Share this invoice!</button>
+  </p>
+  
+{% endblock %}

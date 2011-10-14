@@ -3,7 +3,7 @@
 namespace Siwapp\EstimateBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Siwapp\CoreBundle\Entity\Common;
+use Siwapp\CoreBundle\Entity\AbstractInvoice;
 
 /**
  * Siwapp\EstimateBundle\Entity\Estimate
@@ -16,7 +16,7 @@ use Siwapp\CoreBundle\Entity\Common;
  * })
  * @ORM\Entity(repositoryClass="Siwapp\EstimateBundle\Entity\EstimateRepository")
  */
-class Estimate extends Common
+class Estimate extends AbstractInvoice
 {
     /**
      * @var boolean $draft

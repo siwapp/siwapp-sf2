@@ -3,7 +3,7 @@
 namespace Siwapp\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Siwapp\CoreBundle\Entity\Common;
+use Siwapp\CoreBundle\Entity\AbstractInvoice;
 
 /**
  * Siwapp\InvoiceBundle\Entity\Invoice
@@ -16,7 +16,7 @@ use Siwapp\CoreBundle\Entity\Common;
  * })
  * @ORM\Entity(repositoryClass="Siwapp\InvoiceBundle\Entity\InvoiceRepository")
  */
-class Invoice extends Common
+class Invoice extends AbstractInvoice
 {
     /**
      * @var boolean $draft

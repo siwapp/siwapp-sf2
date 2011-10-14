@@ -5,13 +5,38 @@ LIBRARIES
 BOOTSTRAP [1.3.0]: http://twitter.github.com/bootstrap/javascript.html
 LESS      [1.1.3]: http://lesscss.org/
 JQUERY    [1.6.4]: http://docs.jquery.com/Main_Page
+KENDO UI  [BETA2]: http://www.kendoui.com
 
 If you want to unify bootstrap JS on your own, take these rules into account:
 
   + bootstrap-popovers.js depends on bootstrap-twipsy.js.
 
+If you want to unify kendoui JS on your own, take these rules into account:
+
+  + http://www.kendoui.com/documentation/javascript-dependencies.aspx
+  + kendo.core.js
+  + kendo.data.js
+  + kendo.fx.js
+  + kendo.popup.js
+  + kendo.list.js
+  + kendo.draganddrop.js
+  + kendo.calendar.js
+  
+  + Everything else
+
+We only included useful-for-us components to make it lighter:
+
+$ cd /path/to/web/js/bootstrap
+$ python combine.py bootstrap-twipsy.js bootstrap-*.js > ../bootstrap.all.js
+$ cd ../kendoui
+$ python combine.py kendo.core.min.js kendo.data.min.js kendo.fx.min.js kendo.popup.min.js kendo.list.min.js kendo.draganddrop.min.js kendo.calendar.js kendo.*.js > ../kendo.all.js
+$ cd ..
+$ yuicompressor bootstrap.all.js > bootstrap.min.js
+$ rm bootstrap.all.js
+$ python combine.py bootstrap.min.js kendo.all.js > bootstrap-kendo.js
+
 ================================================================================
-SCRIPT TO COMBINE JS WITH PYTHON 2.6
+combine.py: SCRIPT TO COMBINE JS WITH PYTHON 2.6
 Usage: python combine.py file1.js file2.js *.js /path/to/*.js > result.all.js
 ================================================================================
 

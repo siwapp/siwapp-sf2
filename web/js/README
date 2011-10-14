@@ -1,3 +1,58 @@
+================================================================================
+LIBRARIES
+================================================================================
+
 BOOTSTRAP [1.3.0]: http://twitter.github.com/bootstrap/javascript.html
 LESS      [1.1.3]: http://lesscss.org/
 JQUERY    [1.6.4]: http://docs.jquery.com/Main_Page
+
+If you want to unify bootstrap JS on your own, take these rules into account:
+
+  + bootstrap-popovers.js depends on bootstrap-twipsy.js.
+
+================================================================================
+SCRIPT TO COMBINE JS WITH PYTHON 2.6
+Usage: python combine.py file1.js file2.js *.js /path/to/*.js > result.all.js
+================================================================================
+
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import glob, itertools
+from optparse import OptionParser
+
+def uniquify(seq, idfun=None):
+    """
+    Returns a list with unique elements in the same order.
+    http://www.peterbe.com/plog/uniqifiers-benchmark
+    """
+    if idfun is None:
+        def idfun(x): return x
+    seen = {}
+    result = []
+    for item in seq:
+        marker = idfun(item)
+        if marker in seen: continue
+        seen[marker] = 1
+        result.append(item)
+    return result
+
+def run():
+    parser = OptionParser()
+    (options, args) = parser.parse_args()
+    files = []
+    for pattern in args:
+        files.append(glob.glob(pattern))
+    # uniquify flattened list of files
+    files = uniquify(list(itertools.chain.from_iterable(files)))
+    code = u""
+    for fn in files:
+        code += open(fn).read() + ";\n"
+    return code
+
+if __name__ == "__main__":
+    print run()
+
+================================================================================
+MINIFY WITH YUI COMPRESSOR:
+yuicompressor result.all.js > result.min.js
+================================================================================

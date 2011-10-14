@@ -6,7 +6,8 @@ BOOTSTRAP         [1.3.0]: http://twitter.github.com/bootstrap/
 BOOTSTRAP-EXTRA [PATCHES]: http://github.com/lightglitch/bootstrap-xtra/
 KENDO UI          [BETA2]: http://www.kendoui.com
 
-Kendo UI is included as RAW CSS in siwapp.less to preserve CSS parsing order.
+  + Kendo is included as RAW CSS in siwapp.less to preserve CSS parsing order.
+  + Remember to clear your browser's Local Storage for Siwapp to rebuild styles.
 
 ================================================================================
 BOOTSTRAP FILES

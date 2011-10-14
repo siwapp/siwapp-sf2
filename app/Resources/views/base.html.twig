@@ -1,17 +1,98 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet/less" href="{{ asset('css/siwapp.less') }}" type="text/css" media="screen" title="Siwapp Styles" charset="utf-8">
-        {% block stylesheets %}{% endblock %}
-        <script type="text/javascript" charset="utf-8" src="{{ asset('js/less-1.1.3.min.js') }}"></script>
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>{% block title %}Welcome!{% endblock %}</title>
+  
+  <link rel="stylesheet/less" href="{{ asset('css/siwapp.less') }}" type="text/css" media="screen" title="Siwapp Styles" charset="utf-8" />
+  {% block stylesheets %}{% endblock %}
+  
+  {% javascripts
+    'js/less-1.1.3.min.js'
+    'js/modernizr.custom.js'
+    'js/jquery-1.6.4.min.js'
+    output='js/min/core.js'
+  %}
+  <script type="text/javascript" charset="utf-8" src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+  
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+</head>
+{% block bodytag %}<body>{% endblock %}
+  
+  {% block header %}
+    <header id="hd">
+      <h1>
+        <a href="{{ path('homepage') }}">
+          <img src="{{ asset('img/logo.png') }}" alt="Siwapp" />
+          <span class="version"></span>
+        </a>
+      </h1>
+      
+      <nav class="user">
+        <ul class="unstyled">
+          <li>{% trans with {'%username%': 'test' } %}Wellcome, %username%!{% endtrans %}</li>
+          <li>
+            <a href="{{ path('homepage') }}">{% trans %}Settings{% endtrans %}</a>
+          </li>
+          <li>
+            <a href="{{ path('homepage') }}">{% trans %}Logout{% endtrans %}</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <nav class="main">
         
-        <script type="text/javascript" charset="utf-8" src="{{ asset('js/jquery-1.6.4.min.js') }}"></script>
-        {% block javascripts %}{% endblock %}
-    </body>
+        <a id="create-button" href="{{ path('homepage') }}" class="btn primary icon add alternative">{% trans %}New Invoice{% endtrans %}</a>
+        
+        <ul class="tabs">
+          <li class="active">
+            <a href="{{ path('homepage') }}">{% trans %}Dashboard{% endtrans %}</a>
+          </li>
+          <li>
+            <a href="{{ path('homepage') }}">{% trans %}Invoices{% endtrans %}</a>
+          </li>
+          <li>
+            <a href="{{ path('homepage') }}">{% trans %}Recurring Invoices{% endtrans %}</a>
+          </li>
+          <li>
+            <a href="{{ path('homepage') }}">{% trans %}Estimates{% endtrans %}</a>
+          </li>
+          <li>
+            <a href="{{ path('homepage') }}">{% trans %}Customers{% endtrans %}</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  {% endblock %}
+  
+  <section id="bd">
+    {% block body %}{% endblock %}
+  </section>
+  
+  <footer id="ft">
+  </footer>
+  
+  {% javascripts
+    'js/bootstrap/bootstrap-twipsy.js'
+    'js/bootstrap/bootstrap-*.js'
+    'js/kendoui/kendo.core.min.js'
+    'js/kendoui/kendo.data.min.js'
+    'js/kendoui/kendo.fx.min.js'
+    'js/kendoui/kendo.popup.min.js'
+    'js/kendoui/kendo.list.min.js'
+    'js/kendoui/kendo.draganddrop.min.js'
+    'js/kendoui/kendo.calendar.min.js'
+    'js/kendoui/kendo.*.min.js'
+    filter='yui_js'
+    output='js/min/frameworks.js'
+  %}
+  <script type="text/javascript" charset="utf-8" src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+  
+  {# TODO: Change culture for user. See /web/js/kendoui/cultures #}
+  <script type="text/javascript" charset="utf-8" src="{{ asset('js/kendoui/cultures/kendo.culture.en-US.js') }}"></script>
+  
+  {% block javascripts %}{% endblock %}
+</body>
 </html>

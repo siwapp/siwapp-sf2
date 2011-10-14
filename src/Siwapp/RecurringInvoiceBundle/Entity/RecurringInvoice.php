@@ -3,7 +3,7 @@
 namespace Siwapp\RecurringInvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Siwapp\CoreBundle\Entity\Common;
+use Siwapp\CoreBundle\Entity\AbstractInvoice;
 
 /**
  * Siwapp\RecurringInvoiceBundle\Entity\RecurringInvoice
@@ -16,7 +16,7 @@ use Siwapp\CoreBundle\Entity\Common;
  * })
  * @ORM\Entity(repositoryClass="Siwapp\RecurringInvoiceBundle\Entity\RecurringInvoiceRepository")
  */
-class RecurringInvoice extends Common
+class RecurringInvoice extends AbstractInvoice
 {
     /**
      * @var integer $days_to_due

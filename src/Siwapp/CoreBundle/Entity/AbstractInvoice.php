@@ -5,13 +5,13 @@ namespace Siwapp\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Siwapp\CoreBundle\Entity\Common
+ * Siwapp\CoreBundle\Entity\AbstractInvoice
  *
  * TODO: Customer and Series relations. Timestampable and Taggable
  *
  * @ORM\MappedSuperclass
  */
-class Common
+class AbstractInvoice
 {
     /**
      * @var integer $id

@@ -1,2 +1,46 @@
+================================================================================
+LIBRARIES
+================================================================================
+
 BOOTSTRAP         [1.3.0]: http://twitter.github.com/bootstrap/
 BOOTSTRAP-EXTRA [PATCHES]: http://github.com/lightglitch/bootstrap-xtra/
+KENDO UI          [BETA2]: http://www.kendoui.com
+
+  + Kendo is included as RAW CSS in siwapp.less to preserve CSS parsing order.
+  + Remember to clear your browser's Local Storage for Siwapp to rebuild styles.
+
+================================================================================
+BOOTSTRAP FILES
+================================================================================
+
+  + bootstrap.less
+  + reset.less
+  + variables.less
+  + mixins.less
+  + scaffolding.less
+  + type.less
+  + forms.less
+  + tables.less
+  + patterns.less
+
+================================================================================
+BOOTSTRAP-EXTRA FILES
+================================================================================
+
+  + bootstrap-patches.less
+
+================================================================================
+KENDO UI FILES
+================================================================================
+
+  + kendo.common.min.css
+  + kendo.kendo.min.css
+  + Kendo/*.*
+
+================================================================================
+SIWAPP FILES
+================================================================================
+
+  + siwapp.less // Our own bootstrap LESS file.
+
+================================================================================

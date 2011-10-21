@@ -45,20 +45,22 @@
         
         <a href="{{ path('invoice_add') }}" class="btn primary icon add alternative">{% trans %}New Invoice{% endtrans %}</a>
         
+        {% set routename = app.request.attributes.get('_route') %}
+        
         <ul class="tabs">
-          <li class="active">
+          <li class="{{ routename|menu_active_tab('dashboard_') }}">
             <a href="{{ path('dashboard_index') }}">{% trans %}Dashboard{% endtrans %}</a>
           </li>
-          <li>
+          <li class="{{ routename|menu_active_tab('invoice_') }}">
             <a href="{{ path('invoice_index') }}">{% trans %}Invoices{% endtrans %}</a>
           </li>
-          <li>
+          <li class="{{ routename|menu_active_tab('recurring_') }}">
             <a href="{{ path('recurring_index') }}">{% trans %}Recurring Invoices{% endtrans %}</a>
           </li>
-          <li>
+          <li class="{{ routename|menu_active_tab('estimate_') }}">
             <a href="{{ path('estimate_index') }}">{% trans %}Estimates{% endtrans %}</a>
           </li>
-          <li>
+          <li class="{{ routename|menu_active_tab('customer_') }}">
             <a href="{{ path('dashboard_index') }}">{% trans %}Customers{% endtrans %}</a>
           </li>
         </ul>

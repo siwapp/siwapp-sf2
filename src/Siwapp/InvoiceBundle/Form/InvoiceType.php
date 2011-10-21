@@ -23,6 +23,13 @@ class InvoiceType extends AbstractInvoiceType
             ->add('due_date')
         ;
     }
+    
+    public function getDefaultOptions(array $options)
+    {
+        return array(
+            'data_class' => 'Siwapp\InvoiceBundle\Entity\Invoice',
+        );
+    }
 
     public function getName()
     {

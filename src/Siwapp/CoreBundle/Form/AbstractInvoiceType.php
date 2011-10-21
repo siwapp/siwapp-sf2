@@ -15,19 +15,20 @@ class AbstractInvoiceType extends AbstractType
             ->add('customer_name')
             ->add('customer_identification')
             ->add('customer_email')
-            ->add('invoicing_address')
-            ->add('shipping_address')
+            ->add('invoicing_address', 'textarea')
+            ->add('shipping_address', 'textarea')
             ->add('contact_person')
-            ->add('terms')
-            ->add('notes')
-            ->add('base_amount')
-            ->add('discount_amount')
-            ->add('net_amount')
-            ->add('gross_amount')
-            ->add('paid_amount')
-            ->add('tax_amount')
+            ->add('terms', 'textarea')
+            ->add('notes', 'textarea')
             ->add('status')
         ;
+    }
+    
+    public function getDefaultOptions(array $options)
+    {
+        return array(
+            'data_class' => 'Siwapp\CoreBundle\Entity\AbstractInvoice',
+        );
     }
 
     public function getName()

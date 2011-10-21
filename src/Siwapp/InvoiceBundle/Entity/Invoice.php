@@ -4,6 +4,7 @@ namespace Siwapp\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Siwapp\CoreBundle\Entity\AbstractInvoice;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Siwapp\InvoiceBundle\Entity\Invoice

@@ -3,6 +3,7 @@
 namespace Siwapp\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Siwapp\CoreBundle\Entity\AbstractInvoice
@@ -54,6 +55,7 @@ class AbstractInvoice
      * @var string $customer_email
      *
      * @ORM\Column(name="customer_email", type="string", length=100)
+     * @Assert\Email()
      */
     private $customer_email;
 

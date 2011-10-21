@@ -42,3 +42,16 @@ If you don't have access to changing the ACL of the directories, you will need t
     umask(0000); // This will let the permissions be 0777
 
 Note that using the ACL is recommended when you have access to them on your server because changing the umask is not thread-safe.
+
+## Issues with assets
+
+If you cannot see the app styled in production environment read [this](http://symfony.com/doc/2.0/cookbook/assetic/asset_management.html#dumping-asset-files-in-the-prod-environment).
+
+For the impatient, run this symfony command:
+
+    php app/console assetic:dump --env=prod --no-debug
+
+As the doc says:
+
+> This will physically generate and write each file that you need (e.g. /js/abcd123.js). If you update any of your assets, you'll need to run this again to regenerate the file.
+

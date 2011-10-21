@@ -69,6 +69,12 @@
   {% endblock %}
   
   <section id="bd">
+    {% block searchform %}
+      <div class="searchform">
+        <strong>SEARCHFORM:</strong> Check ::base.html.twig. Override the <em>searchform</em> block in your templates to set it or remove it.
+      </div>
+    {% endblock %}
+    
     {% block body %}{% endblock %}
   </section>
   

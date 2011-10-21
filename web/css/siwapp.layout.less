@@ -19,7 +19,7 @@ li {
 
 #hd {
     #gradient > .vertical(rgba(254,254,254,1), rgba(240,240,240,1));
-    margin-bottom:@layoutPadding*1.5;
+    margin-bottom:@layoutPadding*0.5;
     
     h1 {
         float:left;
@@ -103,6 +103,16 @@ li {
 //
 // Main content
 //
+
+#bd {
+    padding:0 @layoutPadding;
+    
+    .searchform {
+        margin:0 @layoutPadding * -1 @layoutPadding * 1.5;
+        padding:@layoutPadding;
+        .box-shadow(0 4px 3px -2px rgba(0,0,0,.10));
+    }
+}
 
 //
 // Rightmost toolbar

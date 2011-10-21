@@ -67,4 +67,107 @@
     
   </div>
   
+  <h2>{% trans %}Recent invoices{% endtrans %}</h2>
+  <div id="dashboard-latest-invoices">
+    <table class="zebra-striped align-middle">
+      <thead>
+        <tr>
+          <th>{% trans %}Number{% endtrans %}</th>
+          <th>{% trans %}Customer{% endtrans %}</th>
+          <th class="date">{% trans %}Date{% endtrans %}</th>
+          <th class="date">{% trans %}Due Date{% endtrans %}</th>
+          <th class="status">{% trans %}Status{% endtrans %}</th>
+          <th class="currency">{% trans %}Due{% endtrans %}</th>
+          <th class="currency">{% trans %}Total{% endtrans %}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ASET-22</td>
+          <td>Roxxon</td>
+          <td class="date">5/28/11</td>
+          <td class="date">9/16/11</td>
+          <td class="status">
+            {# Use these CSS class names after .label for different statuses:
+              DRAFT   => (no class)
+              CLOSED  => .success
+              OPENED  => .warning
+              OVERDUE => .important
+              ???     => .notice -> informational and not used
+            #}
+            <span class="label success">{% trans %}closed{% endtrans %}</span>
+          </td>
+          <td class="currency"></td>
+          <td class="currency">$11,435.23</td>
+          <td>
+            <a href="#" class="btn secondary icon clock">{% trans %}Payments{% endtrans %}</a>
+          </td>
+        </tr>
+        <tr>
+          <td>ASET-22</td>
+          <td>Roxxon</td>
+          <td>5/28/11</td>
+          <td>9/16/11</td>
+          <td>
+            <span class="label">{% trans %}draft{% endtrans %}</span>
+          </td>
+          <td></td>
+          <td>$11,435.23</td>
+          <td>
+            <a href="#" class="btn secondary icon clock">{% trans %}Payments{% endtrans %}</a>
+          </td>
+        </tr>
+        <tr>
+          <td>ASET-22</td>
+          <td>Roxxon</td>
+          <td>5/28/11</td>
+          <td>9/16/11</td>
+          <td>
+            <span class="label warning">{% trans %}opened{% endtrans %}</span>
+          </td>
+          <td></td>
+          <td>$11,435.23</td>
+          <td>
+            <a href="#" class="btn secondary icon clock">{% trans %}Payments{% endtrans %}</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <h2>{% trans %}Past due invoices{% endtrans %}</h2>
+  <div id="dashboard-overdue-invoices">
+    <table class="zebra-striped align-middle">
+      <thead>
+        <tr>
+          <th>{% trans %}Number{% endtrans %}</th>
+          <th>{% trans %}Customer{% endtrans %}</th>
+          <th>{% trans %}Date{% endtrans %}</th>
+          <th>{% trans %}Due Date{% endtrans %}</th>
+          <th>{% trans %}Status{% endtrans %}</th>
+          <th>{% trans %}Due{% endtrans %}</th>
+          <th>{% trans %}Total{% endtrans %}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ASET-22</td>
+          <td>Roxxon</td>
+          <td>5/28/11</td>
+          <td>9/16/11</td>
+          <td>
+            <span class="label important">{% trans %}overdue{% endtrans %}</span>
+          </td>
+          <td></td>
+          <td>$11,435.23</td>
+          <td>
+            <a href="#" class="btn secondary icon clock">{% trans %}Payments{% endtrans %}</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
 {% endblock %}

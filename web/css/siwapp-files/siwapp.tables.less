@@ -14,4 +14,22 @@ table {
             border-left: 1px solid #ddd;
         }
     }
+    
+    &.align-middle {
+        td {
+            vertical-align:middle !important;
+        }
+    }
+}
+
+//
+// Zebra striped tables with orange :hover background
+//
+
+.zebra-striped {
+    tbody {
+        tr:hover td {
+            background-color:@orangeTableHover;
+        }
+    }
 }

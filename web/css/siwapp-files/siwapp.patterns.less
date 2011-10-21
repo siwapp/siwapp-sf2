@@ -1,0 +1,32 @@
+//
+// Labels
+//
+
+.label {
+    padding: 1px 5px 2px;
+    font-size:@basefont *.85;
+    color:@draftGrayTx;
+    border:1px solid @draftGrayBd;
+    background-color:@draftGrayBg;
+    
+    &.important {
+        color:@white;
+        background-color:@overdueRedBg;
+        border-color:@overdueRedBd;
+    }
+    &.warning {
+        color:@openedYellowTx;
+        background-color:@openedYellowBg;
+        border-color:@openedYellowBd;
+    }
+    &.success {
+        color:@white;
+        background-color:@closedGreenBg;
+        border-color:@closedGreenBd;
+    }
+    &.notice {
+        color:@white;
+        background-color:lighten(@blue, 25%);
+        border-color:@blue;
+    }
+}

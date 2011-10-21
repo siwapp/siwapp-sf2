@@ -43,14 +43,14 @@
       
       <nav class="main">
         
-        <a href="{{ path('dashboard_index') }}" class="btn primary icon add alternative">{% trans %}New Invoice{% endtrans %}</a>
+        <a href="{{ path('invoice_add') }}" class="btn primary icon add alternative">{% trans %}New Invoice{% endtrans %}</a>
         
         <ul class="tabs">
           <li class="active">
             <a href="{{ path('dashboard_index') }}">{% trans %}Dashboard{% endtrans %}</a>
           </li>
           <li>
-            <a href="{{ path('dashboard_index') }}">{% trans %}Invoices{% endtrans %}</a>
+            <a href="{{ path('invoice_index') }}">{% trans %}Invoices{% endtrans %}</a>
           </li>
           <li>
             <a href="{{ path('dashboard_index') }}">{% trans %}Recurring Invoices{% endtrans %}</a>

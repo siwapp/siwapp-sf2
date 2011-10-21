@@ -23,7 +23,7 @@
   {% block header %}
     <header id="hd">
       <h1>
-        <a href="{{ path('homepage') }}">
+        <a href="{{ path('dashboard_index') }}">
           <img src="{{ asset('img/logo.png') }}" alt="Siwapp" />
           <span class="version">v.0.5-DEV</span>
         </a>
@@ -33,33 +33,33 @@
         <ul class="unstyled">
           <li>{% trans with {'%username%': 'test' } %}Wellcome, %username%!{% endtrans %}</li>
           <li>
-            <a href="{{ path('homepage') }}">{% trans %}Settings{% endtrans %}</a>
+            <a href="{{ path('dashboard_index') }}">{% trans %}Settings{% endtrans %}</a>
           </li>
           <li>
-            <a href="{{ path('homepage') }}">{% trans %}Logout{% endtrans %}</a>
+            <a href="{{ path('dashboard_index') }}">{% trans %}Logout{% endtrans %}</a>
           </li>
         </ul>
       </nav>
       
       <nav class="main">
         
-        <a href="{{ path('homepage') }}" class="btn primary icon add alternative">{% trans %}New Invoice{% endtrans %}</a>
+        <a href="{{ path('dashboard_index') }}" class="btn primary icon add alternative">{% trans %}New Invoice{% endtrans %}</a>
         
         <ul class="tabs">
           <li class="active">
-            <a href="{{ path('homepage') }}">{% trans %}Dashboard{% endtrans %}</a>
+            <a href="{{ path('dashboard_index') }}">{% trans %}Dashboard{% endtrans %}</a>
           </li>
           <li>
-            <a href="{{ path('homepage') }}">{% trans %}Invoices{% endtrans %}</a>
+            <a href="{{ path('dashboard_index') }}">{% trans %}Invoices{% endtrans %}</a>
           </li>
           <li>
-            <a href="{{ path('homepage') }}">{% trans %}Recurring Invoices{% endtrans %}</a>
+            <a href="{{ path('dashboard_index') }}">{% trans %}Recurring Invoices{% endtrans %}</a>
           </li>
           <li>
-            <a href="{{ path('homepage') }}">{% trans %}Estimates{% endtrans %}</a>
+            <a href="{{ path('dashboard_index') }}">{% trans %}Estimates{% endtrans %}</a>
           </li>
           <li>
-            <a href="{{ path('homepage') }}">{% trans %}Customers{% endtrans %}</a>
+            <a href="{{ path('dashboard_index') }}">{% trans %}Customers{% endtrans %}</a>
           </li>
         </ul>
       </nav>

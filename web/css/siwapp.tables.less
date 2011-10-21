@@ -1,0 +1,17 @@
+//
+// Tables with headers in the first column of each row.
+//
+
+table {
+    &.horizontal {
+        th {
+            border-bottom:0;
+        }
+        tr + tr th {
+            border-top: 1px solid #ddd;
+        }
+        th + td {
+            border-left: 1px solid #ddd;
+        }
+    }
+}

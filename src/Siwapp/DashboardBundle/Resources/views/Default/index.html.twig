@@ -1,7 +1,70 @@
 {% extends "::base.html.twig" %}
 
+{% block stylesheets %}
+<link rel="stylesheet/less" href="{{ asset('css/siwapp/dashboard.less') }}" type="text/css" media="screen" title="Dashboard Styles" charset="utf-8" />
+{% endblock %}
+
 {% block body %}
   
-  <h1>Dashboard</h1>
+  <div id="dashboard-summary">
+    
+    <table class="payments horizontal">
+      <tbody>
+        <tr>
+          <th colspan="2">{% trans %}Payments Summary{% endtrans %}</th>
+        </tr>
+        <tr class="receipts">
+          <th>{% trans %}Receipts{% endtrans %}</th>
+          <td>$491,969.17</td>
+        </tr>
+        <tr class="due">
+          <th>{% trans %}Due{% endtrans %}</th>
+          <td>$4,233.54</td>
+        </tr>
+        <tr class="overdue">
+          <th>{% trans %}Overdue{% endtrans %}</th>
+          <td>$4,233.54</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <table class="balance horizontal">
+      <tbody>
+        <tr>
+          <th colspan="2">{% trans %}Balance{% endtrans %}</th>
+        </tr>
+        <tr class="total">
+          <th>{% trans %}Total{% endtrans %}</th>
+          <td>$598,390.67</td>
+        </tr>
+        <tr class="net">
+          <th>{% trans %}Net{% endtrans %}</th>
+          <td>$500,000.00</td>
+        </tr>
+        <tr class="taxes">
+          <th>{% trans %}Taxes{% endtrans %}</th>
+          <td>$98,390.67</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="taxes horizontal">
+      <tbody>
+        <tr>
+          <th colspan="2">{% trans %}Withholding Taxes{% endtrans %}</th>
+        </tr>
+        {# TODO: Iterate over taxes and totals and show here #}
+        <tr>
+          <th>IVA 18%</th>
+          <td>$98,390.67</td>
+        </tr>
+        <tr>
+          <th>IVA 8%</th>
+          <td>$0.00</td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
   
 {% endblock %}

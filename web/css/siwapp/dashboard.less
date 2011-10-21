@@ -1,0 +1,30 @@
+@import "../variables.less";
+@import "../siwapp.variables.less";
+
+//
+// Summary
+//
+
+#dashboard-summary {
+    overflow:hidden;
+    
+    table {
+        width:auto;
+        font-size:@basefont * 1.2 !important;
+        float:left;
+        margin:0;
+        background-color:@white;
+        
+        td {
+            text-align:right;
+        }
+        .overdue {
+            th, td {
+                color:@overdueRedBg;
+            }
+        }
+    }
+    table + table {
+        margin-left:@layoutPadding;
+    }
+}

@@ -23,7 +23,7 @@
     version=2.1.2
 
 [doctrine-fixtures]
-    git=http://github.com/doctrine/data-fixtures.gif
+    git=https://github.com/doctrine/data-fixtures.git
 
 [DoctrineFixturesBundle]
     git=http://github.com/symfony/DoctrineFixturesBundle.git

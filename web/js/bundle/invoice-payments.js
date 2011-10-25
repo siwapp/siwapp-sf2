@@ -10,6 +10,7 @@ jQuery(function($){
     TODO: The payments form must be AJAX submitted, updating its div.content
           with the results.
     TODO: Removing items must be done in AJAX, updating div.content.
+    TODO: Use http://keithcirkel.co.uk/jwerty/ to hide payments with ESC key
   */
   $('table[data-type="invoices"]').delegate('a.payments', 'click', function(e){
     // SHOW PAYMENTS FORM

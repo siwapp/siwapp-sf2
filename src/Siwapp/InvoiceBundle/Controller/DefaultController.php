@@ -83,4 +83,37 @@ class DefaultController extends Controller
     {
         return $this->redirect($this->generateUrl('invoice_index'));
     }
+    
+    /**
+     * @Route("/payments/{invoiceId}", name="invoice_payments")
+     * @Template
+     */
+    public function paymentsAction($invoiceId)
+    {
+        // Return all payments
+        return array();
+    }
+    
+    /**
+     * @Route("/payments/{invoiceId}/add", name="invoice_payment_add")
+     * @Method("POST")
+     */
+    public function addPaymentAction($invoiceId)
+    {
+        // Add payment and return all payments
+        return $this->forward('SiwappInvoiceBundle:Default:payments', array(
+            'invoiceId' => $invoiceId
+        ));
+    }
+    
+    /**
+     * @Route("/payments/{invoiceId}/delete/{paymentId}", name="invoice_payment_delete")
+     */
+    public function deletePayment($invoiceId, $paymentId)
+    {
+        // Delete payment and return all payments
+        return $this->forward('SiwappInvoiceBundle:Default:payments', array(
+            'invoiceId' => $invoiceId
+        ));
+    }
 }

@@ -1,0 +1,68 @@
+{# TODO: Set width in CSS!!! #}
+<div class="popover left payments-popover" data-invoice-id="1">
+  <div class="arrow"></div>
+  <div class="inner" style="width:auto !important;">
+    <h3 class="title">{% trans %}Payments{% endtrans %}</h3>
+    <div class="content">
+      
+      <form action="{{ path('invoice_payment_add', { 'invoiceId': 1 }) }}" method="post">
+        <table>
+          <colgroup>
+            <col class="description">
+            <col class="amount">
+            <col class="delete">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>
+                {% trans %}Description{% endtrans %}
+              </th>
+              <th colspan="2">
+                {% trans %}Amount{% endtrans %}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                First Payment
+              </td>
+              <td>
+                1000,00€
+              </td>
+              <td>
+                <a href="{{ path('invoice_payment_delete', { 'invoiceId': 1, 'paymentId': 1 }) }}" class="btn danger icon remove">{% trans %}Remove{% endtrans %}</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Second Payment
+              </td>
+              <td>
+                500,00€
+              </td>
+              <td>
+                <a href="{{ path('invoice_payment_delete', { 'invoiceId': 1, 'paymentId': 2 }) }}" class="btn danger icon remove">{% trans %}Remove{% endtrans %}</a>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>
+                <input type="text" placeholder="Description" name="description">
+              </td>
+              <td>
+                <input type="text" placeholder="Amount" name="amount">
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+        <div style="text-align:right;">
+          <button type="submit" class="btn primary icon alternative add">{% trans %}Add Payment{% endtrans %}</button>
+          <button type="button" class="btn secondary">{% trans %}Close{% endtrans %}</button>
+        </div>
+      </form>
+      
+    </div>
+  </div>
+</div>

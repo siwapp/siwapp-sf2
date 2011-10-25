@@ -1,7 +1,13 @@
 {% extends "::base.html.twig" %}
 
 {% block stylesheets %}
+{{ parent() }}
 <link rel="stylesheet/less" href="{{ asset('css/bundle/dashboard.less') }}" type="text/css" media="screen" title="Dashboard Styles" charset="utf-8" />
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" charset="utf-8" src="{{ asset('js/bundle/invoice-payments.js') }}"></script>
 {% endblock %}
 
 {% block body %}
@@ -69,7 +75,17 @@
   
   <h2>{% trans %}Recent invoices{% endtrans %}</h2>
   <div id="dashboard-latest-invoices">
-    <table class="zebra-striped align-middle">
+    <table class="zebra-striped align-middle" data-type="invoices">
+      <colgroup>
+        <col />
+        <col />
+        <col class="date" />
+        <col class="date" />
+        <col class="status" />
+        <col class="currency" />
+        <col class="currency" />
+        <col class="payments" />
+      </colgroup>
       <thead>
         <tr>
           <th>{% trans %}Number{% endtrans %}</th>
@@ -86,9 +102,9 @@
         <tr>
           <td>ASET-22</td>
           <td>Roxxon</td>
-          <td class="date">5/28/11</td>
-          <td class="date">9/16/11</td>
-          <td class="status">
+          <td>5/28/11</td>
+          <td>9/16/11</td>
+          <td>
             {# Use these CSS class names after .label for different statuses:
               DRAFT   => (no class)
               CLOSED  => .success
@@ -98,10 +114,10 @@
             #}
             <span class="label success">{% trans %}closed{% endtrans %}</span>
           </td>
-          <td class="currency"></td>
-          <td class="currency">$11,435.23</td>
+          <td></td>
+          <td>$11,435.23</td>
           <td>
-            <a href="#" class="btn secondary icon clock">{% trans %}Payments{% endtrans %}</a>
+            <a href="{{ path('invoice_payments', { 'invoiceId': 1 }) }}" class="btn secondary icon clock payments" title="Payments">{% trans %}Payments{% endtrans %}</a>
           </td>
         </tr>
         <tr>
@@ -115,7 +131,7 @@
           <td></td>
           <td>$11,435.23</td>
           <td>
-            <a href="#" class="btn secondary icon clock">{% trans %}Payments{% endtrans %}</a>
+            <a href="{{ path('invoice_payments', { 'invoiceId': 2 }) }}" class="btn secondary icon clock payments" title="Payments">{% trans %}Payments{% endtrans %}</a>
           </td>
         </tr>
         <tr>
@@ -129,7 +145,7 @@
           <td></td>
           <td>$11,435.23</td>
           <td>
-            <a href="#" class="btn secondary icon clock">{% trans %}Payments{% endtrans %}</a>
+            <a href="{{ path('invoice_payments', { 'invoiceId': 3 }) }}" class="btn secondary icon clock payments" title="Payments">{% trans %}Payments{% endtrans %}</a>
           </td>
         </tr>
       </tbody>
@@ -138,7 +154,17 @@
   
   <h2>{% trans %}Past due invoices{% endtrans %}</h2>
   <div id="dashboard-overdue-invoices">
-    <table class="zebra-striped align-middle">
+    <table class="zebra-striped align-middle" data-type="invoices">
+      <colgroup>
+        <col />
+        <col />
+        <col class="date" />
+        <col class="date" />
+        <col class="status" />
+        <col class="currency" />
+        <col class="currency" />
+        <col class="payments" />
+      </colgroup>
       <thead>
         <tr>
           <th>{% trans %}Number{% endtrans %}</th>
@@ -163,7 +189,7 @@
           <td></td>
           <td>$11,435.23</td>
           <td>
-            <a href="#" class="btn secondary icon clock">{% trans %}Payments{% endtrans %}</a>
+            <a href="{{ path('invoice_payments', { 'invoiceId': 4 }) }}" class="btn secondary icon clock payments" title="Payments">{% trans %}Payments{% endtrans %}</a>
           </td>
         </tr>
       </tbody>

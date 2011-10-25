@@ -22,6 +22,13 @@
     git=http://github.com/doctrine/doctrine2.git
     version=2.1.2
 
+[doctrine-fixtures]
+    git=https://github.com/doctrine/data-fixtures.git
+
+[DoctrineFixturesBundle]
+    git=http://github.com/symfony/DoctrineFixturesBundle.git
+    target=/bundles/Symfony/Bundle/DoctrineFixturesBundle
+
 [swiftmailer]
     git=http://github.com/swiftmailer/swiftmailer.git
     version=v4.1.2

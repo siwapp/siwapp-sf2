@@ -3,6 +3,7 @@
 namespace Siwapp\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Util\Inflector;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -26,35 +27,35 @@ class AbstractInvoice
     /**
      * @var integer $series_id
      *
-     * @ORM\Column(name="series_id", type="integer")
+     * @ORM\Column(name="series_id", type="integer", nullable="true")
      */
     private $series_id;
 
     /**
      * @var integer $customer_id
      *
-     * @ORM\Column(name="customer_id", type="integer")
+     * @ORM\Column(name="customer_id", type="integer", nullable="true")
      */
     private $customer_id;
 
     /**
      * @var string $customer_name
      *
-     * @ORM\Column(name="customer_name", type="string", length=100)
+     * @ORM\Column(name="customer_name", type="string", length=100, nullable="true")
      */
     private $customer_name;
 
     /**
      * @var string $customer_identification
      *
-     * @ORM\Column(name="customer_identification", type="string", length=50)
+     * @ORM\Column(name="customer_identification", type="string", length=50, nullable="true")
      */
     private $customer_identification;
 
     /**
      * @var string $customer_email
      *
-     * @ORM\Column(name="customer_email", type="string", length=100)
+     * @ORM\Column(name="customer_email", type="string", length=100, nullable="true")
      * @Assert\Email()
      */
     private $customer_email;
@@ -62,87 +63,97 @@ class AbstractInvoice
     /**
      * @var text $invoicing_address
      *
-     * @ORM\Column(name="invoicing_address", type="text")
+     * @ORM\Column(name="invoicing_address", type="text", nullable="true")
      */
     private $invoicing_address;
 
     /**
      * @var text $shipping_address
      *
-     * @ORM\Column(name="shipping_address", type="text")
+     * @ORM\Column(name="shipping_address", type="text", nullable="true")
      */
     private $shipping_address;
 
     /**
      * @var string $contact_person
      *
-     * @ORM\Column(name="contact_person", type="string", length=100)
+     * @ORM\Column(name="contact_person", type="string", length=100, nullable="true")
      */
     private $contact_person;
 
     /**
      * @var text $terms
      *
-     * @ORM\Column(name="terms", type="text")
+     * @ORM\Column(name="terms", type="text", nullable="true")
      */
     private $terms;
 
     /**
      * @var text $notes
      *
-     * @ORM\Column(name="notes", type="text")
+     * @ORM\Column(name="notes", type="text", nullable="true")
      */
     private $notes;
 
     /**
      * @var decimal $base_amount
      *
-     * @ORM\Column(name="base_amount", type="decimal")
+     * @ORM\Column(name="base_amount", type="decimal", nullable="true")
      */
     private $base_amount;
 
     /**
      * @var decimal $discount_amount
      *
-     * @ORM\Column(name="discount_amount", type="decimal")
+     * @ORM\Column(name="discount_amount", type="decimal", nullable="true")
      */
     private $discount_amount;
 
     /**
      * @var decimal $net_amount
      *
-     * @ORM\Column(name="net_amount", type="decimal")
+     * @ORM\Column(name="net_amount", type="decimal", nullable="true")
      */
     private $net_amount;
 
     /**
      * @var decimal $gross_amount
      *
-     * @ORM\Column(name="gross_amount", type="decimal")
+     * @ORM\Column(name="gross_amount", type="decimal", nullable="true")
      */
     private $gross_amount;
 
     /**
      * @var decimal $paid_amount
      *
-     * @ORM\Column(name="paid_amount", type="decimal")
+     * @ORM\Column(name="paid_amount", type="decimal", nullable="true")
      */
     private $paid_amount;
 
     /**
      * @var decimal $tax_amount
      *
-     * @ORM\Column(name="tax_amount", type="decimal")
+     * @ORM\Column(name="tax_amount", type="decimal", nullable="true")
      */
     private $tax_amount;
 
     /**
      * @var smallint $status
      *
-     * @ORM\Column(name="status", type="smallint")
+     * @ORM\Column(name="status", type="smallint", nullable="true")
      */
     private $status;
 
+    private $decimals = null;
+
+    private function getDecimals()
+    {
+      if(!$this->decimals)
+      {
+	$this->decimals = 2;
+      }
+      return $this->decimals;
+    }
 
     /**
      * Get id
@@ -493,4 +504,45 @@ class AbstractInvoice
     {
         return $this->status;
     }
+
+    /** ########### CUSTOM METHODS ################## */
+
+    /**
+     * calculate values over items
+     *
+     * Warning!! this method only works when called from a real entity, not 
+     * the abstract.
+     *
+     * @param string $field
+     * @param boolean $rounded
+     * @return float
+     */
+    public function calculate($field, $rounded=false)
+    {
+      $val = 0;
+      switch($field)
+      {
+      case 'paid_amount':
+	foreach($this->getPayments() as $payment)
+	{
+	  $val += $payment->getAmount();
+	}
+	break;
+      default:
+	foreach($this->getItems() as $item)
+	{
+	  $method = 'get'.Inflector::camelize($field);
+	  $val += $item->method();
+	}
+	break;
+      }
+
+      if($rounded)
+      {
+	return round($val, $this->getDecimals());
+      }
+
+      return $val;
+    }
+
 }

@@ -3,6 +3,7 @@
 namespace Siwapp\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Siwapp\CoreBundle\Entity\AbstractInvoice;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -19,52 +20,61 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Invoice extends AbstractInvoice
 {
-    /**
+  /**
+     @ORM\OneToMany(targetEntity="Item", mappedBy="invoice")
+   */
+  private $items;
+
+  public function __construct()
+  {
+    $this->items = new ArrayCollection();
+  }
+   /**
      * @var boolean $draft
      *
-     * @ORM\Column(name="draft", type="boolean")
+     * @ORM\Column(name="draft", type="boolean", nullable="true")
      */
     private $draft;
 
     /**
      * @var boolean $closed
      *
-     * @ORM\Column(name="closed", type="boolean")
+     * @ORM\Column(name="closed", type="boolean", nullable="true")
      */
     private $closed;
 
     /**
      * @var boolean $sent_by_email
      *
-     * @ORM\Column(name="sent_by_email", type="boolean")
+     * @ORM\Column(name="sent_by_email", type="boolean", nullable="true")
      */
     private $sent_by_email;
 
     /**
      * @var integer $number
      *
-     * @ORM\Column(name="number", type="integer")
+     * @ORM\Column(name="number", type="integer", nullable="true")
      */
     private $number;
 
     /**
      * @var bigint $recurring_invoice_id
      *
-     * @ORM\Column(name="recurring_invoice_id", type="bigint")
+     * @ORM\Column(name="recurring_invoice_id", type="bigint", nullable="true")
      */
     private $recurring_invoice_id;
 
     /**
      * @var date $issue_date
      *
-     * @ORM\Column(name="issue_date", type="date")
+     * @ORM\Column(name="issue_date", type="date", nullable="true")
      */
     private $issue_date;
 
     /**
      * @var date $due_date
      *
-     * @ORM\Column(name="due_date", type="date")
+     * @ORM\Column(name="due_date", type="date", nullable="true")
      */
     private $due_date;
 
@@ -207,5 +217,25 @@ class Invoice extends AbstractInvoice
     public function getDueDate()
     {
         return $this->due_date;
+    }
+
+    /**
+     * Add items
+     *
+     * @param Siwapp\InvoiceBundle\Entity\Item $items
+     */
+    public function addItem(\Siwapp\InvoiceBundle\Entity\Item $items)
+    {
+        $this->items[] = $items;
+    }
+
+    /**
+     * Get items
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getItems()
+    {
+        return $this->items;
     }
 }

@@ -9,7 +9,8 @@ jQuery(function($){
     TODO: Create a pretty confirm translated to the user language.
     TODO: The payments form must be AJAX submitted, updating its div.content
           with the results.
-    TODO: Removing items must be done in AJAX, updating div.content.
+    TODO: Removing items must be done in AJAX, updating div.content. Use checkboxs
+          and a single button to remove selected.
     TODO: Use http://keithcirkel.co.uk/jwerty/ to hide payments with ESC key
   */
   $('table[data-type="invoices"]').delegate('a.payments', 'click', function(e){

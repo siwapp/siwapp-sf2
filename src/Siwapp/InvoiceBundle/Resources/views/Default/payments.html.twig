@@ -1,4 +1,5 @@
-{# TODO: Set width in CSS!!! #}
+{# TODO: Set widths in CSS!!! (search style attributes) #}
+
 <div class="popover left payments-popover" data-invoice-id="1">
   <div class="arrow"></div>
   <div class="inner" style="width:auto !important;">
@@ -8,9 +9,9 @@
       <form action="{{ path('invoice_payment_add', { 'invoiceId': 1 }) }}" method="post">
         <table>
           <colgroup>
-            <col class="description">
-            <col class="amount">
-            <col class="delete">
+            <col class="description" />
+            <col class="amount" />
+            <col class="delete" style="width:80px;" />
           </colgroup>
           <thead>
             <tr>
@@ -51,7 +52,7 @@
               <td>
                 <input type="text" placeholder="Description" name="description">
               </td>
-              <td>
+              <td colspan="2">
                 <input type="text" placeholder="Amount" name="amount">
               </td>
             </tr>

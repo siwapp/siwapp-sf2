@@ -76,35 +76,25 @@
   <h2>{% trans %}Recent invoices{% endtrans %}</h2>
   <div id="dashboard-latest-invoices">
     <table class="zebra-striped align-middle" data-type="invoices">
-      <colgroup>
-        <col />
-        <col />
-        <col class="date" />
-        <col class="date" />
-        <col class="status" />
-        <col class="currency" />
-        <col class="currency" />
-        <col class="payments" />
-      </colgroup>
       <thead>
         <tr>
-          <th>{% trans %}Number{% endtrans %}</th>
+          <th class="number">{% trans %}Number{% endtrans %}</th>
           <th>{% trans %}Customer{% endtrans %}</th>
           <th class="date">{% trans %}Date{% endtrans %}</th>
           <th class="date">{% trans %}Due Date{% endtrans %}</th>
           <th class="status">{% trans %}Status{% endtrans %}</th>
           <th class="currency">{% trans %}Due{% endtrans %}</th>
           <th class="currency">{% trans %}Total{% endtrans %}</th>
-          <th></th>
+          <th class="payments"></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>ASET-22</td>
+          <td class="number">ASET-22</td>
           <td>Roxxon</td>
-          <td>5/28/11</td>
-          <td>9/16/11</td>
-          <td>
+          <td class="date">5/28/11</td>
+          <td class="date">9/16/11</td>
+          <td class="status">
             {# Use these CSS class names after .label for different statuses:
               DRAFT   => (no class)
               CLOSED  => .success
@@ -114,37 +104,37 @@
             #}
             <span class="label success">{% trans %}closed{% endtrans %}</span>
           </td>
-          <td></td>
-          <td>$11,435.23</td>
-          <td>
+          <td class="currency"></td>
+          <td class="currency">$11,435.23</td>
+          <td class="payments">
             <a href="{{ path('invoice_payments', { 'invoiceId': 1 }) }}" class="btn secondary icon clock payments" title="Payments">{% trans %}Payments{% endtrans %}</a>
           </td>
         </tr>
         <tr>
-          <td>ASET-22</td>
+          <td class="number">ASET-22</td>
           <td>Roxxon</td>
-          <td>5/28/11</td>
-          <td>9/16/11</td>
-          <td>
+          <td class="date">5/28/11</td>
+          <td class="date">9/16/11</td>
+          <td class="status">
             <span class="label">{% trans %}draft{% endtrans %}</span>
           </td>
-          <td></td>
-          <td>$11,435.23</td>
-          <td>
+          <td class="currency"></td>
+          <td class="currency">$11,435.23</td>
+          <td class="payments">
             <a href="{{ path('invoice_payments', { 'invoiceId': 2 }) }}" class="btn secondary icon clock payments" title="Payments">{% trans %}Payments{% endtrans %}</a>
           </td>
         </tr>
         <tr>
-          <td>ASET-22</td>
+          <td class="number">ASET-22</td>
           <td>Roxxon</td>
-          <td>5/28/11</td>
-          <td>9/16/11</td>
-          <td>
+          <td class="date">5/28/11</td>
+          <td class="date">9/16/11</td>
+          <td class="status">
             <span class="label warning">{% trans %}opened{% endtrans %}</span>
           </td>
-          <td></td>
-          <td>$11,435.23</td>
-          <td>
+          <td class="currency"></td>
+          <td class="currency">$11,435.23</td>
+          <td class="payments">
             <a href="{{ path('invoice_payments', { 'invoiceId': 3 }) }}" class="btn secondary icon clock payments" title="Payments">{% trans %}Payments{% endtrans %}</a>
           </td>
         </tr>
@@ -155,40 +145,30 @@
   <h2>{% trans %}Past due invoices{% endtrans %}</h2>
   <div id="dashboard-overdue-invoices">
     <table class="zebra-striped align-middle" data-type="invoices">
-      <colgroup>
-        <col />
-        <col />
-        <col class="date" />
-        <col class="date" />
-        <col class="status" />
-        <col class="currency" />
-        <col class="currency" />
-        <col class="payments" />
-      </colgroup>
       <thead>
         <tr>
-          <th>{% trans %}Number{% endtrans %}</th>
+          <th class="number">{% trans %}Number{% endtrans %}</th>
           <th>{% trans %}Customer{% endtrans %}</th>
-          <th>{% trans %}Date{% endtrans %}</th>
-          <th>{% trans %}Due Date{% endtrans %}</th>
-          <th>{% trans %}Status{% endtrans %}</th>
-          <th>{% trans %}Due{% endtrans %}</th>
-          <th>{% trans %}Total{% endtrans %}</th>
-          <th></th>
+          <th class="date">{% trans %}Date{% endtrans %}</th>
+          <th class="date">{% trans %}Due Date{% endtrans %}</th>
+          <th class="status">{% trans %}Status{% endtrans %}</th>
+          <th class="currency">{% trans %}Due{% endtrans %}</th>
+          <th class="currency">{% trans %}Total{% endtrans %}</th>
+          <th class="payments"></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>ASET-22</td>
+          <td class="number">ASET-22</td>
           <td>Roxxon</td>
-          <td>5/28/11</td>
-          <td>9/16/11</td>
-          <td>
+          <td class="date">5/28/11</td>
+          <td class="date">9/16/11</td>
+          <td class="status">
             <span class="label important">{% trans %}overdue{% endtrans %}</span>
           </td>
-          <td></td>
-          <td>$11,435.23</td>
-          <td>
+          <td class="currency"></td>
+          <td class="currency">$11,435.23</td>
+          <td class="payments">
             <a href="{{ path('invoice_payments', { 'invoiceId': 4 }) }}" class="btn secondary icon clock payments" title="Payments">{% trans %}Payments{% endtrans %}</a>
           </td>
         </tr>

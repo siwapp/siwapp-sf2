@@ -107,11 +107,11 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/payments/{invoiceId}/delete/{paymentId}", name="invoice_payment_delete")
+     * @Route("/payments/{invoiceId}/delete", name="invoice_payment_delete")
      */
-    public function deletePayment($invoiceId, $paymentId)
+    public function deletePayment($invoiceId)
     {
-        // Delete payment and return all payments
+        // Delete payments and return payments
         return $this->forward('SiwappInvoiceBundle:Default:payments', array(
             'invoiceId' => $invoiceId
         ));

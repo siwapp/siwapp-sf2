@@ -9,16 +9,19 @@
       <form action="{{ path('invoice_payment_add', { 'invoiceId': 1 }) }}" method="post">
         <table>
           <colgroup>
+            <col class="check" style="width:20px;" />
             <col class="description" />
             <col class="amount" />
-            <col class="delete" style="width:80px;" />
           </colgroup>
           <thead>
             <tr>
               <th>
+                <input type="checkbox" name="all" />
+              </th>
+              <th>
                 {% trans %}Description{% endtrans %}
               </th>
-              <th colspan="2">
+              <th>
                 {% trans %}Amount{% endtrans %}
               </th>
             </tr>
@@ -26,41 +29,41 @@
           <tbody>
             <tr>
               <td>
+                <input type="checkbox" name="id[]" value="1" />
+              </td>
+              <td>
                 First Payment
               </td>
               <td>
                 1000,00€
               </td>
-              <td>
-                <a href="{{ path('invoice_payment_delete', { 'invoiceId': 1, 'paymentId': 1 }) }}" class="btn danger small">{% trans %}Remove{% endtrans %}</a>
-              </td>
             </tr>
             <tr>
+              <td>
+                <input type="checkbox" name="id[]" value="1" />
+              </td>
               <td>
                 Second Payment
               </td>
               <td>
                 500,00€
               </td>
-              <td>
-                <a href="{{ path('invoice_payment_delete', { 'invoiceId': 1, 'paymentId': 2 }) }}" class="btn danger small">{% trans %}Remove{% endtrans %}</a>
-              </td>
             </tr>
-          </tbody>
-          <tfoot>
             <tr>
+              <td></td>
               <td>
                 <input type="text" placeholder="Description" name="description">
               </td>
-              <td colspan="2">
+              <td>
                 <input type="text" placeholder="Amount" name="amount">
               </td>
             </tr>
-          </tfoot>
+          </tbody>
         </table>
-        <div style="text-align:right;">
-          <button type="submit" class="btn primary icon alternative add">{% trans %}Add Payment{% endtrans %}</button>
+        <div class="buttons">
+          <a href="{{ path('invoice_payment_delete', { 'invoiceId': 1 }) }}" class="btn danger icon alternative remove float-left">{% trans %}Remove selected{% endtrans %}</a>
           <button type="button" class="btn secondary">{% trans %}Close{% endtrans %}</button>
+          <button type="submit" class="btn primary icon alternative add">{% trans %}Add Payment{% endtrans %}</button>
         </div>
       </form>
       

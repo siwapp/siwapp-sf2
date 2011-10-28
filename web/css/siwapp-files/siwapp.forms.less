@@ -1,0 +1,52 @@
+//
+// Forms
+//
+
+form {
+    &.search {
+        margin:0 0 5px;
+        
+        ul.unstyled {
+            margin:0;
+            .clearfix;
+            
+            li {
+                overflow:hidden;
+                float:left;
+                margin:0;
+                .clearfix;
+            }
+            li + li {
+                margin-left:1em;
+            }
+            
+            label {
+                width:auto;
+                margin-right:1em;
+                font-weight:bold;
+            }
+            
+            div.input {
+                float:left;
+                margin-left:0;
+            }
+            
+            .k-datepicker {
+                float:left;
+            }
+            
+            .buttons {
+                float:right;
+            }
+        }
+        
+        fieldset {
+            margin:0;
+            padding:0;
+        }
+        fieldset + fieldset {
+            margin-top:10px;
+            background-color:@grayLighter;
+        }
+    }
+}

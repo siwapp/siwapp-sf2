@@ -1,0 +1,339 @@
+Invoice:
+  Invoice_1:
+    draft: false
+    sent_by_email: false
+    Series: Series_2
+    number: 1
+    customer_name: 'Smith and Co.'
+    customer_identification: 2450626775P
+    customer_email: jody_nichols@example.com
+    invoicing_address: "Fake Dir n 262\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 262\nMadrid\nSpain"
+    contact_person: 'Jody Nichols'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2007-08-11'
+    due_date: '2015-03-22'
+    created_at: '2009-04-17 09:45:36'
+    updated_at: '2009-08-25 10:27:12'
+  Invoice_2:
+    draft: false
+    sent_by_email: false
+    Series: Series_1
+    number: 1
+    customer_name: 'Rouster and Sideways'
+    customer_identification: '1889335077'
+    customer_email: varria_leijten@example.com
+    invoicing_address: "Fake Dir n 871\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 871\nMadrid\nSpain"
+    contact_person: 'Varria Leijten'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2008-11-09'
+    due_date: '2015-04-04'
+    created_at: '2009-04-17 09:45:36'
+    updated_at: '2009-08-25 10:27:12'
+  Invoice_3:
+    draft: true
+    sent_by_email: false
+    Series: Series_2
+    customer_name: 'Western Gas & Electric'
+    customer_identification: 3924395949G
+    customer_email: marissa_peers@example.com
+    invoicing_address: "Fake Dir n 88\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 88\nMadrid\nSpain"
+    contact_person: 'Marissa Peers'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2008-02-07'
+    due_date: '2015-10-28'
+    created_at: '2009-04-17 09:45:36'
+    updated_at: '2009-08-25 10:27:12'
+  Invoice_4:
+    draft: false
+    sent_by_email: false
+    Series: Series_3
+    number: 1
+    customer_name: 'Osato Chemicals'
+    customer_identification: 4499553670X
+    customer_email: julie_radue@example.com
+    invoicing_address: "Fake Dir n 969\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 969\nMadrid\nSpain"
+    contact_person: 'Julie Radue'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2005-05-08'
+    due_date: '2006-09-02'
+    created_at: '2009-04-17 09:45:36'
+    updated_at: '2009-08-25 10:27:12'
+  Invoice_5:
+    draft: true
+    sent_by_email: false
+    Series: Series_3
+    customer_name: '123 Warehousing'
+    customer_identification: '77426541881'
+    customer_email: cyrus_decker@example.com
+    invoicing_address: "Fake Dir n 39\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 39\nMadrid\nSpain"
+    contact_person: 'Cyrus Decker'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    issue_date: '2008-08-06'
+    due_date: '2015-12-01'
+    created_at: '2009-04-17 09:45:36'
+    updated_at: '2009-08-25 10:27:12'
+  Invoice_6:
+    draft: false
+    sent_by_email: false
+    Series: Series_1
+    number: 2
+    customer_name: 'Allied Biscuit'
+    customer_identification: 6787068643G
+    customer_email: willard_starling@example.com
+    invoicing_address: "Fake Dir n 617\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 617\nMadrid\nSpain"
+    contact_person: 'Willard Starling'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2008-11-04'
+    due_date: '2009-09-23'
+    created_at: '2009-04-17 09:45:36'
+    updated_at: '2009-08-25 10:27:12'
+  Invoice_7:
+    draft: false
+    sent_by_email: false
+    Series: Series_1
+    number: 3
+    customer_name: 'St. Anky Beer'
+    customer_identification: '9295043937'
+    customer_email: sharon_ward@example.com
+    invoicing_address: "Fake Dir n 424\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 424\nMadrid\nSpain"
+    contact_person: 'Sharon Ward'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    issue_date: '2008-02-02'
+    due_date: '2015-09-27'
+    created_at: '2009-04-17 09:45:36'
+    updated_at: '2009-08-25 10:27:13'
+  Invoice_8:
+    draft: false
+    sent_by_email: false
+    Series: Series_1
+    number: 4
+    customer_name: 'St. Anky Beer'
+    customer_identification: '9295043937'
+    customer_email: sharon_ward@example.com
+    invoicing_address: "Fake Dir n 155\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 155\nMadrid\nSpain"
+    contact_person: 'Sharon Ward'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    issue_date: '2006-05-03'
+    due_date: '2006-06-06'
+    created_at: '2009-04-17 09:45:37'
+    updated_at: '2009-08-25 10:27:13'
+  Invoice_9:
+    draft: false
+    sent_by_email: false
+    Series: Series_2
+    number: 2
+    customer_name: 'The Krusty Krab'
+    customer_identification: '8248936709'
+    customer_email: kusatsu_douglas@example.com
+    invoicing_address: "Fake Dir n 390\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 390\nMadrid\nSpain"
+    contact_person: 'Kusatsu Douglas'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2006-08-01'
+    due_date: '2015-09-16'
+    created_at: '2009-04-17 09:45:37'
+    updated_at: '2009-08-25 10:27:13'
+  Invoice_10:
+    draft: false
+    sent_by_email: false
+    Series: Series_3
+    number: 2
+    customer_name: 'Big Kahuna Burger'
+    customer_identification: 5714673104J
+    customer_email: natima_seyetik@example.com
+    invoicing_address: "Fake Dir n 734\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 734\nMadrid\nSpain"
+    contact_person: 'Natima Seyetik'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    issue_date: '2006-10-30'
+    due_date: '2007-03-01'
+    created_at: '2009-04-17 09:45:37'
+    updated_at: '2009-08-25 10:27:13'
+  Invoice_11:
+    draft: false
+    sent_by_email: false
+    Series: Series_3
+    number: 3
+    customer_name: SpringShield
+    customer_identification: 4716162264W
+    customer_email: dmitri_campio@example.com
+    invoicing_address: "Fake Dir n 824\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 824\nMadrid\nSpain"
+    contact_person: 'Dmitri Campio'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    issue_date: '2007-01-28'
+    due_date: '2015-11-30'
+    created_at: '2009-04-17 09:45:37'
+    updated_at: '2009-08-25 10:27:13'
+  Invoice_12:
+    draft: false
+    sent_by_email: false
+    Series: Series_3
+    number: 4
+    customer_name: 'Sample, inc'
+    customer_identification: 7863841633Q
+    customer_email: gerard_bennett@example.com
+    invoicing_address: "Fake Dir n 681\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 681\nMadrid\nSpain"
+    contact_person: 'Gerard Bennett'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2007-04-28'
+    due_date: '2008-08-26'
+    created_at: '2009-04-17 09:45:37'
+    updated_at: '2009-08-25 10:27:14'
+  Invoice_13:
+    draft: false
+    sent_by_email: false
+    Series: Series_2
+    number: 3
+    customer_name: Tessier-Ashpool
+    customer_identification: 3378474903M
+    customer_email: ronald_mccullen@example.com
+    invoicing_address: "Fake Dir n 802\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 802\nMadrid\nSpain"
+    contact_person: 'Ronald McCullen'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    issue_date: '2007-07-27'
+    due_date: '2015-08-09'
+    created_at: '2009-04-17 09:45:37'
+    updated_at: '2009-08-25 10:27:14'
+  Invoice_14:
+    draft: true
+    sent_by_email: false
+    Series: Series_1
+    customer_name: 'Fake Brothers'
+    customer_identification: 6009961348U
+    customer_email: tristan_stone@example.com
+    invoicing_address: "Fake Dir n 839\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 839\nMadrid\nSpain"
+    contact_person: 'Tristan Stone'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2007-10-25'
+    due_date: '2008-05-06'
+    created_at: '2009-04-17 09:45:37'
+    updated_at: '2009-08-25 10:27:14'
+  Invoice_15:
+    draft: false
+    sent_by_email: false
+    Series: Series_1
+    number: 5
+    customer_name: 'Allied Biscuit'
+    customer_identification: 6787068643G
+    customer_email: willard_starling@example.com
+    invoicing_address: "Fake Dir n 538\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 538\nMadrid\nSpain"
+    contact_person: 'Willard Starling'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    issue_date: '2008-01-23'
+    due_date: '2015-09-02'
+    created_at: '2009-04-17 09:45:37'
+    updated_at: '2009-08-25 10:27:14'
+  Invoice_16:
+    draft: false
+    sent_by_email: false
+    Series: Series_1
+    number: 6
+    customer_name: 'Sonky Rubber Goods'
+    customer_identification: '40487600161'
+    customer_email: olivia_mirren@example.com
+    invoicing_address: "Fake Dir n 47\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 47\nMadrid\nSpain"
+    contact_person: 'Olivia Mirren'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2008-04-22'
+    due_date: '2015-09-18'
+    created_at: '2009-04-17 09:45:37'
+    updated_at: '2009-08-25 10:27:14'
+  Invoice_17:
+    draft: false
+    sent_by_email: false
+    Series: Series_3
+    number: 5
+    customer_name: 'BLAND Corporation'
+    customer_identification: 6812087434H
+    customer_email: 'kestra_o''malley@example.com'
+    invoicing_address: "Fake Dir n 983\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 983\nMadrid\nSpain"
+    contact_person: 'Kestra O''Malley'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    issue_date: '2008-07-21'
+    due_date: '2015-09-15'
+    created_at: '2009-04-17 09:45:37'
+    updated_at: '2009-08-25 10:27:15'
+  Invoice_18:
+    draft: false
+    sent_by_email: false
+    Series: Series_1
+    number: 7
+    closed: true
+    customer_name: Initech
+    customer_identification: 1674636932B
+    customer_email: orfil_johnson@example.com
+    invoicing_address: "Fake Dir n 700\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 700\nMadrid\nSpain"
+    contact_person: 'Orfil Johnson'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    issue_date: '2008-10-19'
+    due_date: '2015-06-28'
+    created_at: '2009-04-17 09:45:37'
+    updated_at: '2009-08-25 10:27:15'
+  Invoice_19:
+    draft: false
+    sent_by_email: false
+    Series: Series_2
+    number: 4
+    customer_name: 'Big Kahuna Burger'
+    customer_identification: 3641026692R
+    customer_email: mary_ellen_ingram@example.com
+    invoicing_address: "Fake Dir n 763\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 763\nMadrid\nSpain"
+    contact_person: 'Mary Ellen Ingram'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2009-01-17'
+    due_date: '2015-08-10'
+    created_at: '2009-04-17 09:45:38'
+    updated_at: '2009-08-25 10:27:15'
+  Invoice_20:
+    draft: false
+    sent_by_email: false
+    Series: Series_1
+    number: 8
+    customer_name: 'Sample, inc'
+    customer_identification: 7863841633Q
+    customer_email: gerard_bennett@example.com
+    invoicing_address: "Fake Dir n 687\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 687\nMadrid\nSpain"
+    contact_person: 'Gerard Bennett'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    issue_date: '2009-04-17'
+    due_date: '2015-02-06'
+    created_at: '2009-04-17 09:45:38'
+    updated_at: '2009-08-25 10:27:15'

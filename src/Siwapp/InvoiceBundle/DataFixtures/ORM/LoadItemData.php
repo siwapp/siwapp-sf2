@@ -8,11 +8,13 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use Siwapp\InvoiceBundle\Entity\Invoice;
-use SIwapp\InvoiceBundle\SiwappInvoiceBundle;
+use Siwapp\InvoiceBundle\Entity\Item;
+
+
 use Symfony\Component\Yaml\Parser;
 use Doctrine\Common\Util\Inflector;
 
-class LoadInvoiceData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class LoadItemData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
   private $container;
 
@@ -27,28 +29,34 @@ class LoadInvoiceData extends AbstractFixture implements OrderedFixtureInterface
       $yaml = new Parser();
       // TODO: find a way of obtainin Bundle's path with the help of $this->container
       $bpath = './src/Siwapp/InvoiceBundle';
-      $value = $yaml->parse(file_get_contents($bpath.'/DataFixtures/invoices.yml'));
+      $value = $yaml->parse(file_get_contents($bpath.'/DataFixtures/items.yml'));
       
-      foreach($value['Invoice'] as $ref => $values)
+      foreach($value['Item'] as $ref => $values)
       {
+	$item = new Item();
 	$invoice = new Invoice();
 	foreach($values as $fname => $fvalue)
 	{
-	  $method = 'set'.Inflector::camelize($fname);
-	  if(is_callable(array($invoice, $method)))
+	  if($fname == 'Invoice')
 	  {
-	    call_user_func(array($invoice, $method), $fvalue);
+	    $fvalue = $manager->merge($this->getReference($fvalue));
+	  }
+
+	  $method = 'set'.Inflector::camelize($fname);
+	  if(is_callable(array($item, $method)))
+	  {
+	    call_user_func(array($item, $method), $fvalue);
 	  }
 	}
-	$manager->persist($invoice);
+	$manager->persist($item);
 	$manager->flush();
-	$this->addReference($ref, $invoice);
+	$this->addReference($ref, $item);
       }
 
     }
 
     public function getOrder()
     {
-      return '2';
+      return '3';
     }
 }

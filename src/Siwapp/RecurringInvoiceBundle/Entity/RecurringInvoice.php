@@ -5,6 +5,7 @@ namespace Siwapp\RecurringInvoiceBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Siwapp\CoreBundle\Entity\AbstractInvoice;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -20,6 +21,16 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class RecurringInvoice extends AbstractInvoice
 {
+  /**
+     @ORM\OneToMany(targetEntity="Item", mappedBy="recurring_invoice")
+  */
+  private $items;
+
+  public function __construct()
+  {
+    $this->items = new ArrayCollection();
+  }
+
     /**
      * @var integer $days_to_due
      *
@@ -37,14 +48,14 @@ class RecurringInvoice extends AbstractInvoice
     /**
      * @var integer $max_occurrences
      *
-     * @ORM\Column(name="max_occurrences", type="integer")
+     * @ORM\Column(name="max_occurrences", type="integer", nullable="true")
      */
     private $max_occurrences;
 
     /**
      * @var integer $must_occurrences
      *
-     * @ORM\Column(name="must_occurrences", type="integer")
+     * @ORM\Column(name="must_occurrences", type="integer", nullable="true")
      */
     private $must_occurrences;
 
@@ -72,14 +83,14 @@ class RecurringInvoice extends AbstractInvoice
     /**
      * @var date $finishing_date
      *
-     * @ORM\Column(name="finishing_date", type="date")
+     * @ORM\Column(name="finishing_date", type="date", nullable="true")
      */
     private $finishing_date;
 
     /**
      * @var date $last_execution_date
      *
-     * @ORM\Column(name="last_execution_date", type="date")
+     * @ORM\Column(name="last_execution_date", type="date", nullable="true")
      */
     private $last_execution_date;
 
@@ -91,7 +102,7 @@ class RecurringInvoice extends AbstractInvoice
      */
     public function setDaysToDue($daysToDue)
     {
-        $this->days_to_due = $daysToDue;
+      $this->days_to_due = $daysToDue;
     }
 
     /**
@@ -211,7 +222,8 @@ class RecurringInvoice extends AbstractInvoice
      */
     public function setStartingDate($startingDate)
     {
-        $this->starting_date = $startingDate;
+      $this->starting_date = $startingDate instanceof \DateTime ?
+	$startingDate: new \DateTime($startingDate);
     }
 
     /**
@@ -231,7 +243,8 @@ class RecurringInvoice extends AbstractInvoice
      */
     public function setFinishingDate($finishingDate)
     {
-        $this->finishing_date = $finishingDate;
+      $this->finishing_date = $finishingDate instanceof \DateTime ?
+	$finishingDate: new \DateTime($finishingDate);
     }
 
     /**
@@ -251,7 +264,8 @@ class RecurringInvoice extends AbstractInvoice
      */
     public function setLastExecutionDate($lastExecutionDate)
     {
-        $this->last_execution_date = $lastExecutionDate;
+      $this->last_execution_date = $lastExecutionDate instanceof \DateTime ?
+	$lastExecutionDate: new \DateTime($lastExecutionDate);
     }
 
     /**
@@ -262,5 +276,15 @@ class RecurringInvoice extends AbstractInvoice
     public function getLastExecutionDate()
     {
         return $this->last_execution_date;
+    }
+
+    /** 
+     * Add items
+     *
+     * @param Siwapp\RecurringInvoiceBundle\Entity\Item $items
+     */
+    public function addItem(\Siwapp\InvoiceBundle\Entity\Item $items)
+    {
+      $this->items[] = $items;
     }
 }

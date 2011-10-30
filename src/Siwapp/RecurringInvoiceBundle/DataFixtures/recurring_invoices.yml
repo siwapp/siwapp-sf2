@@ -1,0 +1,121 @@
+RecurringInvoice:
+  RecurringInvoice_21:
+    Series: Series_3
+    customer_name: Krustyco
+    customer_identification: 7141253916O
+    customer_email: deborah_hudson@example.com
+    invoicing_address: "Fake Dir n 244\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 244\nMadrid\nSpain"
+    contact_person: 'Deborah Hudson'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    type: RecurringInvoice
+    days_to_due: '553'
+    enabled: true
+    period: '50'
+    period_type: year
+    starting_date: '2006-06-30'
+
+  RecurringInvoice_22:
+    Series: Series_2
+    customer_name: Krustyco
+    customer_identification: 6852996407X
+    customer_email: valeria_starling@example.com
+    invoicing_address: "Fake Dir n 899\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 899\nMadrid\nSpain"
+    contact_person: 'Valeria Starling'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    type: RecurringInvoice
+    days_to_due: '347'
+    enabled: true
+    max_occurrences: '14'
+    period: '8'
+    period_type: week
+    starting_date: '2004-12-02'
+    finishing_date: '2037-06-04'
+
+  RecurringInvoice_23:
+    Series: Series_2
+    customer_name: 'Plow King'
+    customer_identification: 7885556345D
+    customer_email: jennifer_karidian@example.com
+    invoicing_address: "Fake Dir n 812\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 812\nMadrid\nSpain"
+    contact_person: 'Jennifer Karidian'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    type: RecurringInvoice
+    days_to_due: '219'
+    enabled: true
+    period: '1'
+    period_type: month
+    max_occurrences: '15'
+    starting_date: '2005-03-10'
+    finishing_date: '2037-10-31'
+
+Item:
+  Item_94:
+    quantity: 1
+    discount: 0
+    RecurringInvoice: RecurringInvoice_21
+    description: 'Iure reprehenderit qui in ea voluptate'
+    unitary_cost: 586.17
+  Item_95:
+    quantity: 1
+    discount: 0
+    RecurringInvoice: RecurringInvoice_22
+    description: 'Nemo enim ipsam voluptatem quia voluptas'
+    unitary_cost: 881.86
+  Item_96:
+    quantity: 7
+    discount: 0
+    RecurringInvoice: RecurringInvoice_22
+    description: 'Iure reprehenderit qui in ea voluptate'
+    unitary_cost: 64.37
+  Item_97:
+    quantity: 3
+    discount: 0
+    RecurringInvoice: RecurringInvoice_22
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: 122.41
+  Item_98:
+    quantity: 3
+    discount: 0
+    RecurringInvoice: RecurringInvoice_23
+    description: 'Adipisci velit, sed quia non numquam'
+    unitary_cost: 936.65
+  Item_99:
+    quantity: 3
+    discount: 0
+    RecurringInvoice: RecurringInvoice_23
+    description: 'Ut enim ad minima'
+    unitary_cost: 80.52
+  Item_100:
+    quantity: 4
+    discount: 0
+    RecurringInvoice: RecurringInvoice_23
+    description: 'Ullamco laboris nisi'
+    unitary_cost: 731.36
+ItemTax:
+  ItemTax_94_3:
+    Item: Item_94
+    tax_id: 3
+  ItemTax_95_1:
+    Item: Item_95
+    tax_id: 1
+  ItemTax_96_1:
+    Item: Item_96
+    tax_id: 1
+  ItemTax_97_1:
+    Item: Item_97
+    tax_id: 1
+  ItemTax_98_2:
+    Item: Item_98
+    tax_id: 2
+  ItemTax_99_2:
+    Item: Item_99
+    tax_id: 2
+  ItemTax_100_2:
+    Item: Item_100
+    tax_id: 2

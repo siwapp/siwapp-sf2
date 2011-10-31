@@ -46,7 +46,17 @@ form {
         }
         fieldset + fieldset {
             margin-top:10px;
-            background-color:@grayLighter;
+        }
+        
+        &#searchform-invoices {
+            label {
+                &[for="search-term"], &[for="search-customer"] {
+                    width:85px;
+                }
+                &[for="search-date-from"], &[for="search-series"] {
+                    width:45px;
+                }
+            }
         }
     }
 }

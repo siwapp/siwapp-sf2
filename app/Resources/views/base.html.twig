@@ -33,35 +33,35 @@
         <ul class="unstyled">
           <li>{% trans with {'%username%': 'test' } %}Wellcome, %username%!{% endtrans %}</li>
           <li>
-            <a href="{{ path('dashboard_index') }}">{% trans %}Settings{% endtrans %}</a>
+            <a href="{{ path('dashboard_index') }}" data-shortcut="alt+g, s">{% trans %}Settings{% endtrans %}</a>
           </li>
           <li>
-            <a href="{{ path('dashboard_index') }}">{% trans %}Logout{% endtrans %}</a>
+            <a href="{{ path('dashboard_index') }}" data-shortcut="alt+g, q">{% trans %}Logout{% endtrans %}</a>
           </li>
         </ul>
       </nav>
       
       <nav class="main">
         
-        <a href="{{ path('invoice_add') }}" class="btn primary icon add alternative">{% trans %}New Invoice{% endtrans %}</a>
+        <a href="{{ path('invoice_add') }}" class="btn primary icon add alternative" data-shortcut="alt+g, n">{% trans %}New Invoice{% endtrans %}</a>
         
         {% set routename = app.request.attributes.get('_route') %}
         
         <ul class="tabs">
           <li class="{{ routename|menu_active_tab('dashboard_') }}">
-            <a href="{{ path('dashboard_index') }}">{% trans %}Dashboard{% endtrans %}</a>
+            <a href="{{ path('dashboard_index') }}" data-shortcut="alt+g, d">{% trans %}Dashboard{% endtrans %}</a>
           </li>
           <li class="{{ routename|menu_active_tab('invoice_') }}">
-            <a href="{{ path('invoice_index') }}">{% trans %}Invoices{% endtrans %}</a>
+            <a href="{{ path('invoice_index') }}" data-shortcut="alt+g, i">{% trans %}Invoices{% endtrans %}</a>
           </li>
           <li class="{{ routename|menu_active_tab('recurring_') }}">
-            <a href="{{ path('recurring_index') }}">{% trans %}Recurring Invoices{% endtrans %}</a>
+            <a href="{{ path('recurring_index') }}" data-shortcut="alt+g, r">{% trans %}Recurring Invoices{% endtrans %}</a>
           </li>
           <li class="{{ routename|menu_active_tab('estimate_') }}">
-            <a href="{{ path('estimate_index') }}">{% trans %}Estimates{% endtrans %}</a>
+            <a href="{{ path('estimate_index') }}" data-shortcut="alt+g, e">{% trans %}Estimates{% endtrans %}</a>
           </li>
           <li class="{{ routename|menu_active_tab('customer_') }}">
-            <a href="{{ path('dashboard_index') }}">{% trans %}Customers{% endtrans %}</a>
+            <a href="{{ path('dashboard_index') }}" data-shortcut="alt+g, c">{% trans %}Customers{% endtrans %}</a>
           </li>
         </ul>
       </nav>
@@ -93,6 +93,8 @@
     'js/kendoui/kendo.calendar.min.js'
     'js/kendoui/kendo.*.min.js'
     'js/jwerty.js'
+    'js/bundle/global.js'
+    'js/bundle/search-common.js'
     filter='yui_js'
     output='js/min/frameworks.js'
   %}

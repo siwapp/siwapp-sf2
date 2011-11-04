@@ -16,11 +16,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Item extends AbstractItem
 {
-  /**
-   * @ORM\ManyToOne(targetEntity="Invoice", inversedBy="items")
-   *
-   */
-  private $invoice;
+    /**
+    * @ORM\ManyToOne(targetEntity="Invoice", inversedBy="items")
+    *
+    */
+    private $invoice;
 
 
     /**
@@ -42,5 +42,10 @@ class Item extends AbstractItem
     public function getInvoice()
     {
         return $this->invoice;
+    }
+    
+    public function __toString()
+    {
+        return $this->description;
     }
 }

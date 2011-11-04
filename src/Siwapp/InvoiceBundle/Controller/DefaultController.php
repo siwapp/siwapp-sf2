@@ -55,12 +55,19 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/edit", name="invoice_edit")
+     * @Route("/edit/{id}", name="invoice_edit")
      * @Template
      */
-    public function editAction()
+    public function editAction($id)
     {
-        $form = $this->createForm(new InvoiceType());
+        $invoice = $this->getDoctrine()
+            ->getRepository('SiwappInvoiceBundle:Invoice')
+            ->find($id);
+        if (!$invoice) {
+            throw $this->createNotFoundException('No invoice found for id '.$id);
+        }
+        $form = $this->createForm(new InvoiceType(), $invoice);
+        
         return array(
             'form' => $form->createView(),
         );

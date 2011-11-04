@@ -241,4 +241,9 @@ class Invoice extends AbstractInvoice
     {
         return $this->items;
     }
+    
+    public function __toString()
+    {
+        return (string)$this->number;
+    }
 }

@@ -43,4 +43,9 @@ class Item extends AbstractItem
     {
         return $this->invoice;
     }
+    
+    public function __toString()
+    {
+        return $this->description;
+    }
 }

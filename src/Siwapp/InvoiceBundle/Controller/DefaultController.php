@@ -67,6 +67,7 @@ class DefaultController extends Controller
             throw $this->createNotFoundException('No invoice found for id '.$id);
         }
         $form = $this->createForm(new InvoiceType(), $invoice);
+        
         return array(
             'form' => $form->createView(),
         );

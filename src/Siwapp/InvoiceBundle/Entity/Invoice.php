@@ -20,15 +20,15 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Invoice extends AbstractInvoice
 {
-  /**
-     @ORM\OneToMany(targetEntity="Item", mappedBy="invoice")
-   */
-  private $items;
-
-  public function __construct()
-  {
-    $this->items = new ArrayCollection();
-  }
+    /**
+     * @ORM\OneToMany(targetEntity="Item", mappedBy="invoice")
+     */
+    private $items;
+  
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+    }
    /**
      * @var boolean $draft
      *
@@ -84,7 +84,6 @@ class Invoice extends AbstractInvoice
      * Set draft
      *
      * @param boolean $draft
-     * @Assert\Date()
      */
     public function setDraft($draft)
     {

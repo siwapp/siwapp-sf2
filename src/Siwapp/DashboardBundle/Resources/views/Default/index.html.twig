@@ -10,6 +10,10 @@
 <script type="text/javascript" charset="utf-8" src="{{ asset('js/bundle/invoice-payments.js') }}"></script>
 {% endblock %}
 
+{% block searchform %}
+  {% include "SiwappInvoiceBundle:Default:search.html.twig" %}
+{% endblock %}
+
 {% block body %}
   
   <div id="dashboard-summary">

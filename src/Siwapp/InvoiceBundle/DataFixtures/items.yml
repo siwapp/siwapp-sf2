@@ -1,0 +1,563 @@
+Item:
+  Item_1:
+    Invoice: Invoice_1
+    Product: Product_1 
+    description: 'Excepteur sint occaecat'
+    unitary_cost: '179.54'
+    quantity: '7'
+    discount: '0'
+  Item_2:
+    Invoice: Invoice_1
+    Product: Product_2
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '207.08'
+    quantity: '8'
+    discount: '0'
+  Item_3:
+    Invoice: Invoice_1
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '75.37'
+    quantity: '2'
+    discount: '0'
+  Item_4:
+    Invoice: Invoice_1
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '304.11'
+    quantity: '7'
+    discount: '0'
+  Item_5:
+    Invoice: Invoice_1
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '501.48'
+    quantity: '4'
+    discount: '0'
+  Item_6:
+    Invoice: Invoice_2
+    Product: Product_3
+    description: 'Ullamco laboris nisi'
+    unitary_cost: '99.15'
+    quantity: '2'
+    discount: '0'
+  Item_7:
+    Invoice: Invoice_2
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '762.33'
+    quantity: '4'
+    discount: '0'
+  Item_8:
+    Invoice: Invoice_2
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '195.13'
+    quantity: '2'
+    discount: '0'
+  Item_9:
+    Invoice: Invoice_2
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '171.96'
+    quantity: '1'
+    discount: '0'
+  Item_10:
+    Invoice: Invoice_2
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '862.45'
+    quantity: '9'
+    discount: '0'
+  Item_11:
+    Invoice: Invoice_3
+    description: 'Ut enim ad minim'
+    unitary_cost: '678.78'
+    quantity: '9'
+    discount: '0'
+  Item_12:
+    Invoice: Invoice_3
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '541.2'
+    quantity: '10'
+    discount: '0'
+  Item_13:
+    Invoice: Invoice_4
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '504.85'
+    quantity: '7'
+    discount: '0'
+  Item_14:
+    Invoice: Invoice_4
+    description: 'Ullamco laboris nisi'
+    unitary_cost: '183.49'
+    quantity: '10'
+    discount: '0'
+  Item_15:
+    Invoice: Invoice_4
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '343.29'
+    quantity: '1'
+    discount: '0'
+  Item_16:
+    Invoice: Invoice_4
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '303.46'
+    quantity: '7'
+    discount: '0'
+  Item_17:
+    Invoice: Invoice_4
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '85'
+    quantity: '5'
+    discount: '0'
+  Item_18:
+    Invoice: Invoice_4
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '899.35'
+    quantity: '10'
+    discount: '0'
+  Item_19:
+    Invoice: Invoice_5
+    Product: Product_4
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '732.82'
+    quantity: '3'
+    discount: '49'
+  Item_20:
+    Invoice: Invoice_5
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '289.36'
+    quantity: '9'
+    discount: '0'
+  Item_21:
+    Invoice: Invoice_6
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '374.44'
+    quantity: '9'
+    discount: '0'
+  Item_22:
+    Invoice: Invoice_6
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '235.26'
+    quantity: '10'
+    discount: '0'
+  Item_23:
+    Invoice: Invoice_6
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '564.02'
+    quantity: '5'
+    discount: '0'
+  Item_24:
+    Invoice: Invoice_6
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '778.33'
+    quantity: '7'
+    discount: '0'
+  Item_25:
+    Invoice: Invoice_6
+    description: 'Ut enim ad minim'
+    unitary_cost: '405.72'
+    quantity: '6'
+    discount: '0'
+  Item_26:
+    Invoice: Invoice_6
+    description: 'Ullamco laboris nisi'
+    unitary_cost: '265.87'
+    quantity: '3'
+    discount: '0'
+  Item_27:
+    Invoice: Invoice_6
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '812.17'
+    quantity: '3'
+    discount: '0'
+  Item_28:
+    Invoice: Invoice_7
+    description: 'Excepteur sint occaecat'
+    unitary_cost: '363.89'
+    quantity: '10'
+    discount: '0'
+  Item_29:
+    Invoice: Invoice_7
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '611.03'
+    quantity: '10'
+    discount: '0'
+  Item_30:
+    Invoice: Invoice_7
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '520.55'
+    quantity: '2'
+    discount: '0'
+  Item_31:
+    Invoice: Invoice_7
+    description: 'Excepteur sint occaecat'
+    unitary_cost: '893.68'
+    quantity: '4'
+    discount: '0'
+  Item_32:
+    Invoice: Invoice_7
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '284.85'
+    quantity: '9'
+    discount: '0'
+  Item_33:
+    Invoice: Invoice_7
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '718.04'
+    quantity: '6'
+    discount: '0'
+  Item_34:
+    Invoice: Invoice_8
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '128.39'
+    quantity: '10'
+    discount: '62'
+  Item_35:
+    Invoice: Invoice_8
+    description: 'Ut enim ad minim'
+    unitary_cost: '903.77'
+    quantity: '1'
+    discount: '0'
+  Item_36:
+    Invoice: Invoice_8
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '713.57'
+    quantity: '6'
+    discount: '0'
+  Item_37:
+    Invoice: Invoice_9
+    description: 'Ut enim ad minim'
+    unitary_cost: '980.99'
+    quantity: '5'
+    discount: '0'
+  Item_38:
+    Invoice: Invoice_9
+    description: 'Excepteur sint occaecat'
+    unitary_cost: '971.7'
+    quantity: '9'
+    discount: '0'
+  Item_39:
+    Invoice: Invoice_9
+    description: 'Ullamco laboris nisi'
+    unitary_cost: '486.85'
+    quantity: '8'
+    discount: '0'
+  Item_40:
+    Invoice: Invoice_9
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '665.75'
+    quantity: '7'
+    discount: '0'
+  Item_41:
+    Invoice: Invoice_9
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '216.92'
+    quantity: '1'
+    discount: '0'
+  Item_42:
+    Invoice: Invoice_9
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '955.16'
+    quantity: '8'
+    discount: '0'
+  Item_43:
+    Invoice: Invoice_10
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '674.59'
+    quantity: '10'
+    discount: '0'
+  Item_44:
+    Invoice: Invoice_10
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '477.66'
+    quantity: '3'
+    discount: '0'
+  Item_45:
+    Invoice: Invoice_10
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '875.63'
+    quantity: '3'
+    discount: '0'
+  Item_46:
+    Invoice: Invoice_10
+    description: 'Excepteur sint occaecat'
+    unitary_cost: '215.92'
+    quantity: '8'
+    discount: '0'
+  Item_47:
+    Invoice: Invoice_10
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '498.99'
+    quantity: '9'
+    discount: '0'
+  Item_48:
+    Invoice: Invoice_10
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '484.87'
+    quantity: '4'
+    discount: '0'
+  Item_49:
+    Invoice: Invoice_11
+    description: 'Excepteur sint occaecat'
+    unitary_cost: '498.5'
+    quantity: '7'
+    discount: '0'
+  Item_50:
+    Invoice: Invoice_11
+    description: 'Ullamco laboris nisi'
+    unitary_cost: '433.02'
+    quantity: '8'
+    discount: '0'
+  Item_51:
+    Invoice: Invoice_11
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '907.4'
+    quantity: '5'
+    discount: '0'
+  Item_52:
+    Invoice: Invoice_11
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '962.76'
+    quantity: '7'
+    discount: '0'
+  Item_53:
+    Invoice: Invoice_11
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '809.86'
+    quantity: '1'
+    discount: '0'
+  Item_54:
+    Invoice: Invoice_11
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '676.91'
+    quantity: '9'
+    discount: '0'
+  Item_55:
+    Invoice: Invoice_12
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '312.12'
+    quantity: '3'
+    discount: '0'
+  Item_56:
+    Invoice: Invoice_12
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '214.68'
+    quantity: '3'
+    discount: '0'
+  Item_57:
+    Invoice: Invoice_13
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '751.67'
+    quantity: '1'
+    discount: '0'
+  Item_58:
+    Invoice: Invoice_13
+    description: 'Excepteur sint occaecat'
+    unitary_cost: '875.85'
+    quantity: '7'
+    discount: '0'
+  Item_59:
+    Invoice: Invoice_13
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '792.83'
+    quantity: '9'
+    discount: '0'
+  Item_60:
+    Invoice: Invoice_13
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '986.17'
+    quantity: '9'
+    discount: '17'
+  Item_61:
+    Invoice: Invoice_13
+    description: 'Ut enim ad minim'
+    unitary_cost: '386.75'
+    quantity: '9'
+    discount: '0'
+  Item_62:
+    Invoice: Invoice_14
+    description: 'Ut enim ad minim'
+    unitary_cost: '903'
+    quantity: '3'
+    discount: '0'
+  Item_63:
+    Invoice: Invoice_14
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '154.59'
+    quantity: '5'
+    discount: '0'
+  Item_64:
+    Invoice: Invoice_15
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '274.55'
+    quantity: '3'
+    discount: '0'
+  Item_65:
+    Invoice: Invoice_15
+    description: 'Excepteur sint occaecat'
+    unitary_cost: '427.86'
+    quantity: '4'
+    discount: '0'
+  Item_66:
+    Invoice: Invoice_15
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '737.14'
+    quantity: '5'
+    discount: '0'
+  Item_67:
+    Invoice: Invoice_15
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '412.98'
+    quantity: '1'
+    discount: '0'
+  Item_68:
+    Invoice: Invoice_15
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '723.18'
+    quantity: '4'
+    discount: '0'
+  Item_69:
+    Invoice: Invoice_15
+    description: 'Ullamco laboris nisi'
+    unitary_cost: '7.04'
+    quantity: '5'
+    discount: '0'
+  Item_70:
+    Invoice: Invoice_16
+    description: 'Excepteur sint occaecat'
+    unitary_cost: '137.47'
+    quantity: '6'
+    discount: '6'
+  Item_71:
+    Invoice: Invoice_16
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '623.9'
+    quantity: '7'
+    discount: '0'
+  Item_72:
+    Invoice: Invoice_16
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '67.07'
+    quantity: '1'
+    discount: '0'
+  Item_73:
+    Invoice: Invoice_16
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '30.98'
+    quantity: '1'
+    discount: '0'
+  Item_74:
+    Invoice: Invoice_16
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '222.39'
+    quantity: '10'
+    discount: '0'
+  Item_75:
+    Invoice: Invoice_16
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '84.64'
+    quantity: '6'
+    discount: '0'
+  Item_76:
+    Invoice: Invoice_16
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '62.18'
+    quantity: '8'
+    discount: '0'
+  Item_77:
+    Invoice: Invoice_16
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '742.09'
+    quantity: '10'
+    discount: '0'
+  Item_78:
+    Invoice: Invoice_17
+    description: 'Ullamco laboris nisi'
+    unitary_cost: '780.38'
+    quantity: '4'
+    discount: '0'
+  Item_79:
+    Invoice: Invoice_17
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '99.68'
+    quantity: '10'
+    discount: '0'
+  Item_80:
+    Invoice: Invoice_17
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '490.36'
+    quantity: '6'
+    discount: '0'
+  Item_81:
+    Invoice: Invoice_17
+    description: 'Ut enim ad minim'
+    unitary_cost: '905.34'
+    quantity: '7'
+    discount: '0'
+  Item_82:
+    Invoice: Invoice_17
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '469.61'
+    quantity: '5'
+    discount: '68'
+  Item_83:
+    Invoice: Invoice_17
+    description: 'Ut enim ad minim'
+    unitary_cost: '540.82'
+    quantity: '2'
+    discount: '0'
+  Item_84:
+    Invoice: Invoice_18
+    description: 'Ut enim ad minim'
+    unitary_cost: '247.37'
+    quantity: '9'
+    discount: '42'
+  Item_85:
+    Invoice: Invoice_18
+    description: 'Ullamco laboris nisi'
+    unitary_cost: '281.76'
+    quantity: '3'
+    discount: '0'
+  Item_86:
+    Invoice: Invoice_18
+    description: 'Ut enim ad minim'
+    unitary_cost: '660.32'
+    quantity: '9'
+    discount: '7'
+  Item_87:
+    Invoice: Invoice_19
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '968.82'
+    quantity: '2'
+    discount: '70'
+  Item_88:
+    Invoice: Invoice_19
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '892.64'
+    quantity: '3'
+    discount: '0'
+  Item_89:
+    Invoice: Invoice_19
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '30.82'
+    quantity: '6'
+    discount: '0'
+  Item_90:
+    Invoice: Invoice_20
+    description: 'Excepteur sint occaecat'
+    unitary_cost: '737.97'
+    quantity: '9'
+    discount: '0'
+  Item_91:
+    Invoice: Invoice_20
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '462.89'
+    quantity: '10'
+    discount: '0'
+  Item_92:
+    Invoice: Invoice_20
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '11.44'
+    quantity: '7'
+    discount: '0'
+  Item_93:
+    Invoice: Invoice_20
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '882.31'
+    quantity: '1'
+    discount: '0'

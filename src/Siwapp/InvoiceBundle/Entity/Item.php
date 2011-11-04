@@ -28,7 +28,8 @@ class Item extends AbstractItem
      *
      * @param Siwapp\InvoiceBundle\Entity\AbstractInvoice $invoice
      */
-    public function setInvoice(\Siwapp\InvoiceBundle\Entity\AbstractInvoice $invoice)
+  //    public function setInvoice(\Siwapp\InvoiceBundle\Entity\AbstractInvoice $invoice)y
+    public function setInvoice(\Siwapp\InvoiceBundle\Entity\Invoice $invoice)
     {
         $this->invoice = $invoice;
     }

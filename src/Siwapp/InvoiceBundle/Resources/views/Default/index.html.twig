@@ -1,5 +1,9 @@
 {% extends "::base.html.twig" %}
 
+{% block searchform %}
+  {% include "SiwappInvoiceBundle:Default:search.html.twig" %}
+{% endblock %}
+
 {% block body %}
   
   <h1>Invoices</h1>
@@ -17,4 +21,15 @@
     </script>
   </p>
   
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  {% javascripts
+    'js/bundle/invoice-payments.js'
+    filter='yui_js'
+    output='js/min/invoice-list.js'
+  %}
+  <script type="text/javascript" charset="utf-8" src="{{ asset_url }}"></script>
+  {% endjavascripts %}
 {% endblock %}

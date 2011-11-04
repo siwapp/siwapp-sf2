@@ -75,6 +75,7 @@ class Invoice extends AbstractInvoice
      * @var date $due_date
      *
      * @ORM\Column(name="due_date", type="date", nullable="true")
+     * @Assert\Date()
      */
     private $due_date;
 
@@ -83,6 +84,7 @@ class Invoice extends AbstractInvoice
      * Set draft
      *
      * @param boolean $draft
+     * @Assert\Date()
      */
     public function setDraft($draft)
     {
@@ -186,7 +188,8 @@ class Invoice extends AbstractInvoice
      */
     public function setIssueDate($issueDate)
     {
-        $this->issue_date = $issueDate;
+        $this->issue_date = $issueDate instanceof \DateTime ?
+	  $issueDate: new \DateTime($issueDate);
     }
 
     /**
@@ -206,7 +209,8 @@ class Invoice extends AbstractInvoice
      */
     public function setDueDate($dueDate)
     {
-        $this->due_date = $dueDate;
+      $this->due_date = $dueDate instanceof \DateTime ? 
+	$dueDate : new \DateTime($dueDate);
     }
 
     /**

@@ -6,6 +6,8 @@ BOOTSTRAP [1.3.0]: http://twitter.github.com/bootstrap/javascript.html
 LESS      [1.1.3]: http://lesscss.org/
 JQUERY    [1.6.4]: http://docs.jquery.com/Main_Page
 KENDO UI  [BETA2]: http://www.kendoui.com
+MODERNIZR [2.0.6]: http://www.modernizr.com/download/#-fontface-borderradius-cssgradients-geolocation-touch-iepp-mq-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes-load
+JWERTY    [0.3.1]: https://github.com/keithamus/jwerty
 
 We only included components useful-for-us to make JS lighter.
 

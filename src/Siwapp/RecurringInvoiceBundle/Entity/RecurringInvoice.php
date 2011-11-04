@@ -4,6 +4,8 @@ namespace Siwapp\RecurringInvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Siwapp\CoreBundle\Entity\AbstractInvoice;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Siwapp\RecurringInvoiceBundle\Entity\RecurringInvoice

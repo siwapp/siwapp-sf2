@@ -1,0 +1,61 @@
+<div class="searchform">
+  <form action="" id="searchform-invoices" class="search">
+    <fieldset>
+      <ul class="unstyled">
+        <li>
+          <label for="search-term">{% trans %}Search term{% endtrans %}:</label>
+          <div class="input">
+            <input type="text" name="q" id="search-term" class="span4" />
+          </div>
+        </li>
+        <li>
+          <label for="search-date-from">{% trans %}From{% endtrans %}:</label>
+          <div class="input">
+            <input type="text" name="date-from" id="search-date-from" />
+            <script type="text/javascript">
+              jQuery(function($){ $('#search-date-from').kendoDatePicker(); });
+            </script>
+          </div>
+          
+        </li>
+        <li>
+          <label for="search-date-to">{% trans %}To{% endtrans %}:</label>
+          <div class="input">
+            <input type="text" name="date-to" id="search-date-to" />
+            <script type="text/javascript">
+              jQuery(function($){ $('#search-date-to').kendoDatePicker(); });
+            </script>
+          </div>
+        </li>
+        <li>
+          
+        </li>
+        <li class="buttons">
+          <button id="search-submit" type="submit" class="btn primary icon small search alternative">{% trans %}Search{% endtrans %}</button>
+          <button id="search-reset" type="reset" class="btn secondary small icon loop">{% trans %}Reset{% endtrans %}</button>
+          <button id="search-advanced" type="button" class="btn icon settings small">{% trans %}Advanced {% endtrans %}</button>
+        </li>
+      </ul>
+    </fieldset>
+    <fieldset id="search-secondary" style="display:none;">
+      <ul class="unstyled">
+        <li>
+          <label for="search-customer">{% trans %}Customer{% endtrans %}:</label>
+          <div class="input">
+            <input type="text" name="customer" id="search-customer" class="span4" />
+          </div>
+        </li>
+        <li>
+          <label for="search-series">{% trans %}Series{% endtrans %}:</label>
+          <div class="input">
+            <select name="series" id="search-series" class="span3">
+              <option value="1">SA - Type A</option>
+              <option value="2">SB - Type B</option>
+              <option value="3">SR - Returns</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+    </fieldset>
+  </form>
+</div>

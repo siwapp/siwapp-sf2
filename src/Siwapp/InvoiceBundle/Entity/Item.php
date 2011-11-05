@@ -3,7 +3,7 @@
 namespace Siwapp\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Siwapp\CoreBundle\Entity\AbstractItem;
+use Siwapp\CoreBundle\Entity\CoreItem;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -12,9 +12,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(indexes={
  *    @ORM\index(name="desc_idx", columns={"description"})
- * })
+ * }, name="InvoiceItem")
  */
-class Item extends AbstractItem
+class Item extends CoreItem
 {
     /**
     * @ORM\ManyToOne(targetEntity="Invoice", inversedBy="items")

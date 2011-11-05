@@ -5,7 +5,7 @@ namespace Siwapp\CoreBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
 
-class AbstractItemType extends AbstractType
+class CoreItemType extends AbstractType
 {
     public function buildForm(FormBuilder $builder, array $options)
     {
@@ -19,6 +19,6 @@ class AbstractItemType extends AbstractType
 
     public function getName()
     {
-        return 'siwapp_corebundle_abstractitemtype';
+        return 'siwapp_corebundle_coreitemtype';
     }
 }

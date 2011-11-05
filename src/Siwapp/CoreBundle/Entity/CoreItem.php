@@ -3,17 +3,33 @@
 namespace Siwapp\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Siwapp\CoreBundle\Entity\AbstractItem
+ * Siwapp\CoreBundle\Entity\CoreItem
  *
  * TODO: Custom methods
- *
- * @ORM\MappedSuperclass
+ * @ORM\Entity
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({"invoice" = "\Siwapp\InvoiceBundle\Entity\Item", "recurring_invoice" = "\Siwapp\RecurringInvoiceBundle\Entity\Item", "estimate" = "\Siwapp\EstimateBundle\Entity\Item"})
  */
-class AbstractItem
+class CoreItem
 {
+
+  /**
+   * @var ArrayCollection $taxes
+   *
+   * @ORM\ManyToMany(targetEntity="Tax", mappedBy="items")
+   */
+  private $taxes;
+
+  public function __construct()
+  {
+    $this->taxes = new ArrayCollection();
+  }
+
   /**
    * @var integer $id
    *
@@ -141,4 +157,24 @@ class AbstractItem
     $this->unitary_cost = $unitary_cost;
   }
 
+
+    /**
+     * Add taxes
+     *
+     * @param Siwapp\CoreBundle\Entity\Tax $taxes
+     */
+    public function addTax(\Siwapp\CoreBundle\Entity\Tax $taxes)
+    {
+        $this->taxes[] = $taxes;
+    }
+
+    /**
+     * Get taxes
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getTaxes()
+    {
+        return $this->taxes;
+    }
 }

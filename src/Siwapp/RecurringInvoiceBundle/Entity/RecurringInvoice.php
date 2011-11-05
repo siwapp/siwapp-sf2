@@ -287,4 +287,14 @@ class RecurringInvoice extends AbstractInvoice
     {
       $this->items[] = $items;
     }
+
+    /**
+     * Get items
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
 }

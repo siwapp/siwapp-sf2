@@ -5,9 +5,9 @@ namespace Siwapp\InvoiceBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
 
-use Siwapp\CoreBundle\Form\CoreItemType;
+use Siwapp\CoreBundle\Form\AbstractItemType;
 
-class ItemType extends CoreItemType
+class ItemType extends AbstractItemType
 {
     public function buildForm(FormBuilder $builder, array $options)
     {

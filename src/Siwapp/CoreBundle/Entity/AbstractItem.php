@@ -7,28 +7,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Siwapp\CoreBundle\Entity\CoreItem
+ * Siwapp\CoreBundle\Entity\AbstractItem
  *
  * TODO: Custom methods
- * @ORM\Entity
- * @ORM\InheritanceType("SINGLE_TABLE")
- * @ORM\DiscriminatorColumn(name="type", type="string")
- * @ORM\DiscriminatorMap({"invoice" = "\Siwapp\InvoiceBundle\Entity\Item", "recurring_invoice" = "\Siwapp\RecurringInvoiceBundle\Entity\Item", "estimate" = "\Siwapp\EstimateBundle\Entity\Item"})
+ * @ORM\MappedSuperclass
  */
-class CoreItem
+class AbstractItem
 {
-
-  /**
-   * @var ArrayCollection $taxes
-   *
-   * @ORM\ManyToMany(targetEntity="Tax", mappedBy="items")
-   */
-  private $taxes;
-
-  public function __construct()
-  {
-    $this->taxes = new ArrayCollection();
-  }
 
   /**
    * @var integer $id

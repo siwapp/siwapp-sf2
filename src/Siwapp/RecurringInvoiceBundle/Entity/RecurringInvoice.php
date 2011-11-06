@@ -22,8 +22,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 class RecurringInvoice extends AbstractInvoice
 {
   /**
-     @ORM\OneToMany(targetEntity="Item", mappedBy="recurring_invoice")
-  */
+   *   @ORM\OneToMany(targetEntity="Item", mappedBy="recurring_invoice")
+   */
   private $items;
 
   public function __construct()
@@ -283,7 +283,7 @@ class RecurringInvoice extends AbstractInvoice
      *
      * @param Siwapp\RecurringInvoiceBundle\Entity\Item $items
      */
-    public function addItem(\Siwapp\InvoiceBundle\Entity\Item $items)
+    public function addItem(\Siwapp\RecurringInvoiceBundle\Entity\Item $items)
     {
       $this->items[] = $items;
     }

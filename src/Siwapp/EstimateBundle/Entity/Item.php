@@ -3,7 +3,8 @@
 namespace Siwapp\EstimateBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Siwapp\CoreBundle\Entity\CoreItem;
+use Doctrine\Common\Collections\ArrayCollection;
+use Siwapp\CoreBundle\Entity\AbstractItem;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -14,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *    @ORM\index(name="desc_idx", columns={"description"})
  * }, name="EstimateItem")
  */
-class Item extends CoreItem
+class Item extends AbstractItem
 {
   /**
    * @ORM\ManyToOne(targetEntity="Estimate", inversedBy="items")
@@ -22,6 +23,16 @@ class Item extends CoreItem
    */
   private $estimate;
 
+  /**
+   * @ORM\ManyToMany(targetEntity="Siwapp\CoreBundle\Entity\Tax")
+   * @ORM\JoinTable(name="EstimateItems_Taxes")
+   */
+  private $taxes;
+
+  public function __construct()
+  {
+    $this->taxes = new ArrayCollection();
+  }
 
     /**
      * Set invoice
@@ -41,5 +52,25 @@ class Item extends CoreItem
     public function getEstimate()
     {
         return $this->estimate;
+    }
+
+    /**
+     * Add taxes
+     *
+     * @param Siwapp\CoreBundle\Entity\Tax $taxes
+     */
+    public function addTax(\Siwapp\CoreBundle\Entity\Tax $taxes)
+    {
+        $this->taxes[] = $taxes;
+    }
+
+    /**
+     * Get taxes
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getTaxes()
+    {
+        return $this->taxes;
     }
 }

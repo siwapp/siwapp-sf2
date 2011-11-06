@@ -14,16 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Tax
 {
   /**
-   * @ORM\ManyToMany(targetEntity="CoreItem", mappedBy="taxes")
-   */
-  private $items;
-
-  public function __construct()
-  {
-    $this->items = new ArrayCollection();
-  }
-
-  /**
    * @var integer $id
    *
    * @ORM\Column(type="integer")
@@ -132,26 +122,6 @@ class Tax
     public function getIsDefault()
     {
         return $this->is_default;
-    }
-
-    /**
-     * Add items
-     *
-     * @param Siwapp\CoreBundle\Entity\CoreItem $items
-     */
-    public function addCoreItem(\Siwapp\CoreBundle\Entity\CoreItem $items)
-    {
-        $this->items[] = $items;
-    }
-
-    /**
-     * Get items
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getItems()
-    {
-        return $this->items;
     }
 
     /**

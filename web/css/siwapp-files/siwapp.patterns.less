@@ -9,17 +9,17 @@
     border:1px solid @draftGrayBd;
     background-color:@draftGrayBg;
     
-    &.important {
+    &.important, &.overdue {
         color:@white;
         background-color:@overdueRedBg;
         border-color:@overdueRedBd;
     }
-    &.warning {
+    &.warning, &.pending {
         color:@openedYellowTx;
         background-color:@openedYellowBg;
         border-color:@openedYellowBd;
     }
-    &.success {
+    &.success, &.paid {
         color:@white;
         background-color:@closedGreenBg;
         border-color:@closedGreenBd;

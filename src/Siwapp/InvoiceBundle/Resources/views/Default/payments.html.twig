@@ -1,79 +1,13 @@
 {# TODO: Set widths in CSS!!! (search style attributes) #}
 
-<div class="popover left payments-popover" data-invoice-id="1">
+<div class="popover left payments-popover" data-invoice-id="{{ invoiceId }}">
   <div class="arrow"></div>
   <div class="inner" style="width:auto !important;">
     <h3 class="title">{% trans %}Payments{% endtrans %}</h3>
     <div class="content">
-      
-      <form action="{{ path('invoice_payment_add', { 'invoiceId': 1 }) }}" method="post">
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <input type="checkbox" name="all" />
-              </th>
-              <th class="date">
-                {% trans %}Date{% endtrans %}
-              </th>
-              <th>
-                {% trans %}Description{% endtrans %}
-              </th>
-              <th class="currency">
-                {% trans %}Amount{% endtrans %}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <input type="checkbox" name="id[]" value="1" />
-              </td>
-              <td class="date">
-                5/29/11
-              </td>
-              <td>
-                First Payment
-              </td>
-              <td class="currency">
-                1000,00€
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox" name="id[]" value="1" />
-              </td>
-              <td class="date">
-                9/13/11
-              </td>
-              <td>
-                Second Payment
-              </td>
-              <td class="currency">
-                500,00€
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td class="date">
-                <input type="text" placeholder="Date" name="date" />
-              </td>
-              <td>
-                <input type="text" placeholder="Description" name="description" />
-              </td>
-              <td class="currency">
-                <input type="text" placeholder="Amount" name="amount" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="buttons">
-          <a href="{{ path('invoice_payment_delete', { 'invoiceId': 1 }) }}" class="btn danger icon alternative trash float-left">{% trans %}Remove selected{% endtrans %}</a>
-          <button type="submit" class="btn success icon alternative add">{% trans %}Add Payment{% endtrans %}</button>
-          <button type="button" class="btn secondary">{% trans %}OK{% endtrans %}</button>
-        </div>
-      </form>
-      
+      {# AJAX zone #}
+      {% include "SiwappInvoiceBundle:Default:payments_form.html.twig" %}
+      {# AJAX zone #}
     </div>
   </div>
 </div>

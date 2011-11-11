@@ -98,29 +98,30 @@ class DefaultController extends Controller
     public function paymentsAction($invoiceId)
     {
         // Return all payments
-        return array();
+        return array('invoiceId' => $invoiceId);
     }
     
     /**
      * @Route("/payments/{invoiceId}/add", name="invoice_payment_add")
      * @Method("POST")
+     * @Template("SiwappInvoiceBundle:Default:payments_form.html.twig")
      */
     public function addPaymentAction($invoiceId)
     {
         // Add payment and return all payments
-        return $this->forward('SiwappInvoiceBundle:Default:payments', array(
-            'invoiceId' => $invoiceId
-        ));
+        // Set Flash with message...
+        return array('invoiceId' => $invoiceId);
     }
     
     /**
      * @Route("/payments/{invoiceId}/delete", name="invoice_payment_delete")
+     * @Method("POST")
+     * @Template("SiwappInvoiceBundle:Default:payments_form.html.twig")
      */
     public function deletePayment($invoiceId)
     {
         // Delete payments and return payments
-        return $this->forward('SiwappInvoiceBundle:Default:payments', array(
-            'invoiceId' => $invoiceId
-        ));
+        // Set Flash with message...
+        return array('invoiceId' => $invoiceId);
     }
 }

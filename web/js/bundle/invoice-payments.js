@@ -65,27 +65,6 @@ jQuery(function($){
         form.closest('div.content').html(html);
       }, 'html');
     })
-    // Toggle all payments checkboxes depending of the state of "all" checkbox
-    .delegate('.payments-popover :checkbox[name="all"]', 'click', function(e){
-      var checks = $(this).closest('form').find(':checkbox:not([name="all"])');
-      
-      if ($(this).attr('checked') != undefined)
-        checks.attr('checked', 'checked');
-      else
-        checks.removeAttr('checked');
-    })
-    // Toggle "all" checkbox if all/not all checkboxes are selected.
-    .delegate('.payments-popover :checkbox:not([name="all"])', 'click', function(e){
-      var form    = $(this).closest('form');
-      var all     = form.find(':checkbox[name="all"]');
-      var checks  = form.find(':checkbox').not(all);
-      var checked = form.find(':checkbox:checked').not(all);
-      
-      if (checks.length == checked.length)
-        all.attr('checked', 'checked');
-      else
-        all.removeAttr('checked');
-    })
   ;
   // Hide popovers with ESC key
   jwerty.key('esc', function(){ $('.payments-popover').remove(); });

@@ -85,7 +85,7 @@
   
   <h2>{% trans %}Recent invoices{% endtrans %}</h2>
   <div id="dashboard-latest-invoices">
-    {% set table_rows = invoices %}
+    {% set table_rows, table_selectable = invoices, false %}
     {% include "SiwappInvoiceBundle:Default:invoices_list.html.twig" %}
   </div>
   

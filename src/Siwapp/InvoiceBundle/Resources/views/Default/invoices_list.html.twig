@@ -1,6 +1,20 @@
+{# table_rows variable MUST be defined from the outside #}
+
+{% if not table_selectable is defined %}
+  {# This variable MUST be explicitly set to false to hide checkboxes         #}
+  {# If you set this to false and you have a second listing that display them #}
+  {# set explicitly to true in the second listing.                            #}
+  {% set table_selectable = true %}
+{% endif %}
+
 <table class="zebra-striped align-middle" data-type="invoices">
   <thead>
     <tr>
+      {% if table_selectable %}
+      <th class="check">
+        <input type="checkbox" name="all" />
+      </th>
+      {% endif %}
       <th class="number">{% trans %}Number{% endtrans %}</th>
       <th>{% trans %}Customer{% endtrans %}</th>
       <th class="date">{% trans %}Date{% endtrans %}</th>
@@ -14,6 +28,11 @@
   <tbody>
     {% for invoice in table_rows %}
       <tr>
+        {% if table_selectable %}
+        <td class="check">
+          <input type="checkbox" name="id[]" value="{{ invoice.id }}" />
+        </td>
+        {% endif %}
         <td class="number">{{ invoice.number }}</td>
         <td>{{ invoice.customer }}</td>
         <td class="date">{{ invoice.date }}</td>

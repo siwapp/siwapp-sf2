@@ -22,6 +22,7 @@ table {
     }
     
     td, th {
+        
         &.check {
             width:16px;
         }
@@ -44,16 +45,16 @@ table {
             width:100px;
         }
     }
-}
-
-//
-// Zebra striped tables with orange :hover background
-//
-
-.zebra-striped {
-    tbody {
-        tr:hover td {
-            background-color:@orangeTableHover;
+    
+    &.zebra-striped {
+        tbody {
+            tr.selected td,
+            tr:hover td {
+                background-color: @orangeTableHover;
+            }
+            tr.selected:nth-child(odd) td {
+                background-color: darken(@orangeTableHover, 5%);
+            }
         }
     }
 }

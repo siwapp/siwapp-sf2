@@ -35,10 +35,11 @@ jQuery(function($){
       var table  = $(this).closest('table');
       var checks = table.find(':checkbox:not([name="all"])');
       
-      if ($(this).is(':checked'))
-        checks.attr('checked', 'checked');
-      else
-        checks.removeAttr('checked');
+      if ($(this).is(':checked')) {
+        checks.attr('checked', 'checked').closest('tr').addClass('selected');
+      } else {
+        checks.removeAttr('checked').closest('tr').removeClass('selected');
+      }
     })
     // All other checkboxes
     .delegate('table :checkbox:not([name="all"])', 'click', function(e){
@@ -51,6 +52,9 @@ jQuery(function($){
         all.attr('checked', 'checked');
       else
         all.removeAttr('checked');
+      
+      checked.closest('tr').addClass('selected');
+      checks.not(checked).closest('tr').removeClass('selected');
     })
   ;
 });

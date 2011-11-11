@@ -69,7 +69,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/show", name="invoice_show")
+     * @Route("/show/{id}", name="invoice_show")
      * @Template
      */
     public function showAction()

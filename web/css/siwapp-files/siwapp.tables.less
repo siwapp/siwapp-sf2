@@ -22,7 +22,6 @@ table {
     }
     
     td, th {
-        
         &.check {
             width:16px;
         }
@@ -47,13 +46,18 @@ table {
     }
     
     &.zebra-striped {
-        tbody {
-            tr.selected td,
-            tr:hover td {
-                background-color: @orangeTableHover;
-            }
-            tr.selected:nth-child(odd) td {
-                background-color: darken(@orangeTableHover, 5%);
+        &[data-type] {
+            tbody {
+                td {
+                    cursor:pointer;
+                }
+                tr.selected td,
+                tr:hover td {
+                    background-color: @orangeTableHover;
+                }
+                tr.selected:nth-child(odd) td {
+                    background-color: darken(@orangeTableHover, 5%);
+                }
             }
         }
     }

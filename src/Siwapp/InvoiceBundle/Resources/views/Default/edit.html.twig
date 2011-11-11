@@ -1,8 +1,9 @@
 {% extends "::base.html.twig" %}
 
+{% block searchform %}{% endblock %}
+
 {% block body %}
   
-  <h1>Invoices</h1>
   <form action="" method="post" {{ form_enctype(form) }}>
       {{ form_widget(form) }}
       <input type="submit" />

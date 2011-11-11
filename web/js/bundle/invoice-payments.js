@@ -11,6 +11,7 @@ jQuery(function($){
   
   $('table[data-type="invoices"]').delegate('a.payments', 'click', function(e){
     e.preventDefault();
+    e.stopPropagation();
     
     var pos = $.extend({}, $(this).offset(), {
       width: this.offsetWidth,

@@ -27,7 +27,7 @@
   </thead>
   <tbody>
     {% for invoice in table_rows %}
-      <tr>
+      <tr data-link="{{ path('invoice_show', { 'id': invoice.id }) }}">
         {% if table_selectable %}
         <td class="check">
           <input type="checkbox" name="id[]" value="{{ invoice.id }}" />

@@ -6,8 +6,14 @@
 {% endblock %}
 
 {% block javascripts %}
-{{ parent() }}
-<script type="text/javascript" charset="utf-8" src="{{ asset('js/bundle/invoice-payments.js') }}"></script>
+  {{ parent() }}
+  {% javascripts
+    'js/bundle/invoice-payments.js'
+    filter='yui_js'
+    output='js/min/invoice-list.js'
+  %}
+  <script type="text/javascript" charset="utf-8" src="{{ asset_url }}"></script>
+  {% endjavascripts %}
 {% endblock %}
 
 {% block searchform %}
@@ -79,105 +85,14 @@
   
   <h2>{% trans %}Recent invoices{% endtrans %}</h2>
   <div id="dashboard-latest-invoices">
-    <table class="zebra-striped align-middle" data-type="invoices">
-      <thead>
-        <tr>
-          <th class="number">{% trans %}Number{% endtrans %}</th>
-          <th>{% trans %}Customer{% endtrans %}</th>
-          <th class="date">{% trans %}Date{% endtrans %}</th>
-          <th class="date">{% trans %}Due Date{% endtrans %}</th>
-          <th class="status">{% trans %}Status{% endtrans %}</th>
-          <th class="currency">{% trans %}Due{% endtrans %}</th>
-          <th class="currency">{% trans %}Total{% endtrans %}</th>
-          <th class="payments"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="number">ASET-22</td>
-          <td>Roxxon</td>
-          <td class="date">5/28/11</td>
-          <td class="date">9/16/11</td>
-          <td class="status">
-            {# Use these CSS class names after .label for different statuses:
-              DRAFT   => (no class)
-              CLOSED  => .success
-              OPENED  => .warning
-              OVERDUE => .important
-              ???     => .notice -> informational and not used
-            #}
-            <span class="label success">{% trans %}closed{% endtrans %}</span>
-          </td>
-          <td class="currency"></td>
-          <td class="currency">$11,435.23</td>
-          <td class="payments">
-            <a href="{{ path('invoice_payments', { 'invoiceId': 1 }) }}" class="btn secondary icon clock payments" title="Payments" data-invoice-id="1">{% trans %}Payments{% endtrans %}</a>
-          </td>
-        </tr>
-        <tr>
-          <td class="number">ASET-22</td>
-          <td>Roxxon</td>
-          <td class="date">5/28/11</td>
-          <td class="date">9/16/11</td>
-          <td class="status">
-            <span class="label">{% trans %}draft{% endtrans %}</span>
-          </td>
-          <td class="currency"></td>
-          <td class="currency">$11,435.23</td>
-          <td class="payments">
-            <a href="{{ path('invoice_payments', { 'invoiceId': 2 }) }}" class="btn secondary icon clock payments" title="Payments" data-invoice-id="2">{% trans %}Payments{% endtrans %}</a>
-          </td>
-        </tr>
-        <tr>
-          <td class="number">ASET-22</td>
-          <td>Roxxon</td>
-          <td class="date">5/28/11</td>
-          <td class="date">9/16/11</td>
-          <td class="status">
-            <span class="label warning">{% trans %}opened{% endtrans %}</span>
-          </td>
-          <td class="currency"></td>
-          <td class="currency">$11,435.23</td>
-          <td class="payments">
-            <a href="{{ path('invoice_payments', { 'invoiceId': 3 }) }}" class="btn secondary icon clock payments" title="Payments" data-invoice-id="3">{% trans %}Payments{% endtrans %}</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    {% set table_rows = invoices %}
+    {% include "SiwappInvoiceBundle:Default:invoices_list.html.twig" %}
   </div>
   
   <h2>{% trans %}Past due invoices{% endtrans %}</h2>
   <div id="dashboard-overdue-invoices">
-    <table class="zebra-striped align-middle" data-type="invoices">
-      <thead>
-        <tr>
-          <th class="number">{% trans %}Number{% endtrans %}</th>
-          <th>{% trans %}Customer{% endtrans %}</th>
-          <th class="date">{% trans %}Date{% endtrans %}</th>
-          <th class="date">{% trans %}Due Date{% endtrans %}</th>
-          <th class="status">{% trans %}Status{% endtrans %}</th>
-          <th class="currency">{% trans %}Due{% endtrans %}</th>
-          <th class="currency">{% trans %}Total{% endtrans %}</th>
-          <th class="payments"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="number">ASET-22</td>
-          <td>Roxxon</td>
-          <td class="date">5/28/11</td>
-          <td class="date">9/16/11</td>
-          <td class="status">
-            <span class="label important">{% trans %}overdue{% endtrans %}</span>
-          </td>
-          <td class="currency"></td>
-          <td class="currency">$11,435.23</td>
-          <td class="payments">
-            <a href="{{ path('invoice_payments', { 'invoiceId': 4 }) }}" class="btn secondary icon clock payments" title="Payments" data-invoice-id="4">{% trans %}Payments{% endtrans %}</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    {% set table_rows = overdue_invoices %}
+    {% include "SiwappInvoiceBundle:Default:invoices_list.html.twig" %}
   </div>
   
 {% endblock %}

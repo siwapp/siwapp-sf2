@@ -1,0 +1,39 @@
+<table class="zebra-striped align-middle" data-type="invoices">
+  <thead>
+    <tr>
+      <th class="number">{% trans %}Number{% endtrans %}</th>
+      <th>{% trans %}Customer{% endtrans %}</th>
+      <th class="date">{% trans %}Date{% endtrans %}</th>
+      <th class="date">{% trans %}Due Date{% endtrans %}</th>
+      <th class="status">{% trans %}Status{% endtrans %}</th>
+      <th class="currency">{% trans %}Due{% endtrans %}</th>
+      <th class="currency">{% trans %}Total{% endtrans %}</th>
+      <th class="payments"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for invoice in table_rows %}
+      <tr>
+        <td class="number">{{ invoice.number }}</td>
+        <td>{{ invoice.customer }}</td>
+        <td class="date">{{ invoice.date }}</td>
+        <td class="date">{{ invoice.duedate }}</td>
+        <td class="status">
+          {# Use these CSS class names after .label for different statuses:
+            DRAFT   => (no class)
+            CLOSED  => .success
+            OPENED  => .warning
+            OVERDUE => .important
+            ???     => .notice -> informational and not used
+          #}
+          <span class="label {{ invoice.status.0 }}">{% trans with { '%status%': invoice.status.1 } %}%status%{% endtrans %}</span>
+        </td>
+        <td class="currency">{{ invoice.due }}</td>
+        <td class="currency">{{ invoice.total }}</td>
+        <td class="payments">
+          <a href="{{ path('invoice_payments', { 'invoiceId': invoice.id }) }}" class="btn secondary icon clock payments" title="Payments" data-invoice-id="{{ invoice.id }}">{% trans %}Payments{% endtrans %}</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

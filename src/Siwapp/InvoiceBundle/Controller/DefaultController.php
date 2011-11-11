@@ -20,7 +20,52 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $invoices = array(
+            array(
+                'id' => '1',
+                'number' => 'ASET-01',
+                'customer' => 'Roxxon',
+                'date' => '05/28/2011',
+                'duedate' => '09/16/2011',
+                'status' => array('important', 'overdue'),
+                'due' => '$4,000.00',
+                'total' => '$11,435.23',
+            ),
+            array(
+                'id' => '2',
+                'number' => 'ASET-02',
+                'customer' => 'Roxxon',
+                'date' => '05/28/2011',
+                'duedate' => '09/16/2011',
+                'status' => array('', 'draft'),
+                'due' => '',
+                'total' => '$11,435.23',
+            ),
+            array(
+                'id' => '3',
+                'number' => 'ASET-03',
+                'customer' => 'Roxxon',
+                'date' => '05/28/2011',
+                'duedate' => '09/16/2011',
+                'status' => array('warning', 'opened'),
+                'due' => '$9,000.00',
+                'total' => '$11,435.23',
+            ),
+            array(
+                'id' => '4',
+                'number' => 'ASET-04',
+                'customer' => 'Roxxon',
+                'date' => '05/28/2011',
+                'duedate' => '09/16/2011',
+                'status' => array('success', 'closed'),
+                'due' => '',
+                'total' => '$11,435.23',
+            ),
+        );
+        
+        return array(
+            'invoices' => $invoices,
+        );
     }
     
     /**

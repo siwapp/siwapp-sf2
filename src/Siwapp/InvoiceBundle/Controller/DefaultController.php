@@ -28,7 +28,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/show/{id}", name="invoice_show")
+     * @Route("/{id}/show", name="invoice_show")
      * @Template
      */
     public function showAction()
@@ -37,10 +37,10 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/add", name="invoice_add")
+     * @Route("/new", name="invoice_add")
      * @Template("SiwappInvoiceBundle:Default:edit.html.twig")
      */
-    public function addAction()
+    public function newAction()
     {
         $form = $this->createForm(new InvoiceType());
         return array(
@@ -59,7 +59,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/edit/{id}", name="invoice_edit")
+     * @Route("/{id}/edit", name="invoice_edit")
      * @Template
      */
     public function editAction($id)
@@ -78,7 +78,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/update", name="invoice_update")
+     * @Route("/{id}/update", name="invoice_update")
      * @Method("POST")
      * @Template("SiwappInvoiceBundle:Default:edit.html.twig")
      */
@@ -88,7 +88,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/delete", name="invoice_delete")
+     * @Route("/{id}/delete", name="invoice_delete")
      */
     public function deleteAction()
     {

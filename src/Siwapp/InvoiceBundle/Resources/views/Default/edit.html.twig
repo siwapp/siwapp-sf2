@@ -4,7 +4,7 @@
 
 {% block body %}
   
-  <form action="" method="post" {{ form_enctype(form) }}>
+  <form action="{{ path('invoice_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
       {{ form_widget(form) }}
       <input type="submit" />
   </form>

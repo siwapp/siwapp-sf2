@@ -64,15 +64,16 @@ class DefaultController extends Controller
      */
     public function editAction($id)
     {
-        $invoice = $this->getDoctrine()
+        $entity = $this->getDoctrine()
             ->getRepository('SiwappInvoiceBundle:Invoice')
             ->find($id);
-        if (!$invoice) {
-            throw $this->createNotFoundException('No invoice found for id '.$id);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Invoice entity.');
         }
-        $form = $this->createForm(new InvoiceType(), $invoice);
+        $form = $this->createForm(new InvoiceType(), $entity);
         
         return array(
+            'entity' => $entity,
             'form' => $form->createView(),
         );
     }
@@ -82,15 +83,37 @@ class DefaultController extends Controller
      * @Method("POST")
      * @Template("SiwappInvoiceBundle:Default:edit.html.twig")
      */
-    public function updateAction()
+    public function updateAction($id)
     {
-        return $this->redirect($this->generateUrl('invoice_edit'));
+        $em = $this->getDoctrine()->getEntityManager();
+        $entity = $em->getRepository('SiwappInvoiceBundle:Invoice')->find($id);
+        
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Invoice entity.');
+        }
+        
+        $form = $this->createForm(new InvoiceType(), $entity);
+        $request = $this->getRequest();
+        
+        $form->bindRequest($request);
+        
+        if ($form->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+            
+            return $this->redirect($this->generateUrl('invoice_edit', array('id' => $id)));
+        }
+        
+        return array(
+            'entity'      => $entity,
+            'form'   => $editForm->createView(),
+        );
     }
     
     /**
      * @Route("/{id}/delete", name="invoice_delete")
      */
-    public function deleteAction()
+    public function deleteAction($id)
     {
         return $this->redirect($this->generateUrl('invoice_index'));
     }

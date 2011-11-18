@@ -26,17 +26,17 @@
     </tr>
   </thead>
   <tbody>
-    {% for invoice in table_rows %}
-      <tr data-link="{{ path('invoice_show', { 'id': invoice.id }) }}">
+    {% for entity in table_rows %}
+      <tr data-link="{{ path('invoice_show', { 'id': entity.id }) }}">
         {% if table_selectable %}
         <td class="check">
-          <input type="checkbox" name="id[]" value="{{ invoice.id }}" />
+          <input type="checkbox" name="id[]" value="{{ entity.id }}" />
         </td>
         {% endif %}
-        <td class="number">{{ invoice.number }}</td>
-        <td>{{ invoice.customer }}</td>
-        <td class="date">{{ invoice.date }}</td>
-        <td class="date">{{ invoice.duedate }}</td>
+        <td class="number">{{ entity.number }}</td>
+        <td>{{ entity.getCustomerName }}</td>
+        <td class="date">{{ entity }}</td>
+        <td class="date">{{ entity }}</td>
         <td class="status">
           {# Use these CSS class names after .label for different statuses:
             DRAFT   => (no class)
@@ -45,12 +45,12 @@
             OVERDUE => .important
             ???     => .notice -> informational and not used
           #}
-          <span class="label {{ invoice.status.0 }}">{% trans with { '%status%': invoice.status.1 } %}%status%{% endtrans %}</span>
+          <span class="label {{ entity }}">{% trans with { '%status%': entity } %}%status%{% endtrans %}</span>
         </td>
-        <td class="currency">{{ invoice.due }}</td>
-        <td class="currency">{{ invoice.total }}</td>
+        <td class="currency">{{ entity }}</td>
+        <td class="currency">{{ entity }}</td>
         <td class="payments">
-          <a href="{{ path('invoice_payments', { 'invoiceId': invoice.id }) }}" class="btn secondary icon clock payments" title="Payments" data-invoice-id="{{ invoice.id }}">{% trans %}Payments{% endtrans %}</a>
+          <a href="{{ path('invoice_payments', { 'invoiceId': entity.id }) }}" class="btn secondary icon clock payments" title="Payments" data-invoice-id="{{ entity.id }}">{% trans %}Payments{% endtrans %}</a>
         </td>
       </tr>
     {% endfor %}

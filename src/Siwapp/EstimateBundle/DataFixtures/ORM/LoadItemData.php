@@ -53,6 +53,14 @@ class LoadItemData extends AbstractFixture implements OrderedFixtureInterface, C
           $this->addReference($ref, $item);
       }
       
+      foreach($value['ItemTax'] as $ref => $values)
+      {
+          $item = $this->getReference($values['Item']);
+          $tax = $this->getReference($values['Tax']);
+          $item->addTax($tax);
+          $manager->persist($item);
+          $manager->flush();
+      }
     }
     
     public function getOrder()

@@ -100,22 +100,22 @@ Item:
 ItemTax:
   ItemTax_94_3:
     Item: Item_94
-    tax_id: 3
+    Tax: Tax_3
   ItemTax_95_1:
     Item: Item_95
-    tax_id: 1
+    Tax: Tax_1
   ItemTax_96_1:
     Item: Item_96
-    tax_id: 1
+    Tax: Tax_1
   ItemTax_97_1:
     Item: Item_97
-    tax_id: 1
+    Tax: Tax_1
   ItemTax_98_2:
     Item: Item_98
-    tax_id: 2
+    Tax: Tax_2
   ItemTax_99_2:
     Item: Item_99
-    tax_id: 2
+    Tax: Tax_2
   ItemTax_100_2:
     Item: Item_100
-    tax_id: 2
+    Tax: Tax_2

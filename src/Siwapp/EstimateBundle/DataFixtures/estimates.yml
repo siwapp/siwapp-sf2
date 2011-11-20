@@ -1,0 +1,262 @@
+Estimate:
+  Estimate_1:
+    sent_by_email: false
+    Series: Series_1
+    number: '1'
+    customer_name: 'Smith and Co.'
+    customer_identification: 2450626775P
+    customer_email: jody_nichols@example.com
+    invoicing_address: "Fake Dir n 262\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 262\nMadrid\nSpain"
+    contact_person: 'Jody Nichols'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2007-08-11'
+    draft: '0'
+    status: '1'
+    created_at: '2009-04-17 09:45:36'
+    updated_at: '2009-08-25 10:27:12'
+  Estimate_2:
+    sent_by_email: false
+    Series: Series_1
+    number: '2'
+    customer_name: 'Rouster and Sideways'
+    customer_identification: '1889335077'
+    customer_email: varria_leijten@example.com
+    invoicing_address: "Fake Dir n 871\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 871\nMadrid\nSpain"
+    contact_person: 'Varria Leijten'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2008-11-09'
+    draft: '0'
+    status: '1'
+    created_at: '2009-04-17 09:45:36'
+    updated_at: '2009-08-25 10:27:12'
+  Estimate_3:
+    sent_by_email: false
+    Series: Series_1
+    number: '3'
+    customer_name: 'Western Gas & Electric'
+    customer_identification: 3924395949G
+    customer_email: marissa_peers@example.com
+    invoicing_address: "Fake Dir n 88\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 88\nMadrid\nSpain"
+    contact_person: 'Marissa Peers'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2008-02-07'
+    draft: '0'
+    status: '2'
+    created_at: '2009-04-17 09:45:36'
+    updated_at: '2009-08-25 10:27:12'
+  Estimate_4:
+    sent_by_email: false
+    Series: Series_1
+    number: '4'
+    customer_name: 'Osato Chemicals'
+    customer_identification: 4499553670X
+    customer_email: julie_radue@example.com
+    invoicing_address: "Fake Dir n 969\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 969\nMadrid\nSpain"
+    contact_person: 'Julie Radue'
+    terms: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    issue_date: '2005-05-08'
+    draft: '0'
+    status: '3'
+    created_at: '2009-04-17 09:45:36'
+    updated_at: '2009-08-25 10:27:12'
+  Estimate_5:
+    sent_by_email: false
+    Series: Series_1
+    customer_name: '123 Warehousing'
+    customer_identification: '77426541881'
+    customer_email: cyrus_decker@example.com
+    invoicing_address: "Fake Dir n 39\nMadrid\nSpain"
+    shipping_address: "Fake Dir n 39\nMadrid\nSpain"
+    contact_person: 'Cyrus Decker'
+    terms: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    notes: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    issue_date: '2008-08-06'
+    draft: '1'
+    created_at: '2009-04-17 09:45:36'
+    updated_at: '2009-08-25 10:27:12'
+
+Item:
+  Item_101:
+    Estimate: Estimate_1
+    description: 'Excepteur sint occaecat'
+    unitary_cost: '179.54'
+    quantity: '7'
+    discount: '0'
+  Item_102:
+    Estimate: Estimate_1
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '207.08'
+    quantity: '8'
+    discount: '0'
+  Item_103:
+    Estimate: Estimate_1
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '75.37'
+    quantity: '2'
+    discount: '0'
+  Item_104:
+    Estimate: Estimate_1
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '304.11'
+    quantity: '7'
+    discount: '0'
+  Item_105:
+    Estimate: Estimate_1
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '501.48'
+    quantity: '4'
+    discount: '0'
+  Item_106:
+    Estimate: Estimate_2
+    description: 'Ullamco laboris nisi'
+    unitary_cost: '99.15'
+    quantity: '2'
+    discount: '0'
+  Item_107:
+    Estimate: Estimate_2
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '762.33'
+    quantity: '4'
+    discount: '0'
+  Item_108:
+    Estimate: Estimate_2
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '195.13'
+    quantity: '2'
+    discount: '0'
+  Item_109:
+    Estimate: Estimate_2
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '171.96'
+    quantity: '1'
+    discount: '0'
+  Item_110:
+    Estimate: Estimate_2
+    description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    unitary_cost: '862.45'
+    quantity: '9'
+    discount: '0'
+  Item_111:
+    Estimate: Estimate_3
+    description: 'Ut enim ad minim'
+    unitary_cost: '678.78'
+    quantity: '9'
+    discount: '0'
+  Item_112:
+    Estimate: Estimate_3
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '541.2'
+    quantity: '10'
+    discount: '0'
+  Item_113:
+    Estimate: Estimate_4
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '504.85'
+    quantity: '7'
+    discount: '0'
+  Item_115:
+    Estimate: Estimate_4
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    unitary_cost: '343.29'
+    quantity: '1'
+    discount: '0'
+  Item_116:
+    Estimate: Estimate_4
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '303.46'
+    quantity: '7'
+    discount: '0'
+  Item_117:
+    Estimate: Estimate_4
+    description: 'Ab illo inventore veritatis.'
+    unitary_cost: '85'
+    quantity: '5'
+    discount: '0'
+  Item_118:
+    Estimate: Estimate_4
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '899.35'
+    quantity: '10'
+    discount: '0'
+  Item_119:
+    Estimate: Estimate_5
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '732.82'
+    quantity: '3'
+    discount: '49'
+  Item_120:
+    Estimate: Estimate_5
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    unitary_cost: '289.36'
+    quantity: '9'
+    discount: '0'
+
+ItemTax:
+  ItemTax_104:
+    Item: Item_103
+    Tax: Tax_3
+  ItemTax_105:
+    Item: Item_104
+    Tax: Tax_1
+  ItemTax_106:
+    Item: Item_104
+    Tax: Tax_2
+  ItemTax_107:
+    Item: Item_104
+    Tax: Tax_3
+  ItemTax_108:
+    Item: Item_105
+    Tax: Tax_1
+  ItemTax_109:
+    Item: Item_106
+    Tax: Tax_1
+  ItemTax_110:
+    Item: Item_107
+    Tax: Tax_1
+  ItemTax_111:
+    Item: Item_108
+    Tax: Tax_1
+  ItemTax_112:
+    Item: Item_109
+    Tax: Tax_3
+  ItemTax_113:
+    Item: Item_110
+    Tax: Tax_1
+  ItemTax_115:
+    Item: Item_112
+    Tax: Tax_2
+  ItemTax_118:
+    Item: Item_115
+    Tax: Tax_1
+  ItemTax_119:
+    Item: Item_116
+    Tax: Tax_3
+  ItemTax_120:
+    Item: Item_117
+    Tax: Tax_2
+  ItemTax_121:
+    Item: Item_118
+    Tax: Tax_4
+  ItemTax_122:
+    Item: Item_119
+    Tax: Tax_3
+  ItemTax_123:
+    Item: Item_120
+    Tax: Tax_3
+  ItemTax_124:
+    Item: Item_101
+    Tax: Tax_1
+  ItemTax_125:
+    Item: Item_101
+    Tax: Tax_4
+  ItemTax_126:
+    Item: Item_102
+    Tax: Tax_3

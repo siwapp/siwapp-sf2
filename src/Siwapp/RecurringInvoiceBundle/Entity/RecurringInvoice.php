@@ -75,7 +75,7 @@ class RecurringInvoice extends AbstractInvoice
 
     /**
      * @var date $starting_date
-     *
+     * @Assert\Date()
      * @ORM\Column(name="starting_date", type="date")
      */
     private $starting_date;
@@ -84,6 +84,7 @@ class RecurringInvoice extends AbstractInvoice
      * @var date $finishing_date
      *
      * @ORM\Column(name="finishing_date", type="date", nullable="true")
+     * @Assert\Date()
      */
     private $finishing_date;
 
@@ -91,6 +92,7 @@ class RecurringInvoice extends AbstractInvoice
      * @var date $last_execution_date
      *
      * @ORM\Column(name="last_execution_date", type="date", nullable="true")
+     * @Assert\Date()
      */
     private $last_execution_date;
 

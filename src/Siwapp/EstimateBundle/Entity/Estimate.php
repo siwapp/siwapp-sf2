@@ -3,7 +3,9 @@
 namespace Siwapp\EstimateBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Siwapp\CoreBundle\Entity\AbstractInvoice;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Siwapp\EstimateBundle\Entity\Estimate
@@ -19,6 +21,15 @@ use Siwapp\CoreBundle\Entity\AbstractInvoice;
 class Estimate extends AbstractInvoice
 {
     /**
+     * @ORM\OneToMany(targetEntity="Item", mappedBy="estimate")
+     */
+    private $items;
+    
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+    }
+    /**
      * @var boolean $draft
      *
      * @ORM\Column(name="draft", type="boolean")
@@ -28,7 +39,7 @@ class Estimate extends AbstractInvoice
     /**
      * @var integer $number
      *
-     * @ORM\Column(name="number", type="integer")
+     * @ORM\Column(name="number", type="integer", nullable="true")
      */
     private $number;
 
@@ -98,5 +109,25 @@ class Estimate extends AbstractInvoice
     public function getSentByEmail()
     {
         return $this->sent_by_email;
+    }
+
+    /**
+     * Add items
+     *
+     * @param Siwapp\EstimateBundle\Entity\Item $items
+     */
+    public function addItem(\Siwapp\EstimateBundle\Entity\Item $items)
+    {
+        $this->items[] = $items;
+    }
+
+    /**
+     * Get items
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getItems()
+    {
+        return $this->items;
     }
 }

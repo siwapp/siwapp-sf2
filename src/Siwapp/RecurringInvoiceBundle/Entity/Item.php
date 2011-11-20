@@ -19,7 +19,7 @@ class Item extends AbstractItem
 {
   /**
    * @ORM\ManyToOne(targetEntity="RecurringInvoice", inversedBy="items")
-   *
+   * 
    */
   private $recurring_invoice;
 

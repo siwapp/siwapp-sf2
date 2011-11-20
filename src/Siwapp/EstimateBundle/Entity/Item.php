@@ -17,25 +17,25 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Item extends AbstractItem
 {
-  /**
-   * @ORM\ManyToOne(targetEntity="Estimate", inversedBy="items")
-   *
-   */
-  private $estimate;
-
-  /**
-   * @ORM\ManyToMany(targetEntity="Siwapp\CoreBundle\Entity\Tax")
-   * @ORM\JoinTable(name="EstimateItems_Taxes")
-   */
-  private $taxes;
-
-  public function __construct()
-  {
-    $this->taxes = new ArrayCollection();
-  }
-
     /**
-     * Set invoice
+     * @ORM\ManyToOne(targetEntity="Estimate", inversedBy="items")
+     *
+     */
+    private $estimate;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Siwapp\CoreBundle\Entity\Tax")
+     * @ORM\JoinTable(name="EstimateItems_Taxes")
+     */
+    private $taxes;
+    
+    public function __construct()
+    {
+        $this->taxes = new ArrayCollection();
+    }
+    
+    /**
+     * Set estimate
      *
      * @param Siwapp\EstimateBundle\Entity\Estimate $estimate
      */
@@ -43,9 +43,9 @@ class Item extends AbstractItem
     {
         $this->estimate = $estimate;
     }
-
+    
     /**
-     * Get invoice
+     * Get estimate
      *
      * @return Siwapp\EstimateBundle\Entity\Estimate
      */

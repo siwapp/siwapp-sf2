@@ -1,10 +1,13 @@
 {# table_rows variable MUST be defined from the outside #}
 
+{% set table_columns = 8 %}
+
 {% if not table_selectable is defined %}
   {# This variable MUST be explicitly set to false to hide checkboxes         #}
   {# If you set this to false and you have a second listing that display them #}
   {# set explicitly to true in the second listing.                            #}
   {% set table_selectable = true %}
+  {% set table_columns = table_columns + 1 %}
 {% endif %}
 
 <table class="zebra-striped align-middle" data-type="invoices">
@@ -26,6 +29,11 @@
     </tr>
   </thead>
   <tbody>
+    {% if table_rows|length == 0 %}
+      <tr>
+        <td colspan="{{ table_columns }}">{% trans %}No invoices found.{% endtrans %}</td>
+      </tr>
+    {% endif %}
     {% for entity in table_rows %}
       <tr data-link="{{ path('invoice_show', { 'id': entity.id }) }}">
         {% if table_selectable %}

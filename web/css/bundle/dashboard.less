@@ -1,29 +1,46 @@
 @import "../siwapp-files/siwapp.variables.less";
 
-//
-// Summary
-//
-
-#dashboard-summary {
-    overflow:hidden;
+#bd {
     
-    table {
-        width:auto;
-        font-size:@basefont * 1.2 !important;
-        float:left;
-        margin:0;
-        background-color:@white;
+    //
+    // Summary
+    //
+    
+    #dashboard-summary {
+        overflow:hidden;
         
-        td {
-            text-align:right;
-        }
-        .overdue {
-            th, td {
-                color:@overdueRedBg;
+        table {
+            width:auto;
+            font-size:@basefont * 1.2 !important;
+            float:left;
+            margin:0;
+            background-color:@white;
+            th[colspan] {
+                border-top-width:0;
+            }
+            td {
+                text-align:right;
+            }
+            .overdue {
+                th, td {
+                    color:@overdueRedBg;
+                }
             }
         }
+        table + table {
+            margin-left:@layoutPadding;
+        }
     }
-    table + table {
-        margin-left:@layoutPadding;
+    
+    //
+    // Listings
+    //
+    
+    .dashboard-listing {
+        margin:@basefont * 2 0 0;
+        
+        h2 {
+            margin:0 0 @basefont * 1;
+        }
     }
 }

@@ -23,7 +23,7 @@
   
   <div id="dashboard-summary">
     
-    <table class="payments horizontal">
+    <table class="bordered-table payments horizontal">
       <tbody>
         <tr>
           <th colspan="2">{% trans %}Payments Summary{% endtrans %}</th>
@@ -43,7 +43,7 @@
       </tbody>
     </table>
     
-    <table class="balance horizontal">
+    <table class="bordered-table balance horizontal">
       <tbody>
         <tr>
           <th colspan="2">{% trans %}Balance{% endtrans %}</th>
@@ -63,7 +63,7 @@
       </tbody>
     </table>
 
-    <table class="taxes horizontal">
+    <table class="bordered-table taxes horizontal">
       <tbody>
         <tr>
           <th colspan="2">{% trans %}Withholding Taxes{% endtrans %}</th>
@@ -82,14 +82,14 @@
     
   </div>
   
-  <h2>{% trans %}Recent invoices{% endtrans %}</h2>
-  <div id="dashboard-latest-invoices">
+  <div class="dashboard-listing">
+    <h2>{% trans %}Recent invoices{% endtrans %}</h2>
     {% set table_rows, table_selectable = invoices, false %}
     {% include "SiwappInvoiceBundle:Default:invoices_list.html.twig" %}
   </div>
   
-  <h2>{% trans %}Past due invoices{% endtrans %}</h2>
-  <div id="dashboard-overdue-invoices">
+  <div class="dashboard-listing">
+    <h2>{% trans %}Past due invoices{% endtrans %}</h2>
     {% set table_rows = overdue_invoices %}
     {% include "SiwappInvoiceBundle:Default:invoices_list.html.twig" %}
   </div>

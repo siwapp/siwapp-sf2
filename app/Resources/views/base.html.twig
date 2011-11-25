@@ -12,6 +12,7 @@
     'js/modernizr.custom.js'
     'js/jquery-1.6.4.min.js'
     output='js/min/core.js'
+    filter='?yui_js'
   %}
   <script type="text/javascript" charset="utf-8" src="{{ asset_url }}"></script>
   {% endjavascripts %}
@@ -96,6 +97,7 @@
     'js/bundle/global.js'
     'js/bundle/search-common.js'
     output='js/min/frameworks.js'
+    filter='?yui_js'
   %}
   <script type="text/javascript" charset="utf-8" src="{{ asset_url }}"></script>
   {% endjavascripts %}

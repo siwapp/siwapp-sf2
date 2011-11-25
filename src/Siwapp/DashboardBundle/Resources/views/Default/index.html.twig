@@ -7,12 +7,7 @@
 
 {% block javascripts %}
   {{ parent() }}
-  {% javascripts
-    'js/bundle/invoice-payments.js'
-    output='js/min/invoice-list.js'
-  %}
-  <script type="text/javascript" charset="utf-8" src="{{ asset_url }}"></script>
-  {% endjavascripts %}
+  <script type="text/javascript" charset="utf-8" src="{{ asset('js/min/invoice-list.js') }}"></script>
 {% endblock %}
 
 {% block searchform %}

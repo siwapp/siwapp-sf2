@@ -129,6 +129,29 @@ li {
 // Rightmost toolbar
 //
 
+body.with-toolbar {
+    #bd {
+        @N:5;
+        padding-right:@layoutPadding * @N;
+        
+        .searchform {
+            margin-right:@layoutPadding * @N * -1;
+        }
+    }
+    
+    #toolbar {
+        position:fixed;
+        top:300px;
+        right:0px;
+        width:16px;
+        min-height:16px;
+        padding:@layoutPadding;
+        background-color:@grayLightest;
+        border:1px solid @grayLighter;
+        border-right-width:0;
+    }
+}
+
 //
 // Bottom actions line
 //

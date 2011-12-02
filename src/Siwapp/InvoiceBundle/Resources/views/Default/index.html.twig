@@ -1,5 +1,10 @@
 {% extends "::base.html.twig" %}
 
+{% block bodytag %}<body class="with-toolbar">{% endblock %}
+{% block toolbar %}
+  <div id="toolbar"></div>
+{% endblock %}
+
 {% block javascripts %}
   {{ parent() }}
   {% javascripts

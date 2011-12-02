@@ -98,42 +98,42 @@ class AbstractInvoice
     /**
      * @var decimal $base_amount
      *
-     * @ORM\Column(name="base_amount", type="decimal", nullable="true")
+     * @ORM\Column(name="base_amount", type="decimal", scale="3", precision="15", nullable="true")
      */
     private $base_amount;
 
     /**
      * @var decimal $discount_amount
      *
-     * @ORM\Column(name="discount_amount", type="decimal", nullable="true")
+     * @ORM\Column(name="discount_amount", type="decimal", scale="3", precision="15", nullable="true")
      */
     private $discount_amount;
 
     /**
      * @var decimal $net_amount
      *
-     * @ORM\Column(name="net_amount", type="decimal", nullable="true")
+     * @ORM\Column(name="net_amount", type="decimal", scale="3", precision="15", nullable="true")
      */
     private $net_amount;
 
     /**
      * @var decimal $gross_amount
      *
-     * @ORM\Column(name="gross_amount", type="decimal", nullable="true")
+     * @ORM\Column(name="gross_amount", type="decimal", scale="3", precision="15", nullable="true")
      */
     private $gross_amount;
 
     /**
      * @var decimal $paid_amount
      *
-     * @ORM\Column(name="paid_amount", type="decimal", nullable="true")
+     * @ORM\Column(name="paid_amount", type="decimal", scale="3", precision="15", nullable="true")
      */
     private $paid_amount;
 
     /**
      * @var decimal $tax_amount
      *
-     * @ORM\Column(name="tax_amount", type="decimal", nullable="true")
+     * @ORM\Column(name="tax_amount", type="decimal", scale="3", precision="15", nullable="true")
      */
     private $tax_amount;
 

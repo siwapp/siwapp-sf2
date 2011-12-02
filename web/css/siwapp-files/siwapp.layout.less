@@ -140,15 +140,32 @@ body.with-toolbar {
     }
     
     #toolbar {
+        @iconWidth:16px;
         position:fixed;
-        top:300px;
-        right:0px;
-        width:16px;
-        min-height:16px;
+        top:250px; right:0px;
+        width:@iconWidth; min-height:@iconWidth;
         padding:@layoutPadding;
+        
         background-color:@grayLightest;
         border:1px solid @grayLighter;
         border-right-width:0;
+        
+        list-style:none;
+        margin:0;
+        
+        li, a {
+            display:block;
+            overflow:hidden;
+            margin:0;
+            padding:0;
+            width:@iconWidth;
+            height:@iconWidth;
+            line-height:@iconWidth;
+        }
+        
+        li + li {
+            margin-top:@iconWidth/2;
+        }
     }
 }
 

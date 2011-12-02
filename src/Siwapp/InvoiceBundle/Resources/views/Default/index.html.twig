@@ -2,7 +2,20 @@
 
 {% block bodytag %}<body class="with-toolbar">{% endblock %}
 {% block toolbar %}
-  <div id="toolbar"></div>
+  <ul id="toolbar">
+    <li>
+      <a href="#" class="remove" title="{% trans %}Remove selected{% endtrans %}">{% trans %}Remove selected{% endtrans %}</a>
+    </li>
+    <li>
+      <a href="#" class="print" title="{% trans %}Print selected{% endtrans %}">{% trans %}Print selected{% endtrans %}</a>
+    </li>
+    <li>
+      <a href="#" class="pdf" title="{% trans %}Download as PDF{% endtrans %}">{% trans %}Download as PDF{% endtrans %}</a>
+    </li>
+    <li>
+      <a href="#" class="email" title="{% trans %}Email selected{% endtrans %}">{% trans %}Email selected{% endtrans %}</a>
+    </li>
+  </ul>
 {% endblock %}
 
 {% block javascripts %}

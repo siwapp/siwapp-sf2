@@ -1,5 +1,8 @@
 jQuery(function($){
   
+  // HTML5 Placeholders for forms
+  $('input, textarea').placeholder();
+  
   /*
     Global shortcuts:
     - Goto: "alt+g" then <key>

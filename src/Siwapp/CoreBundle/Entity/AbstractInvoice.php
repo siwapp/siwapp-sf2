@@ -586,7 +586,7 @@ class AbstractInvoice
     }
 
     /**
-     * @OTM\PostRemove
+     * @ORM\PostRemove
      */
     public function postDelete()
     {

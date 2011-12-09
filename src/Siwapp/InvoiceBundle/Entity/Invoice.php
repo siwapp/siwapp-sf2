@@ -21,13 +21,20 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Invoice extends AbstractInvoice
 {
     /**
-     * @ORM\OneToMany(targetEntity="Item", mappedBy="invoice")
+     * @ORM\OneToMany(targetEntity="Item", mappedBy="invoice", orphanRemoval=true)
      */
     private $items;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Payment", mappedBy="invoice", orphanRemoval=true)
+     *
+     */
+    private $payments;
   
     public function __construct()
     {
         $this->items = new ArrayCollection();
+        $this->payments = new ArrayCollection();
     }
    /**
      * @var boolean $draft
@@ -245,5 +252,25 @@ class Invoice extends AbstractInvoice
     public function __toString()
     {
         return (string)$this->number;
+    }
+
+    /**
+     * Add payments
+     *
+     * @param Siwapp\InvoiceBundle\Entity\Payment $payments
+     */
+    public function addPayment(\Siwapp\InvoiceBundle\Entity\Payment $payments)
+    {
+        $this->payments[] = $payments;
+    }
+
+    /**
+     * Get payments
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getPayments()
+    {
+        return $this->payments;
     }
 }

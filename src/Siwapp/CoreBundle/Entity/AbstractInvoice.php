@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * TODO: Customer and Series relations. Timestampable and Taggable
  *
  * @ORM\MappedSuperclass
+ * @ORM\HasLifecycleCallbacks()
  */
 class AbstractInvoice
 {
@@ -98,42 +99,42 @@ class AbstractInvoice
     /**
      * @var decimal $base_amount
      *
-     * @ORM\Column(name="base_amount", type="decimal", nullable="true")
+     * @ORM\Column(name="base_amount", type="decimal", scale="3", precision="15", nullable="true")
      */
     private $base_amount;
 
     /**
      * @var decimal $discount_amount
      *
-     * @ORM\Column(name="discount_amount", type="decimal", nullable="true")
+     * @ORM\Column(name="discount_amount", type="decimal", scale="3", precision="15", nullable="true")
      */
     private $discount_amount;
 
     /**
      * @var decimal $net_amount
      *
-     * @ORM\Column(name="net_amount", type="decimal", nullable="true")
+     * @ORM\Column(name="net_amount", type="decimal", scale="3", precision="15", nullable="true")
      */
     private $net_amount;
 
     /**
      * @var decimal $gross_amount
      *
-     * @ORM\Column(name="gross_amount", type="decimal", nullable="true")
+     * @ORM\Column(name="gross_amount", type="decimal", scale="3", precision="15", nullable="true")
      */
     private $gross_amount;
 
     /**
      * @var decimal $paid_amount
      *
-     * @ORM\Column(name="paid_amount", type="decimal", nullable="true")
+     * @ORM\Column(name="paid_amount", type="decimal", scale="3", precision="15", nullable="true")
      */
     private $paid_amount;
 
     /**
      * @var decimal $tax_amount
      *
-     * @ORM\Column(name="tax_amount", type="decimal", nullable="true")
+     * @ORM\Column(name="tax_amount", type="decimal", scale="3", precision="15", nullable="true")
      */
     private $tax_amount;
 
@@ -143,17 +144,6 @@ class AbstractInvoice
      * @ORM\Column(name="status", type="smallint", nullable="true")
      */
     private $status;
-
-    private $decimals = null;
-
-    private function getDecimals()
-    {
-      if(!$this->decimals)
-      {
-	$this->decimals = 2;
-      }
-      return $this->decimals;
-    }
 
     /**
      * Get id
@@ -507,6 +497,28 @@ class AbstractInvoice
 
     /** ########### CUSTOM METHODS ################## */
 
+
+    private $decimals = null;
+
+    public function getRoundedAmount($concept = 'gross')
+    {
+        if(!in_array($concept, array('base', 'discount', 'net', 'tax', 'gross')))
+        {
+            return 0;
+        }
+        return round(call_user_func(array($this, Inflector::camelize('get_'.$concept.'_amount'))),$this->getDecimals());
+    }
+
+    private function getDecimals()
+    {
+      if(!$this->decimals)
+      {
+          $this->decimals = 2;
+      }
+      return $this->decimals;
+    }
+
+
     /**
      * calculate values over items
      *
@@ -523,26 +535,66 @@ class AbstractInvoice
       switch($field)
       {
       case 'paid_amount':
-	foreach($this->getPayments() as $payment)
-	{
-	  $val += $payment->getAmount();
-	}
-	break;
+          foreach($this->getPayments() as $payment)
+          {
+              $val += $payment->getAmount();
+          }
+          break;
       default:
-	foreach($this->getItems() as $item)
-	{
-	  $method = 'get'.Inflector::camelize($field);
-	  $val += $item->method();
-	}
-	break;
+          foreach($this->getItems() as $item)
+          {
+              $method = 'get'.Inflector::camelize($field);
+              $val += $item->method();
+          }
+          break;
       }
 
       if($rounded)
       {
-	return round($val, $this->getDecimals());
+          return round($val, $this->getDecimals());
       }
 
       return $val;
     }
 
+    public function setAmounts()
+    {
+        $this->setBaseAmount($this->calculate('base_amount'));
+        $this->setDiscountAmount($this->calculate('discount_amount'));
+        $this->setNetAmount($this->getBaseAmount() - $this->getDiscountAmount());
+        $this->setTaxAmount($this->calculate('tax_amount'));
+        $rounded_gross = round(
+                               $this->getNetAmount() + $this->getTaxAmount(), 
+                               PropertyTable::get('currency_decimals', 2)
+                               );
+        $this->setGrossAmount($rounded_gross);
+        
+        return $this;
+    }
+
+    
+
+    /** *********** LIFECYCLE CALLBACKS ************* */
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function preSave()
+    {
+        $this->checkStatus();
+        // TODO: check for customer matching and update it accordingly. (calling it's updateCustomer method)
+    }
+
+    /**
+     * @ORM\PostRemove
+     */
+    public function postDelete()
+    {
+        foreach($this->items as $it)
+        {
+            $it->delete();
+        }
+    }
+    
+    
 }

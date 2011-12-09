@@ -34,7 +34,7 @@ class AbstractItem
   /**
    * @var decimal $discount
    *
-   * @ORM\Column(type="decimal", scale="2")
+   * @ORM\Column(type="decimal", precision="5", scale="2")
    */
   private $discount;
 
@@ -48,7 +48,7 @@ class AbstractItem
   /**
    * @var decimal $unitary_cost
    *
-   * @ORM\Column(type="decimal")
+   * @ORM\Column(type="decimal", precision="15", scale="3")
    */
   private $unitary_cost;
 

@@ -29,6 +29,7 @@ class InvoiceType extends AbstractInvoiceType
         $builder->add('items', 'collection', array(
             'type' => new ItemType(),
             'allow_add' => true,
+            'allow_delete' => true,
             'prototype' => true,
         ));
     }

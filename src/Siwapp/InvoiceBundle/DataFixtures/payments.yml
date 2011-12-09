@@ -1,0 +1,136 @@
+Payment:
+  Payment_1:
+    Invoice: Invoice_1
+    date: '2004-10-21'
+    amount: '8610.68'
+    notes: 'Ullamco laboris nisi'
+  Payment_2:
+    Invoice: Invoice_2
+    date: '2005-01-18'
+    amount: '13317.87'
+    notes: 'Ullamco laboris nisi'
+  Payment_3:
+    Invoice: Invoice_3
+    date: '2005-04-03'
+    amount: '11780.26'
+    notes: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+  Payment_4:
+    Invoice: Invoice_4
+    date: '2005-10-17'
+    amount: '9675.13'
+    notes: 'Excepteur sint occaecat'
+  Payment_5:
+    Invoice: Invoice_4
+    date: '2006-03-25'
+    amount: '4837.57'
+    notes: 'Ut enim ad minim'
+  Payment_6:
+    Invoice: Invoice_5
+    date: '2005-09-21'
+    amount: '3986.23'
+    notes: 'Ut enim ad minim'
+  Payment_7:
+    Invoice: Invoice_6
+    date: '2005-12-17'
+    amount: '20804.79'
+    notes: 'Ab illo inventore veritatis.'
+  Payment_8:
+    Invoice: Invoice_7
+    date: '2006-08-10'
+    amount: '23510.31'
+    notes: 'Ullamco laboris nisi'
+  Payment_9:
+    Invoice: Invoice_8
+    date: '2006-05-13'
+    amount: '6367.85'
+    notes: 'Ab illo inventore veritatis.'
+  Payment_10:
+    Invoice: Invoice_9
+    date: '2006-09-14'
+    amount: '7929.86'
+    notes: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+  Payment_11:
+    Invoice: Invoice_9
+    date: '2006-08-30'
+    amount: '5947.4'
+    notes: 'Ab illo inventore veritatis.'
+  Payment_12:
+    Invoice: Invoice_9
+    date: '2006-09-04'
+    amount: '8921.09'
+    notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+  Payment_13:
+    Invoice: Invoice_9
+    date: '2006-09-08'
+    amount: '2230.27'
+    notes: 'Ut enim ad minim'
+  Payment_14:
+    Invoice: Invoice_10
+    date: '2006-12-07'
+    amount: '22191.67'
+    notes: 'Excepteur sint occaecat'
+  Payment_15:
+    Invoice: Invoice_11
+    date: '2008-05-26'
+    amount: '27224.25'
+    notes: 'Ab illo inventore veritatis.'
+  Payment_16:
+    Invoice: Invoice_12
+    date: '2007-11-19'
+    amount: '1876.77'
+    notes: 'Ab illo inventore veritatis.'
+  Payment_17:
+    Invoice: Invoice_13
+    date: '2007-08-04'
+    amount: '29146.36'
+    notes: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+  Payment_18:
+    Invoice: Invoice_14
+    date: '2007-10-31'
+    amount: '3008.98'
+    notes: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+  Payment_19:
+    Invoice: Invoice_14
+    date: '2008-04-26'
+    amount: '752.24'
+    notes: 'Ullamco laboris nisi'
+  Payment_20:
+    Invoice: Invoice_14
+    date: '2008-05-01'
+    amount: '62.69'
+    notes: 'Ullamco laboris nisi'
+  Payment_21:
+    Invoice: Invoice_15
+    date: '2008-04-11'
+    amount: '10498.08'
+    notes: 'Ut enim ad minim'
+  Payment_22:
+    Invoice: Invoice_16
+    date: '2008-06-30'
+    amount: '8664.74'
+    notes: 'Excepteur sint occaecat'
+  Payment_23:
+    Invoice: Invoice_16
+    date: '2008-06-20'
+    amount: '6498.55'
+    notes: 'Excepteur sint occaecat'
+  Payment_24:
+    Invoice: Invoice_17
+    date: '2008-11-22'
+    amount: '16936.69'
+    notes: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+  Payment_25:
+    Invoice: Invoice_18
+    date: '2010-01-30'
+    amount: '8110.14'
+    notes: 'Ut enim ad minim'
+  Payment_26:
+    Invoice: Invoice_19
+    date: '2009-11-21'
+    amount: '3468.24'
+    notes: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+  Payment_27:
+    Invoice: Invoice_20
+    date: '2009-09-18'
+    amount: '12566.94'
+    notes: 'Ullamco laboris nisi'

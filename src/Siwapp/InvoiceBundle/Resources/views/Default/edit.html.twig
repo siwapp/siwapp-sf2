@@ -9,4 +9,14 @@
       <input type="submit" />
   </form>
   
+  <a href="#" class="addItem">Add Item</a>
+  <script type="text/javascript">
+    $('a.addItem').live('click', function(event){
+        event.preventDefault();
+        var collectionHolder = $('#siwapp_invoicebundle_invoicetype_items');
+        var prototype = collectionHolder.attr('data-prototype');
+        form = prototype.replace(/\$\$name\$\$/g, collectionHolder.children().length);
+        collectionHolder.append(form);
+    });
+  </script>
 {% endblock %}

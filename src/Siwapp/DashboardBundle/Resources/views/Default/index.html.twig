@@ -80,13 +80,13 @@
   <div class="dashboard-listing">
     <h2>{% trans %}Recent invoices{% endtrans %}</h2>
     {% set table_rows, table_selectable = invoices, false %}
-    {% include "SiwappInvoiceBundle:Partials:invoices_list.html.twig" %}
+    {% include "SiwappInvoiceBundle:Partials:listing.html.twig" %}
   </div>
   
   <div class="dashboard-listing">
     <h2>{% trans %}Past due invoices{% endtrans %}</h2>
     {% set table_rows = overdue_invoices %}
-    {% include "SiwappInvoiceBundle:Partials:invoices_list.html.twig" %}
+    {% include "SiwappInvoiceBundle:Partials:listing.html.twig" %}
   </div>
   
 {% endblock %}

@@ -120,7 +120,7 @@ class DefaultController extends Controller
     
     /**
      * @Route("/payments/{invoiceId}", name="invoice_payments")
-     * @Template
+     * @Template("SiwappInvoiceBundle:Partials:payments.html.twig")
      */
     public function paymentsAction($invoiceId)
     {
@@ -131,7 +131,7 @@ class DefaultController extends Controller
     /**
      * @Route("/payments/{invoiceId}/add", name="invoice_payment_add")
      * @Method("POST")
-     * @Template("SiwappInvoiceBundle:Default:payments_form.html.twig")
+     * @Template("SiwappInvoiceBundle:Partials:payments_form.html.twig")
      */
     public function addPaymentAction($invoiceId)
     {
@@ -143,7 +143,7 @@ class DefaultController extends Controller
     /**
      * @Route("/payments/{invoiceId}/delete", name="invoice_payment_delete")
      * @Method("POST")
-     * @Template("SiwappInvoiceBundle:Default:payments_form.html.twig")
+     * @Template("SiwappInvoiceBundle:Partials:payments_form.html.twig")
      */
     public function deletePayment($invoiceId)
     {

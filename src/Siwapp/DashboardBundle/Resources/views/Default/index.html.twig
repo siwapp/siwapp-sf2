@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block searchform %}
-  {% include "SiwappInvoiceBundle:Default:search.html.twig" %}
+  {% include "SiwappInvoiceBundle:Partials:search.html.twig" %}
 {% endblock %}
 
 {% block body %}
@@ -80,13 +80,13 @@
   <div class="dashboard-listing">
     <h2>{% trans %}Recent invoices{% endtrans %}</h2>
     {% set table_rows, table_selectable = invoices, false %}
-    {% include "SiwappInvoiceBundle:Default:invoices_list.html.twig" %}
+    {% include "SiwappInvoiceBundle:Partials:listing.html.twig" %}
   </div>
   
   <div class="dashboard-listing">
     <h2>{% trans %}Past due invoices{% endtrans %}</h2>
     {% set table_rows = overdue_invoices %}
-    {% include "SiwappInvoiceBundle:Default:invoices_list.html.twig" %}
+    {% include "SiwappInvoiceBundle:Partials:listing.html.twig" %}
   </div>
   
 {% endblock %}

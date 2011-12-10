@@ -15,6 +15,18 @@ use Siwapp\InvoiceBundle\Form\InvoiceType;
 class DefaultController extends Controller
 {
     /**
+     * @Route("/silly", name="silly_index")
+     * @Template()
+     */
+    public function sillyAction()
+    {
+        $repo = $this->getDoctrine()->getEntityManager()
+            ->getRepository('SiwappCoreBundle:AbstractInvoice');
+        print_r($repo);
+        echo $repo->findByUpdateTotals();
+        return array();
+    }
+    /**
      * @Route("/", name="invoice_index")
      * @Template
      */

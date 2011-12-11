@@ -16,7 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *    @ORM\index(name="cstml_idx", columns={"customer_email"}),
  *    @ORM\index(name="cntct_idx", columns={"contact_person"})
  * })
- * @ORM\Entity(repositoryClass="Siwapp\InvoiceBundle\Entity\InvoiceRepository")
+ * @ORM\Entity(repositoryClass="Siwapp\InvoiceBundle\Repository\InvoiceRepository")
  */
 class Invoice extends AbstractInvoice
 {

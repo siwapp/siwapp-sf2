@@ -67,4 +67,12 @@
 [DoctrineFixturesBundle]
     git=http://github.com/symfony/DoctrineFixturesBundle.git
     target=/bundles/Symfony/Bundle/DoctrineFixturesBundle
-    
+ 
+[gedmo-doctrine-extensions]
+    git=git://github.com/l3pp4rd/DoctrineExtensions.git
+    version=1.0.0
+
+[DoctrineExtensionsBundle]
+    git=git://github.com/stof/StofDoctrineExtensionsBundle.git
+    version=1.0.0
+    target=/bundles/Stof/DoctrineExtensionsBundle   

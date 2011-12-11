@@ -543,8 +543,8 @@ class AbstractInvoice
       default:
           foreach($this->getItems() as $item)
           {
-              $method = 'get'.Inflector::camelize($field);
-              $val += $item->method();
+              $method = Inflector::camelize('get_'.$field);
+              $val += $item->$method();
           }
           break;
       }
@@ -565,14 +565,13 @@ class AbstractInvoice
         $this->setTaxAmount($this->calculate('tax_amount'));
         $rounded_gross = round(
                                $this->getNetAmount() + $this->getTaxAmount(), 
-                               PropertyTable::get('currency_decimals', 2)
+                               $this->getDecimals()
                                );
         $this->setGrossAmount($rounded_gross);
         
         return $this;
     }
 
-    
 
     /** *********** LIFECYCLE CALLBACKS ************* */
 

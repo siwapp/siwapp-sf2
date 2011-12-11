@@ -21,9 +21,8 @@ class DefaultController extends Controller
     public function sillyAction()
     {
         $repo = $this->getDoctrine()->getEntityManager()
-            ->getRepository('SiwappCoreBundle:AbstractInvoice');
-        print_r($repo);
-        echo $repo->findByUpdateTotals();
+            ->getRepository('SiwappInvoiceBundle:Invoice');
+        $repo->updateTotals();
         return array();
     }
     /**

@@ -17,10 +17,11 @@ class AbstractInvoiceRepository extends EntityRepository
      * @param ArrayCollection of entities
      * @return AbstractInvoiceRepository
      **/
-    public static function updateTotals(ArrayCollection $entities = new ArrayCollection())
+    public function updateTotals()
     {
+        echo $this->getEntityName();
         $em = $this->getEntityManager();
-        foreach($entity in $entities)
+        foreach($em->createQuery('SELECT i from '.$this->getEntityName().'  i')->getResult() as $entity)
         {
             $entity->setAmounts();
             $em->persist($entity);

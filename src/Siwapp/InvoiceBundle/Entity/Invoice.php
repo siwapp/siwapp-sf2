@@ -4,6 +4,7 @@ namespace Siwapp\InvoiceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Util\Inflector;
 use Siwapp\CoreBundle\Entity\AbstractInvoice;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -249,11 +250,6 @@ class Invoice extends AbstractInvoice
         return $this->items;
     }
     
-    public function __toString()
-    {
-        return (string)$this->number;
-    }
-
     /**
      * Add payments
      *
@@ -272,5 +268,153 @@ class Invoice extends AbstractInvoice
     public function getPayments()
     {
         return $this->payments;
+    }
+
+    /** **************** CUSTOM METHODS AND PROPERTIES **************  */
+
+    public function __toString()
+    {
+        return (string)$this->number;
+    }
+
+
+    
+    const DRAFT    = 0;
+    const CLOSED   = 1;
+    const OPENED   = 2;
+    const OVERDUE  = 3;
+
+    private $series_changed = false;
+
+    public function getDueAmount()
+    {
+        if($this->status == self::DRAFT)
+        {
+            return null;
+        }
+        return $this->gross_amount - $this->paid_amount;
+    }
+
+    /**
+     * try to catch custom methods to be used in twig templates
+     */
+    public function __get($name)
+    {
+        if($name == 'due_amount')
+          {
+              $m = Inflector::camelize("get_{$name}");
+              return $this->$m();
+          }
+        if(strpos($name, 'tax_amount_') === 0)
+        {
+            return $this->calculate($name, true);
+        }
+        return false;
+    }
+
+    public function __isset($name)
+    {
+        if($name == 'due_amount')
+        {
+            return true;
+        }
+        if(strpos($name, 'tax_amount_') === 0)
+        {
+            return true;
+        }
+        return parent::__isset($name);
+    }
+
+    /**
+     * When setting series id, we check if there has been a series change,
+     * because the invoice number will have to change later
+     *
+     * TODO: Reiew this method when series object are available
+     *
+     * @author JoeZ99 <jzarate@gmail.com>
+     * 
+     */
+    public function setSeriesId($value)
+    {
+        // we check numeric value to prevent loading series by name in the tests
+        if($this->getNumber() && $value != $this->series_id &&
+           is_numeric($this->series_id) && is_numeric($value))
+        {
+            $this->series_changed = true;
+        }
+        parent::setSeriesId($value);
+    }
+
+    /**
+     * checkStatus
+     * checks and sets the status
+     *
+     * @return Siwapp\InvoiceBundle\Invoice $this
+     */
+    public function checkStatus()
+    {
+        if($this->closed || $this->due_amount == 0)
+        {
+            $this->setStatus(Invoice::CLOSED);
+        }
+        else
+        {
+            if($this->due_date > sfDate::getInstance()->format('Y-m-d'))
+            {
+                $this->setStatus(Invoice::OPENED);
+            }
+            else
+            {
+                $this->setStatus(Invoice::OVERDUE);
+            }
+        }
+        return $this;
+    }
+
+    public function getStatusString()
+    {
+        switch($this->status)
+        {
+          case Invoice::DRAFT;
+            $status = 'draft';
+             break;
+          case Invoice::CLOSED; 
+            $status = 'closed';
+            break;
+          case Invoice::OPENED;
+            $status = 'opened';
+            break;
+          default:
+            $status = 'unknown';
+            break;  
+        }
+        return $status;
+    }
+
+    public function setAmounts()
+    {
+        parent::setAmounts();
+        $this->setPaidAmount($this->calculate('paid_amount'));
+
+        return $this;
+    }
+
+
+
+    /* ********** LIFECYCLE CALLBACKS *********** */
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function setNextNumber()
+    {
+        // compute the number of invoice
+        if( (!$this->number && $this->status!=self::DRAFT) ||
+            ($this->series_changed && !$this->status!=self::DRAFT)
+            )
+        {
+            $this->series_changed = false;
+            $this->setNumber($this->id);
+        }
     }
 }

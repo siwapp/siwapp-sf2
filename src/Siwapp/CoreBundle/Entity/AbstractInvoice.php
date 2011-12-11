@@ -585,6 +585,14 @@ class AbstractInvoice
     }
 
     /**
+     * checkStatus is to be implemented by the classes than inherit 
+     * from this
+     */
+    protected function checkStatus()
+    {
+    }
+
+    /**
      * @ORM\PostRemove
      */
     public function postDelete()

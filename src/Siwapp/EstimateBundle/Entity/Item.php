@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity
  * @ORM\Table(indexes={
- *    @ORM\index(name="desc_idx", columns={"description"})
+ *    @ORM\index(name="estimate_item_desc_idx", columns={"description"})
  * }, name="EstimateItem")
  */
 class Item extends AbstractItem

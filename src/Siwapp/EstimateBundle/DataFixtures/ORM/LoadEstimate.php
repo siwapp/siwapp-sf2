@@ -25,8 +25,7 @@ class LoadEstimateData extends AbstractFixture implements OrderedFixtureInterfac
     {
 
         $yaml = new Parser();
-        // TODO: find a way of obtainin Bundle's path with the help of $this->container
-        $bpath = './src/Siwapp/EstimateBundle';
+        $bpath = $this->container->get('kernel')->getBundle('SiwappEstimateBundle')->getPath();
         $value = $yaml->parse(file_get_contents($bpath.'/DataFixtures/estimates.yml'));
       
         foreach($value['Estimate'] as $ref => $values)

@@ -23,32 +23,30 @@ class LoadInvoiceData extends AbstractFixture implements OrderedFixtureInterface
 
     public function load($manager)
     {
-
-      $yaml = new Parser();
-      // TODO: find a way of obtainin Bundle's path with the help of $this->container
-      $bpath = './src/Siwapp/InvoiceBundle';
-      $value = $yaml->parse(file_get_contents($bpath.'/DataFixtures/invoices.yml'));
-      
-      foreach($value['Invoice'] as $ref => $values)
-      {
-	$invoice = new Invoice();
-	foreach($values as $fname => $fvalue)
-	{
-	  $method = 'set'.Inflector::camelize($fname);
-	  if(is_callable(array($invoice, $method)))
-	  {
-	    call_user_func(array($invoice, $method), $fvalue);
-	  }
-	}
-	$manager->persist($invoice);
-	$manager->flush();
-	$this->addReference($ref, $invoice);
-      }
+        $yaml = new Parser();
+        $bpath = $this->container->get('kernel')->getBundle('SiwappInvoiceBundle')->getPath();
+        $value = $yaml->parse(file_get_contents($bpath.'/DataFixtures/invoices.yml'));
+        
+        foreach($value['Invoice'] as $ref => $values)
+        {
+            $invoice = new Invoice();
+            foreach($values as $fname => $fvalue)
+                {
+                    $method = 'set'.Inflector::camelize($fname);
+                    if(is_callable(array($invoice, $method)))
+                    {
+                        call_user_func(array($invoice, $method), $fvalue);
+                    }
+                }
+            $manager->persist($invoice);
+            $manager->flush();
+            $this->addReference($ref, $invoice);
+        }
 
     }
 
     public function getOrder()
     {
-      return '2';
+        return '2';
     }
 }

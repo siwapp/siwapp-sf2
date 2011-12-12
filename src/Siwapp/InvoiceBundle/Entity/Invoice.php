@@ -12,10 +12,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Siwapp\InvoiceBundle\Entity\Invoice
  *
  * @ORM\Table(indexes={
- *    @ORM\index(name="cstnm_idx", columns={"customer_name"}),
- *    @ORM\index(name="cstid_idx", columns={"customer_identification"}),
- *    @ORM\index(name="cstml_idx", columns={"customer_email"}),
- *    @ORM\index(name="cntct_idx", columns={"contact_person"})
+ *    @ORM\index(name="invoice_cstnm_idx", columns={"customer_name"}),
+ *    @ORM\index(name="invoice_cstid_idx", columns={"customer_identification"}),
+ *    @ORM\index(name="invoice_cstml_idx", columns={"customer_email"}),
+ *    @ORM\index(name="invoice_cntct_idx", columns={"contact_person"})
  * })
  * @ORM\Entity(repositoryClass="Siwapp\InvoiceBundle\Repository\InvoiceRepository")
  */

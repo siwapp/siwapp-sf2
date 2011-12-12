@@ -27,8 +27,7 @@ class LoadItemData extends AbstractFixture implements OrderedFixtureInterface, C
     {
         
         $yaml = new Parser();
-        // TODO: find a way of obtainin Bundle's path with the help of $this->container
-        $bpath = './src/Siwapp/RecurringInvoiceBundle';
+        $bpath = $this->container->get('kernel')->getBundle('SiwappRecurringInvoiceBundle')->getPath();
         $value = $yaml->parse(file_get_contents($bpath.'/DataFixtures/recurring_invoices.yml'));
 
         foreach($value['Item'] as $ref => $values)

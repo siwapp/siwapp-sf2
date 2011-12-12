@@ -11,10 +11,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Siwapp\EstimateBundle\Entity\Estimate
  *
  * @ORM\Table(indexes={
- *    @ORM\index(name="cstnm_idx", columns={"customer_name"}),
- *    @ORM\index(name="cstid_idx", columns={"customer_identification"}),
- *    @ORM\index(name="cstml_idx", columns={"customer_email"}),
- *    @ORM\index(name="cntct_idx", columns={"contact_person"})
+ *    @ORM\index(name="estimate_cstnm_idx", columns={"customer_name"}),
+ *    @ORM\index(name="estimate_cstid_idx", columns={"customer_identification"}),
+ *    @ORM\index(name="estimate_cstml_idx", columns={"customer_email"}),
+ *    @ORM\index(name="estimate_cntct_idx", columns={"contact_person"})
  * })
  * @ORM\Entity(repositoryClass="Siwapp\EstimateBundle\Entity\EstimateRepository")
  */

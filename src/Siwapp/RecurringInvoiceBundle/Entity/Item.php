@@ -57,11 +57,11 @@ class Item extends AbstractItem
     /**
      * Add taxes
      *
-     * @param Siwapp\CoreBundle\Entity\Tax $taxes
+     * @param Siwapp\CoreBundle\Entity\Tax $tax
      */
-    public function addTax(\Siwapp\CoreBundle\Entity\Tax $taxes)
+    public function addTax(\Siwapp\CoreBundle\Entity\Tax $tax)
     {
-        $this->taxes[] = $taxes;
+        $this->taxes[] = $tax;
     }
 
     /**
@@ -72,5 +72,16 @@ class Item extends AbstractItem
     public function getTaxes()
     {
         return $this->taxes;
+    }
+
+    /**
+     *
+     * Remove Tax
+     *
+     * @param Siwapp\CoreBundle\Entity\Tax
+     */
+    public function removeTax(\Siwapp\CoreBundle\Entity\Tax $tax)
+    {
+        $this->taxes->removeElement($tax);
     }
 }

@@ -26,6 +26,8 @@ class Item extends AbstractItem
     /**
      * @ORM\ManyToMany(targetEntity="Siwapp\CoreBundle\Entity\Tax")
      * @ORM\JoinTable(name="InvoiceItems_Taxes")
+     *
+     * unidirectional many-to-many
      */
     private $taxes;
 
@@ -55,19 +57,14 @@ class Item extends AbstractItem
         return $this->invoice;
     }
     
-    public function __toString()
-    {
-        return $this->description;
-    }
-
     /**
      * Add taxes
      *
-     * @param Siwapp\CoreBundle\Entity\Tax $taxes
+     * @param Siwapp\CoreBundle\Entity\Tax $tax
      */
-    public function addTax(\Siwapp\CoreBundle\Entity\Tax $taxes)
+    public function addTax(\Siwapp\CoreBundle\Entity\Tax $tax)
     {
-        $this->taxes[] = $taxes;
+        $this->taxes[] = $tax;
     }
 
     /**
@@ -78,5 +75,16 @@ class Item extends AbstractItem
     public function getTaxes()
     {
         return $this->taxes;
+    }
+
+    /**
+     *
+     * Remove Tax
+     *
+     * @param Siwapp\CoreBundle\Entity\Tax
+     */
+    public function removeTax(\Siwapp\CoreBundle\Entity\Tax $tax)
+    {
+        $this->taxes->removeElement($tax);
     }
 }

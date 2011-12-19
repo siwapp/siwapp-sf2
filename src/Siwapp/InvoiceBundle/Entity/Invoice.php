@@ -37,12 +37,6 @@ class Invoice extends AbstractInvoice
         $this->items = new ArrayCollection();
         $this->payments = new ArrayCollection();
     }
-   /**
-     * @var boolean $draft
-     *
-     * @ORM\Column(name="draft", type="boolean", nullable="true")
-     */
-    private $draft;
 
     /**
      * @var boolean $closed
@@ -91,11 +85,16 @@ class Invoice extends AbstractInvoice
     /**
      * Set draft
      *
+     * Temporary, just until all references to "draft' bookean  field are removed
+     *
      * @param boolean $draft
      */
     public function setDraft($draft)
     {
-        $this->draft = $draft;
+        if($draft)
+        {
+            $this->status = Invoice::DRAFT;
+        }
     }
 
     /**
@@ -105,7 +104,7 @@ class Invoice extends AbstractInvoice
      */
     public function getDraft()
     {
-        return $this->draft;
+        return $this->status == Invoice::DRAFT;
     }
 
     /**
@@ -233,11 +232,12 @@ class Invoice extends AbstractInvoice
     /**
      * Add items
      *
-     * @param Siwapp\InvoiceBundle\Entity\Item $items
+     * @param Siwapp\InvoiceBundle\Entity\Item $item
      */
-    public function addItem(\Siwapp\InvoiceBundle\Entity\Item $items)
+    public function addItem(\Siwapp\InvoiceBundle\Entity\Item $item)
     {
-        $this->items[] = $items;
+        $this->items[] = $item;
+        $item->setInvoice($this);
     }
 
     /**
@@ -352,14 +352,18 @@ class Invoice extends AbstractInvoice
      * @return Siwapp\InvoiceBundle\Invoice $this
      */
     public function checkStatus()
-    {
+    {                                               
+        if($this->status == Invoice::DRAFT)
+        {
+            return $this;
+        }
         if($this->closed || $this->due_amount == 0)
         {
             $this->setStatus(Invoice::CLOSED);
         }
         else
         {
-            if($this->due_date > sfDate::getInstance()->format('Y-m-d'))
+            if($this->due_date->format('Y-m-d') > sfDate::getInstance()->format('Y-m-d'))
             {
                 $this->setStatus(Invoice::OPENED);
             }
@@ -414,6 +418,7 @@ class Invoice extends AbstractInvoice
             )
         {
             $this->series_changed = false;
+            // TODO set number as the next available number for that series
             $this->setNumber($this->id);
         }
     }

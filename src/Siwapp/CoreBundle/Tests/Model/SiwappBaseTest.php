@@ -5,11 +5,15 @@ use Symfony\Bundle\FrameworkBundle\Console\Application;
 class SiwappBaseTest extends \PHPUnit_Framework_TestCase
 {
     protected $_application;
-
     /**
      * @var \Doctrine\ORM\EntityManager
      */
     protected $em;
+
+    protected $_tax_repo;
+    protected $_invoice_repo;
+    protected $_recurring_invoice_repo;
+    protected $_estimate_repo;
 
     public function setUp()
     {
@@ -34,7 +38,43 @@ class SiwappBaseTest extends \PHPUnit_Framework_TestCase
         return $this->_application->run(new \Symfony\Component\Console\Input\ArrayInput($options));
     }
 
+    protected function getRepo($repo_name)
+    {
+        switch($repo_name)
+        {
+            case 'tax':
+                if(!$this->_tax_repo)
+                {
+                    $this->_tax_repo = $this->em->getRepository('SiwappCoreBundle:Tax');
+                }
+                return $this->_tax_repo;
+                break;
+            case 'invoice':
+                if(!$this->_invoice_repo)
+                {
+                    $this->_invoice_repo = $this->em->getRepository('SiwappInvoiceBundle:Invoice');
+                }
+                return $this->_invoice_repo;
+                break;
+            case 'recurring_invoice':
+                if(!$this->_recurring_invoice_repo)
+                {
+                    $this->_recurring_invoice_repo = $this->em->getRepository('SiwappRecurringInvoiceBundle:RecurringInvoice');
+                }
+                return $this->_recurring_invoice_repo;
+                break;
+            case 'estimate':
+                if(!$this->_estimate_repo)
+                {
+                    $this->_estimate_repo = $this->em->getRepository('SiwappEstimateBundle:Estimate');
+                }
+                return $this->_estimate_repo;
+                break;
+        }
+    }
+
     public function testDummy()
     {
     }
+
 }

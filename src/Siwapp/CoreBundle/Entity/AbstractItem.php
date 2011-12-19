@@ -145,25 +145,7 @@ class AbstractItem
   }
 
 
-    /**
-     * Add taxes
-     *
-     * @param Siwapp\CoreBundle\Entity\Tax $taxes
-     */
-    public function addTax(\Siwapp\CoreBundle\Entity\Tax $taxes)
-    {
-        $this->taxes[] = $taxes;
-    }
-
-    /**
-     * Get taxes
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getTaxes()
-    {
-        return $this->taxes;
-    }
+    /** **************** CUSTOM METHODS ************* */
 
     /**
      * Get base amount
@@ -201,7 +183,7 @@ class AbstractItem
      * @param array tax_names. if present, returns the amount for those taxes
      * @return float amount to tax
      */
-    public function getTaxAmount($tax_names = null)
+    public function getTaxAmount($tax_names = array())
     {
         return $this->getNetAmount() * $this->getTaxesPercent($tax_names) / 100;
     }
@@ -222,18 +204,16 @@ class AbstractItem
      * @param tax_names array if present shows only percent of those taxes
      * @return integer total percent of taxes to apply
      */
-    public function getTaxesPercent($tax_names = null)
+    public function getTaxesPercent($tax_names = array())
     {
-        $tax_names = $tax_names ? 
-            (is_array($tax_names) ?
-             array_map(array('Urlizer', 'urlize'), $tax_names):
-             array(Urlizer::urlize($tax_names))) :
-            null;
+        $tax_names = is_array($tax_names) ?
+            array_map(array('Gedmo\Sluggable\Util\Urlizer', 'urlize'), $tax_names):
+            array(Urlizer::urlize($tax_names)) ;
 
         $total = 0;
         foreach($this->getTaxes() as $tax){
-            if(!$tax_names ||
-               in_array(Urlizer::urlize($tax->getName()), $tax_names))
+            if(count($tax_names)==0 ||
+               in_array(Urlizer::urlize(str_replace(' ','',$tax->getName())), $tax_names))
              {
                  $total += $tax->getValue();
              }
@@ -281,6 +261,11 @@ class AbstractItem
             return true;
         }
         return false;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->description.': '.$this->quantity;
     }
 
 

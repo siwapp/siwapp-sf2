@@ -114,11 +114,12 @@ class Estimate extends AbstractInvoice
     /**
      * Add items
      *
-     * @param Siwapp\EstimateBundle\Entity\Item $items
+     * @param Siwapp\EstimateBundle\Entity\Item $item
      */
-    public function addItem(\Siwapp\EstimateBundle\Entity\Item $items)
+    public function addItem(\Siwapp\EstimateBundle\Entity\Item $item)
     {
-        $this->items[] = $items;
+        $this->items[] = $item;
+        $item->setEstimate($this);
     }
 
     /**
@@ -130,4 +131,13 @@ class Estimate extends AbstractInvoice
     {
         return $this->items;
     }
+
+    /** ********** CUSTOM METHODS AND PROPERTIES ************* */
+
+    const DRAFT    = 0;
+    const PENDING  = 1;
+    const APPROVED = 2;
+    const REJECTED = 3;
+
+    
 }

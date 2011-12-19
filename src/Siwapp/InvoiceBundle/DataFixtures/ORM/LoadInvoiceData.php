@@ -31,13 +31,13 @@ class LoadInvoiceData extends AbstractFixture implements OrderedFixtureInterface
         {
             $invoice = new Invoice();
             foreach($values as $fname => $fvalue)
-                {
-                    $method = 'set'.Inflector::camelize($fname);
-                    if(is_callable(array($invoice, $method)))
-                    {
-                        call_user_func(array($invoice, $method), $fvalue);
-                    }
+            {
+                $method = 'set'.Inflector::camelize($fname);
+                if(is_callable(array($invoice, $method)))
+                {   
+                    call_user_func(array($invoice, $method), $fvalue);
                 }
+            }
             $manager->persist($invoice);
             $manager->flush();
             $this->addReference($ref, $invoice);

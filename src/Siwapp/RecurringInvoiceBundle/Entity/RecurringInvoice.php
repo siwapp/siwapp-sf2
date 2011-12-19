@@ -283,11 +283,12 @@ class RecurringInvoice extends AbstractInvoice
     /** 
      * Add items
      *
-     * @param Siwapp\RecurringInvoiceBundle\Entity\Item $items
+     * @param Siwapp\RecurringInvoiceBundle\Entity\Item $item
      */
-    public function addItem(\Siwapp\RecurringInvoiceBundle\Entity\Item $items)
+    public function addItem(\Siwapp\RecurringInvoiceBundle\Entity\Item $item)
     {
-      $this->items[] = $items;
+      $this->items[] = $item;
+      $item->setRecurringInvoice($this);
     }
 
     /**

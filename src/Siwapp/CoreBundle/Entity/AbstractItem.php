@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * TODO: Custom methods
  * @ORM\MappedSuperclass
+ * @ORM\HasLifecycleCallbacks
  */
 class AbstractItem
 {
@@ -146,6 +147,29 @@ class AbstractItem
 
 
     /** **************** CUSTOM METHODS ************* */
+
+  /**
+   * This function is to be implemented on its descendants
+   */
+  public function getInvoice()
+  {
+  }
+
+
+  /**
+   * reCalculate
+   * recalculate invoice's amounts
+   *
+   * @ORM\PreUpdate
+   * @author JoeZ99 <jzarate@gmail.com>
+   */
+  public function reCalculate()
+  {
+      if($this->getInvoice() instanceof \Siwapp\CoreBundle\Entity\AbstractInvoice)
+      {
+          $this->getInvoice()->setAmounts();
+      }
+  }
 
     /**
      * Get base amount

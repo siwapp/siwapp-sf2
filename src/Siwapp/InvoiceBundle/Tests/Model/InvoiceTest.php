@@ -1,6 +1,7 @@
 <?php
 
 use Siwapp\InvoiceBundle\Entity\Invoice;
+use Siwapp\InvoiceBundle\Entity\Item;
 use Siwapp\CoreBundle\Tests\SiwappBaseTest;
 
 
@@ -20,27 +21,27 @@ class InvoiceTest extends SiwappBaseTest
         $this->assertEquals($test_invoice->tax_amount_iva16, 862.64);
         // TODO checks post save
 
-        // deleting
+        // recalculate when deleting item
         $items = $test_invoice->getItems();
-        echo count($items);
-        $this->em->remove($items[0]);
+        $test_invoice->removeItem($items[2]);
         $this->em->flush();
-        $this->em->detach($test_invoice);
-        $t2_invoice = $this->getRepo('invoice')->find(1);
-        echo count($t2_invoice->getItems());
-        
-        
-        
-        
-        /*
+        $this->assertEquals(count($test_invoice->getItems()),4);
+        $this->assertEquals($test_invoice->getGrossAmount(), 8072.36);
+        // recalculate when adding item
+        $new_item = new Item();
+        $new_item->setDescription("test item");
+        $new_item->setUnitaryCost(100);
+        $new_item->setQuantity(1);
+        $new_item->setDiscount(0);
+        $this->em->persist($new_item);
+        $test_invoice->addItem($new_item);
+        $this->em->flush();
+        $this->assertEquals($test_invoice->getGrossAmount(),8172.36);
+        // recalculate when updating item
+        $item = $items[0];
+        $item->setQuantity($item->getQuantity*2);
+        $this->em->flush();
+        $this->assertEquals($test_invoice->getGrossAmount(),6903.01);
 
-        $inv = new Invoice();
-        $this->assertEquals(0,0);
-        $repo = $this->em->getRepository('SiwappInvoiceBundle:Invoice');
-        foreach($repo->findAll() as $inv)
-        {
-            echo $inv->getId().", ".$inv->getCustomerName()."\n";
-        }
-        */
     }
 }

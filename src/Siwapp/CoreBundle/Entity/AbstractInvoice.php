@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * TODO: Customer and Series relations. Timestampable and Taggable
  *
  * @ORM\MappedSuperclass
- * @ORM\HasLifecycleCallbacks()
+ * @ORM\HasLifecycleCallbacks
  */
 class AbstractInvoice
 {
@@ -498,6 +498,46 @@ class AbstractInvoice
     /** ########### CUSTOM METHODS ################## */
 
 
+    /** ** RELATIONSHIPS ** */
+
+    /**
+     * addItem
+     * adds an item and recalculcates amounts
+     * it needs to use the 'addNewItem' of the descendant
+     *
+     * @param \Siwapp\CoreBUndle\Entity\AbstractItem $item 
+     * @author JoeZ99 <jzarate@gmail.com>
+     */
+    public function addItem(\Siwapp\CoreBundle\Entity\AbstractItem $item)
+    {
+        $this->addNewItem($item);
+        if($item instanceof \Siwapp\InvoiceBundle\Entity\Item)
+        {
+            $item->setInvoice($this);
+        }
+        $this->setAmounts();
+    }
+
+    /**
+     * removeItem
+     * removes an item and recalculcates amounts
+     * it needs to use the 'removeThisItem' of the descendant
+     *
+     * @param mixed $mixed : can be an integer or an item instance
+     *                       - if an integer, removes the item with
+     *                         that position in the collection
+     *                       - if an instance, removes that item
+     * @author JoeZ99 <jzarate@gmail.com>
+     */
+    public function removeItem($mixed)
+    {
+        $this->removeThisItem($mixed);
+        $this->setAmounts();
+        
+    }
+
+    /* ** OTHER ** */
+
     private $decimals = null;
 
     public function getRoundedAmount($concept = 'gross')
@@ -576,9 +616,10 @@ class AbstractInvoice
     /** *********** LIFECYCLE CALLBACKS ************* */
 
     /**
+     * @ORM\PreUpdate
      * @ORM\PrePersist
      */
-    public function preSave()
+    public function preUpdate()
     {
         $this->checkStatus();
         // TODO: check for customer matching and update it accordingly. (calling it's updateCustomer method)

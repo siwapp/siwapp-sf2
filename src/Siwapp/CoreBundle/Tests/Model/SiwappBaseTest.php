@@ -14,6 +14,9 @@ class SiwappBaseTest extends \PHPUnit_Framework_TestCase
     protected $_invoice_repo;
     protected $_recurring_invoice_repo;
     protected $_estimate_repo;
+    protected $_invoice_item_repo;
+    protected $_recurring_inovice_item_repo;
+    protected $_estimate_item_repo;
 
     public function setUp()
     {
@@ -69,6 +72,27 @@ class SiwappBaseTest extends \PHPUnit_Framework_TestCase
                     $this->_estimate_repo = $this->em->getRepository('SiwappEstimateBundle:Estimate');
                 }
                 return $this->_estimate_repo;
+                break;
+            case 'invoice_item':
+                if(!$this->_invoice_item_repo)
+                {
+                    $this->_invoice_item_repo = $this->em->getRepository('SiwappInvoiceBundle:Item');
+                }
+                return $this->_invoice_item_repo;
+                break;
+            case 'recurring_invoice_item':
+                if(!$this->_recurring_invoice_item_repo)
+                {
+                    $this->_recurring_invoice_item_repo = $this->em->getRepository('SiwappRecurringInvoiceBundle:Item');
+                }
+                return $this->_recurring_invoice_item_repo;
+                break;
+            case 'estimate_item':
+                if(!$this->_estimate_item_repo)
+                {
+                    $this->_estimate_item_repo = $this->em->getRepository('SiwappEstimateBundle:Item');
+                }
+                return $this->_estimate_item_repo;
                 break;
         }
     }

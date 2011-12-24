@@ -19,7 +19,6 @@ class AbstractInvoiceRepository extends EntityRepository
      **/
     public function updateTotals()
     {
-        echo $this->getEntityName();
         $em = $this->getEntityManager();
         foreach($em->createQuery('SELECT i from '.$this->getEntityName().'  i')->getResult() as $entity)
         {

@@ -116,7 +116,7 @@ class Estimate extends AbstractInvoice
      *
      * @param Siwapp\EstimateBundle\Entity\Item $item
      */
-    public function addItem(\Siwapp\EstimateBundle\Entity\Item $item)
+    public function addItem(\Siwapp\CoreBundle\Entity\AbstractItem $item)
     {
         $this->items[] = $item;
         $item->setEstimate($this);

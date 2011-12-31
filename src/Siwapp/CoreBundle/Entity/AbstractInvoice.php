@@ -510,11 +510,8 @@ class AbstractInvoice
      */
     public function addItem(\Siwapp\CoreBundle\Entity\AbstractItem $item)
     {
-        $this->addNewItem($item);
-        if($item instanceof \Siwapp\InvoiceBundle\Entity\Item)
-        {
-            $item->setInvoice($this);
-        }
+        $this->addNewItem($item);// this method is called from the descendant
+        $item->setInvoice($this);
         $this->setAmounts();
     }
 

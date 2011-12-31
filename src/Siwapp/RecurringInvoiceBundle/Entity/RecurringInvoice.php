@@ -280,15 +280,18 @@ class RecurringInvoice extends AbstractInvoice
         return $this->last_execution_date;
     }
 
+
+    /** ***************** RELATIONSHIP METHODS *********** **/
+
     /** 
      * Add items
+     * To be called from the ancestor's "addItem" method
      *
      * @param Siwapp\RecurringInvoiceBundle\Entity\Item $item
      */
-    public function addItem(\Siwapp\CoreBundle\Entity\AbstractItem $item)
+    public function addNewItem(\Siwapp\RecurringInvoiceBundle\Entity\Item $item)
     {
       $this->items[] = $item;
-      $item->setRecurringInvoice($this);
     }
 
     /**
@@ -299,5 +302,132 @@ class RecurringInvoice extends AbstractInvoice
     public function getItems()
     {
         return $this->items;
+    }
+
+    /**
+     * Remove an item from the item collection
+     * To be called from ancestor's removeItem method
+     *
+     * @param mixed $mixed \Siwapp\RecurringInvoiceBundle\Entity\Item or integer
+     */
+
+    public function removeThisItem($mixed = null)
+    {
+        if ($mixed instanceof \Siwapp\RecurringInvoiceBundle\Entity\Item)
+        {
+            foreach($this->items as $ref => $item)
+            {
+                if($item === $mixed)
+                {
+                    unset($this->items[$ref]);
+                    break;
+                }
+            }
+        }
+        else if(is_int($mixed))
+        {
+            unset($this->items[$mixed]);
+        }
+    }
+
+    /** ********** CUSTOM METHODS AND PROPERTIES ************** **/
+    /**
+     * TODO: provide the series.
+     */
+    public function __toString()
+    {
+        return (string) "Recurring Invoice: ".$this->id;
+    }
+
+    const INACTIVE = 0;
+    const FINISHED = 1;
+    const ACTIVE = 2;
+    const PENDING = 3;
+
+    /**
+     * get occurrences. get the number of invoices this recurring has generated
+     *
+     * @return integer the number of invoices generated
+     */
+    public function getOccurrences()
+    {
+        return count($this->getInvoices());
+    }
+
+    /**
+     * Gets the number of the pending invoices to be generated
+     * by this recurring at the actual date
+     *
+     * @return integer the number of pending invoices
+     */
+    public function countPendingInvoices()
+    {
+        return ($this->must_occurrences - $this->getOcurrences());
+    }
+
+    /**
+     * checks and sets the number of invoices that should have been
+     * generated until the day specified in args
+     *
+     * @param \DateTime $today
+     */
+    public function checkMustOccurrences(\DateTime $today = null)
+    {
+        if(!$today) $today = new \DateTime();
+        $starting_date = $this->getStartingDate();
+        $finishing_date = $this->getFinishingDate();
+        // TODO : FINISH THIS METHODD!!!
+        if($today > $starting_date) 
+        {
+            $check_date = $finishing_date ? 
+                ($today > $finishing_date ? $finishing_date: $today) : $today;
+
+            switch($this->period_type)
+            {
+            case 'year':
+                $unit = 'y';
+                break;
+            case 'month':
+                $unit = 'm';
+                break;
+            case 'week':
+            case 'day':
+                $unit = 'a';
+                break;
+            }
+
+            $difference = $check_date->diff($starting_date)->format($unit);
+
+            if($this->period_type == 'week')
+            {
+                $difference /= 7;
+            }
+            $must_occurrences = floor($difference / $this->period) +1;
+
+            
+            // if there's already a must_occurreces and is greater
+            // then set this as must_occurences
+            if($this->must_occurrences && 
+               $must_occurrences > $this->must_occurrences)
+            {
+                $must_occurrences = $this->must_occurrences;
+            }
+            $this->must_occurrences = $must_occurrences;
+        }
+        else
+        {
+            $this->must_occurrences = 0;
+        }
+    }
+
+    /**
+     * checks and sets the status
+     *
+     * @return RecurringInvoice $this
+     */
+    public function checkStatus()
+    {
+        $this->checkMustOccurrences();
+        //TODO : End this
     }
 }

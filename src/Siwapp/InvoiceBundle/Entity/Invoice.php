@@ -291,6 +291,9 @@ class Invoice extends AbstractInvoice
 
     /** **************** CUSTOM METHODS AND PROPERTIES **************  */
 
+    /**
+     * TODO: provide the series .
+     */
     public function __toString()
     {
         return (string)$this->number;

@@ -344,7 +344,8 @@ class Invoice extends AbstractInvoice
         {
             return true;
         }
-        return parent::__isset($name);
+        // TODO: somebody wrote this, but there is no such parent method
+        // return parent::__isset($name);
     }
 
     /**

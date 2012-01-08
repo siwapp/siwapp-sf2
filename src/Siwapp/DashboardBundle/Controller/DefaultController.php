@@ -19,7 +19,7 @@ class DefaultController extends Controller
         $entities = $em->getRepository('SiwappInvoiceBundle:Invoice')->findAll();
         
         return array(
-            'invoices' => array_slice($entities, 0, 4),
+            'entities' => array_slice($entities, 0, 4),
             'overdue_invoices' => array_slice($entities, 0, 4)
         );
     }

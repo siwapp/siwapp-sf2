@@ -79,7 +79,7 @@
   
   <div class="dashboard-listing">
     <h2>{% trans %}Recent invoices{% endtrans %}</h2>
-    {% set table_rows, table_selectable = invoices, false %}
+    {% set table_selectable = false %}
     {% include "SiwappInvoiceBundle:Partials:listing.html.twig" %}
   </div>
   

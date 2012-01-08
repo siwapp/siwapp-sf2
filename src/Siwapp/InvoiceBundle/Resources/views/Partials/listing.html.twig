@@ -1,4 +1,4 @@
-{# table_rows variable MUST be defined from the outside #}
+{# entities variable MUST be defined from the outside #}
 
 {% set table_columns = 8 %}
 
@@ -29,12 +29,12 @@
     </tr>
   </thead>
   <tbody>
-    {% if table_rows|length == 0 %}
+    {% if entities|length == 0 %}
       <tr>
         <td colspan="{{ table_columns }}">{% trans %}No invoices found.{% endtrans %}</td>
       </tr>
     {% endif %}
-    {% for entity in table_rows %}
+    {% for entity in entities %}
       <tr data-link="{{ path('invoice_show', { 'id': entity.id }) }}">
         {% if table_selectable %}
         <td class="check">

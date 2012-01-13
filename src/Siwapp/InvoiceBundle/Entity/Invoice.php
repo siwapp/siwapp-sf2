@@ -22,12 +22,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Invoice extends AbstractInvoice
 {
     /**
-     * @ORM\OneToMany(targetEntity="Item", mappedBy="invoice", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Item", mappedBy="invoice", orphanRemoval=true, cascade={"all"})
      */
     private $items;
 
     /**
-     * @ORM\OneToMany(targetEntity="Payment", mappedBy="invoice", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Payment", mappedBy="invoice", orphanRemoval=true, cascade={"all"})
      *
      */
     private $payments;

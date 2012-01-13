@@ -34,7 +34,7 @@
         <ul class="unstyled">
           <li>{% trans with {'%username%': 'test' } %}Wellcome, %username%!{% endtrans %}</li>
           <li>
-            <a href="{{ path('dashboard_index') }}" data-shortcut="alt+g, s">{% trans %}Settings{% endtrans %}</a>
+            <a href="{{ path('configuration_settings') }}" data-shortcut="alt+g, s">{% trans %}Settings{% endtrans %}</a>
           </li>
           <li>
             <a href="{{ path('dashboard_index') }}" data-shortcut="alt+g, q">{% trans %}Logout{% endtrans %}</a>

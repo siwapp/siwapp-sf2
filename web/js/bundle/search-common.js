@@ -14,7 +14,6 @@ jQuery(function($){
   if (search_advanced.length) {
     search_advanced.click(function(e) {
       e.preventDefault();
-      $(this).toggleClass("active");
       $('#search-secondary').toggle();
     });
     jwerty.key('alt+s, a', function(){ search_advanced.click(); });

@@ -30,6 +30,7 @@ class DefaultController extends Controller
             'company_fax' => $property_repository->get('company_fax'),
             'company_email' => $property_repository->get('company_email'),
             'company_url' => $property_repository->get('company_url'),
+            'company_logo' => $property_repository->get('company_logo'),
             'currency' => $property_repository->get('currency', 'USD'),
             'legal_terms' => $property_repository->get('legal_terms'),
             'pdf_size' => $property_repository->get('pdf_size', 'a4'),

@@ -20,25 +20,21 @@ class GlobalSettingsType extends AbstractType
             ->add('company_fax', 'text', array('required' => false))
             ->add('company_email', 'email', array('required' => false))
             ->add('company_url', 'url', array('required' => false))
-            // TODO: find a way to get the choices here
+            // TODO: find a way to get the currency choices here
             ->add('currency', 'choice', array(
                 'choices' => array(),
                 'required' => false
             ))
             ->add('legal_terms', 'textarea', array('required' => false))
             ->add('pdf_size', 'choice', array(
-                'choices' => self::$paper_sizes,
-                'empty_value' => 'Choose paper size',
-                'required' => false
+                'choices' => self::$paper_sizes
                 )
             )
             ->add('pdf_orientation', 'choice', array(
                 'choices' => array(
                     'portrait' => 'Portrait',
                     'landscape' => 'Landscape'
-                ),
-                'empty_value' => 'Choose paper orientation',
-                'required' => false
+                )
             ))
         ;
     }

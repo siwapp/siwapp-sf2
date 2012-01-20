@@ -27,6 +27,11 @@ class Property
      */
     private $value;
 
+    public function __toString()
+    {
+        return $this->getRawValue();
+    }
+    
     /**
      * Set keey
      *
@@ -86,6 +91,7 @@ class Property
      **/
     public function getValue()
     {
-        return json_decode($this->getRawValue());
+        return json_decode($this->getRawValue(), true);
     }
+    
 }

@@ -5,7 +5,7 @@ namespace Siwapp\ConfigBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Siwapp\ConfigBundle\Form\SettingsType;
+use Siwapp\ConfigBundle\Form\GlobalSettingsType;
 
 /**
  * @Route("/configuration")
@@ -13,12 +13,12 @@ use Siwapp\ConfigBundle\Form\SettingsType;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/settings", name="configuration_settings")
+     * @Route("/global_settings", name="global_settings")
      * @Template()
      */
-    public function settingsAction()
+    public function globalSettingsAction()
     {
-        $form = $this->createForm(new SettingsType());
+        $form = $this->createForm(new GlobalSettingsType());
         return array(
             'form' => $form->createView(),
         );

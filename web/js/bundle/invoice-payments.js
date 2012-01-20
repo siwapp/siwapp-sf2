@@ -5,9 +5,20 @@ jQuery(function($){
     attribute to the <table> element. The link that shows the payments must
     have a class name of "payments" and its href attribute must be the URL from
     which retrieve the payments form.
+    
+    <table data-type="invoices">
+      ...
+      <tr>
+        ...
+        <td>
+          <a href="/url/to/the/payments" class="... payments">Payments</a>
+        </td>
+      </tr>
+      ...
+    </table>
   */
   
-  // Payments form display events
+  // Payments form: display events
   
   $('table[data-type="invoices"]').delegate('a.payments', 'click', function(e){
     e.preventDefault();
@@ -41,7 +52,7 @@ jQuery(function($){
     }, 'html');
   });
   
-  // Payments form closing events and actions
+  // Payments form: closing events and actions
   
   $(document.body)
     // Close popover

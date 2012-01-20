@@ -18,11 +18,32 @@ class PropertyRepository extends EntityRepository
      **/
     public function get($key, $value = null)
     {
-        if ($p =  $this->findOneBy(array('keey' => $key)))
+        if ($property =  $this->findOneBy(array('keey' => $key)))
         {
-            $value = $p->getValue();
+            $value = $property->getValue();
         }
         
         return $value;
+    }
+    
+    /**
+     * Shorthand to create or update a Property
+     *
+     * @return void
+     * @author Enrique Martinez
+     **/
+    public function set($key, $value = null)
+    {
+        if (!$property = $this->findOneBy(array('keey' => $key)))
+        {
+            $property = new Property();
+            $property->setKeey($key);
+        }
+        
+        $property->setValue($value);
+        
+        $em = $this->getEntityManager();
+        $em->persist($property);
+        $em->flush();
     }
 }

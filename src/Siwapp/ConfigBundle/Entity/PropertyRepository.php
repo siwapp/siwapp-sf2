@@ -29,10 +29,10 @@ class PropertyRepository extends EntityRepository
     /**
      * Shorthand to create or update a Property
      *
-     * @return void
+     * @return Property
      * @author Enrique Martinez
      **/
-    public function set($key, $value = null)
+    public function setProperty($key, $value = null)
     {
         if (!$property = $this->findOneBy(array('keey' => $key)))
         {
@@ -42,8 +42,38 @@ class PropertyRepository extends EntityRepository
         
         $property->setValue($value);
         
+        return $property;
+    }
+    
+    /**
+     * Returns an associative array with all the properties
+     *
+     * @return array
+     * @author Enrique Martinez
+     **/
+    public function getAll()
+    {
+        $result = array();
+        foreach($this->findAll() as $property) {
+            $result[$property->getKeey()] = $property->getValue();
+        }
+        
+        return $result;
+    }
+    
+    /**
+     * Saves an associative array as properties
+     *
+     * @return void
+     * @author Enrique Martinez
+     **/
+    public function setPropertiesFromArray($data)
+    {
         $em = $this->getEntityManager();
-        $em->persist($property);
+        foreach($data as $k => $v) {
+            $property = $this->setProperty($k, $v);
+            $em->persist($property);
+        }
         $em->flush();
     }
 }

@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
 
 use Siwapp\CoreBundle\Form\TaxType;
+use Siwapp\CoreBundle\Form\SerieType;
 
 class GlobalSettingsType extends AbstractType
 {
@@ -101,6 +102,13 @@ class GlobalSettingsType extends AbstractType
         
         $builder->add('taxes', 'collection', array(
             'type' => new TaxType(),
+            'allow_add' => true,
+            'allow_delete' => true,
+            'prototype' => true,
+        ));
+        
+        $builder->add('series', 'collection', array(
+            'type' => new SerieType(),
             'allow_add' => true,
             'allow_delete' => true,
             'prototype' => true,

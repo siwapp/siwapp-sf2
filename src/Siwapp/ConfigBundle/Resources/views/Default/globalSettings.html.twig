@@ -18,4 +18,15 @@
       });
     </script>
     
+    <a href="#" class="addSerie">Add Serie</a>
+    <script type="text/javascript">
+      $('a.addSerie').live('click', function(event){
+          event.preventDefault();
+          var collectionHolder = $('#siwapp_configbundle_settingstype_series');
+          var prototype = collectionHolder.attr('data-prototype');
+          form = prototype.replace(/\$\$name\$\$/g, collectionHolder.children().length);
+          collectionHolder.append(form);
+      });
+    </script>
+    
 {% endblock %}

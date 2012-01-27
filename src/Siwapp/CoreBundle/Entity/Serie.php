@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Siwapp\CoreBundle\Entity\Serie
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Siwapp\CoreBundle\Entity\SerieRepository")
+ * @ORM\Entity()
  */
 class Serie
 {

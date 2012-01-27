@@ -26,6 +26,7 @@ class DefaultController extends Controller
         
         $data = $property_repository->getAll();
         $data['taxes'] = $em->getRepository('SiwappCoreBundle:Tax')->findAll();
+        $data['series'] = $em->getRepository('SiwappCoreBundle:Serie')->findAll();
         
         $form = $this->createForm(new GlobalSettingsType(), $data);
         

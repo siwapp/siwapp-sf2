@@ -6,6 +6,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Util\Inflector;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 
 use Siwapp\CoreBundle\Entity\Tax;
 
@@ -19,7 +20,7 @@ class LoadTaxData extends AbstractFixture implements OrderedFixtureInterface, Co
         $this->container = $container;
     }
 
-    public function load($manager)
+    public function load(ObjectManager $manager)
     {
         $taxes = array(
                        'Tax_1'=>array(

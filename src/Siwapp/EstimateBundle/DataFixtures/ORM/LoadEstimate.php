@@ -11,6 +11,7 @@ use Siwapp\EstimateBundle\Entity\Estimate;
 use Siwapp\EstimateBundle\SiwappEstimateBundle;
 use Symfony\Component\Yaml\Parser;
 use Doctrine\Common\Util\Inflector;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadEstimateData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
@@ -21,7 +22,7 @@ class LoadEstimateData extends AbstractFixture implements OrderedFixtureInterfac
         $this->container = $container;
     }
 
-    public function load($manager)
+    public function load(ObjectManager $manager)
     {
 
         $yaml = new Parser();

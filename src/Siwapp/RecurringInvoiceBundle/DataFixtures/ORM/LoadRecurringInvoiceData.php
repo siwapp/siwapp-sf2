@@ -11,6 +11,7 @@ use Siwapp\RecurringInvoiceBundle\Entity\RecurringInvoice;
 use SIwapp\RecurringInvoiceBundle\SiwappRecurringInvoiceBundle;
 use Symfony\Component\Yaml\Parser;
 use Doctrine\Common\Util\Inflector;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadRecurringInvoiceData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
@@ -21,7 +22,7 @@ class LoadRecurringInvoiceData extends AbstractFixture implements OrderedFixture
     $this->container = $container;
   }
 
-    public function load($manager)
+    public function load(ObjectManager $manager)
     {
 
       $yaml = new Parser();

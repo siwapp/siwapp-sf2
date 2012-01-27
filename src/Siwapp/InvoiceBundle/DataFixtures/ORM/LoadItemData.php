@@ -13,6 +13,7 @@ use Siwapp\InvoiceBundle\Entity\Item;
 
 use Symfony\Component\Yaml\Parser;
 use Doctrine\Common\Util\Inflector;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadItemData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
@@ -23,7 +24,7 @@ class LoadItemData extends AbstractFixture implements OrderedFixtureInterface, C
         $this->container = $container;
     }
 
-    public function load($manager)
+    public function load(ObjectManager $manager)
     {
         $yaml = new Parser();
         // TODO: find a way of obtainin Bundle's path with the help of $this->container

@@ -11,17 +11,18 @@ use Siwapp\InvoiceBundle\Entity\Invoice;
 use SIwapp\InvoiceBundle\SiwappInvoiceBundle;
 use Symfony\Component\Yaml\Parser;
 use Doctrine\Common\Util\Inflector;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadInvoiceData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
-  private $container;
+    private $container;
 
-  public function setContainer(ContainerInterface $container = null)
-  {
-    $this->container = $container;
-  }
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
 
-    public function load($manager)
+    public function load(ObjectManager $manager)
     {
         $yaml = new Parser();
         $bpath = $this->container->get('kernel')->getBundle('SiwappInvoiceBundle')->getPath();

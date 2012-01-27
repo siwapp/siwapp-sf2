@@ -10,9 +10,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Siwapp\EstimateBundle\Entity\Estimate;
 use Siwapp\EstimateBundle\Entity\Item;
 
-
 use Symfony\Component\Yaml\Parser;
 use Doctrine\Common\Util\Inflector;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadItemData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
@@ -23,7 +23,7 @@ class LoadItemData extends AbstractFixture implements OrderedFixtureInterface, C
     $this->container = $container;
   }
 
-    public function load($manager)
+    public function load(ObjectManager $manager)
     {
 
       $yaml = new Parser();

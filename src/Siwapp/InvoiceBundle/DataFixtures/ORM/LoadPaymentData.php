@@ -9,10 +9,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use Siwapp\InvoiceBundle\Entity\Invoice;
 use Siwapp\InvoiceBundle\Entity\Payment;
-
-
 use Symfony\Component\Yaml\Parser;
 use Doctrine\Common\Util\Inflector;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadPaymentData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
@@ -23,7 +22,7 @@ class LoadPaymentData extends AbstractFixture implements OrderedFixtureInterface
         $this->container = $container;
     }
 
-    public function load($manager)
+    public function load(ObjectManager $manager)
     {
         $yaml = new Parser();
         // TODO: find a way of obtainin Bundle's path with the help of $this->container

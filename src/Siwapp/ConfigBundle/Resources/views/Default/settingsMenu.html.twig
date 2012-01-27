@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% block searchform %}
+<ul>
+    <li><a href="{{ path('global_settings') }}">{% trans %}Global Settings{% endtrans %}</a></li>
+    <li><a href="{{ path('my_settings') }}">{% trans %}My Settings{% endtrans %}</a></li>
+    <li><a href="{{ path('printing_templates') }}">{% trans %}Printing Templates{% endtrans %}</a></li>
+    <li><a href="{{ path('modules') }}">{% trans %}Modules{% endtrans %}</a></li>
+</ul>
+{% endblock %}

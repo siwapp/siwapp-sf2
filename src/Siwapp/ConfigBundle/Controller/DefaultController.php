@@ -42,4 +42,31 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         );
     }
+    
+    /**
+     * @Route("/my_settings", name="my_settings")
+     * @Template()
+     */
+    public function mySettingsAction(Request $request)
+    {
+        
+    }
+    
+    /**
+     * @Route("/printing_templates", name="printing_templates")
+     * @Template()
+     */
+    public function printingTemplatesAction(Request $request)
+    {
+        
+    }
+    
+    /**
+     * @Route("/modules", name="modules")
+     * @Template()
+     */
+    public function modulesAction(Request $request)
+    {
+        
+    }
 }

@@ -2,9 +2,20 @@
 
 {% block body %}
   
-  <form action="{{ path('global_settings') }}" method="post" {{ form_enctype(form) }}>
-      {{ form_widget(form) }}
-      <input type="submit" />
-  </form>
+    <form action="{{ path('global_settings') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <input type="submit" />
+    </form>
   
+    <a href="#" class="addTax">Add Tax</a>
+    <script type="text/javascript">
+      $('a.addTax').live('click', function(event){
+          event.preventDefault();
+          var collectionHolder = $('#siwapp_configbundle_settingstype_taxes');
+          var prototype = collectionHolder.attr('data-prototype');
+          form = prototype.replace(/\$\$name\$\$/g, collectionHolder.children().length);
+          collectionHolder.append(form);
+      });
+    </script>
+    
 {% endblock %}

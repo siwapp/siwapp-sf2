@@ -21,10 +21,11 @@ class DefaultController extends Controller
      */
     public function globalSettingsAction(Request $request)
     {
-        $property_repository = $this->getDoctrine()->getEntityManager()
-            ->getRepository('SiwappConfigBundle:Property');
+        $em = $this->getDoctrine()->getEntityManager();
+        $property_repository = $em->getRepository('SiwappConfigBundle:Property');
         
         $data = $property_repository->getAll();
+        $data['taxes'] = $em->getRepository('SiwappCoreBundle:Tax')->findAll();
         
         $form = $this->createForm(new GlobalSettingsType(), $data);
         

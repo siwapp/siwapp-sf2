@@ -5,6 +5,8 @@ namespace Siwapp\ConfigBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
 
+use Siwapp\CoreBundle\Form\TaxType;
+
 class GlobalSettingsType extends AbstractType
 {
     protected static $paper_sizes = array(
@@ -96,6 +98,13 @@ class GlobalSettingsType extends AbstractType
                 )
             ))
         ;
+        
+        $builder->add('taxes', 'collection', array(
+            'type' => new TaxType(),
+            'allow_add' => true,
+            'allow_delete' => true,
+            'prototype' => true,
+        ));
     }
 
     public function getName()

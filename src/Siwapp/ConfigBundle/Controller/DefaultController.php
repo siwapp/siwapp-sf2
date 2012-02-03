@@ -34,6 +34,7 @@ class DefaultController extends Controller
             $form->bindRequest($request);
             if($form->isValid()) {
                 $data = $form->getData();
+				unset($data['series'], $data['taxes']);				
                 $property_repository->setPropertiesFromArray($data);
             }
         }

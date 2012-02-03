@@ -5,9 +5,55 @@
   <div class="inner" style="width:auto !important;">
     <h3 class="title">{% trans %}Payments{% endtrans %}</h3>
     <div class="content">
-      {# AJAX zone #}
-      {% include "SiwappInvoiceBundle:Partials:payments_form.html.twig" %}
-      {# AJAX zone #}
+	  <form action="{{ path('invoice_payment_add', { 'invoiceId': invoiceId }) }}" method="post">
+	    <table class="condensed-table">
+	      <thead>
+	        <tr>
+	          <th>
+	            <input type="checkbox" name="all" />
+	          </th>
+	          <th class="date">
+	            {% trans %}Date{% endtrans %}
+	          </th>
+	          <th>
+	            {% trans %}Description{% endtrans %}
+	          </th>
+	          <th class="currency">
+	            {% trans %}Amount{% endtrans %}
+	          </th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	  	  {% for entity in entities %}
+	        <tr>
+	         	<td>
+	            <input type="checkbox" name="id[]" value="{{ entity.id }}" />
+	          </td>
+	          <td class="date">{{ entity.date|date("Y/m/d") }}</td>
+	          <td>{{ entity.notes }}</td>
+	          <td class="currency">{{ entity.amount }}</td>
+	        </tr>
+	  	  {% endfor %}
+	        <tr>
+	          <td></td>
+	          <td class="date">
+	            <input type="text" placeholder="Date" name="date" />
+	          </td>
+	          <td>
+	            <input type="text" placeholder="Description" name="description" />
+	          </td>
+	          <td class="currency">
+	            <input type="text" placeholder="Amount" name="amount" />
+	          </td>
+	        </tr>
+	      </tbody>
+	    </table>
+	    <div class="buttons">
+	      <a href="{{ path('invoice_payment_delete', { 'invoiceId': 1 }) }}" class="btn danger icon alternative trash float-left">{% trans %}Remove selected{% endtrans %}</a>
+	      <button type="submit" class="btn success icon alternative add">{% trans %}Add Payment{% endtrans %}</button>
+	      <button type="button" class="btn secondary">{% trans %}OK{% endtrans %}</button>
+	    </div>
+	  </form>
     </div>
   </div>
 </div>

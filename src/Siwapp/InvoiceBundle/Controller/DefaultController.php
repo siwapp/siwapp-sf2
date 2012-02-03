@@ -136,7 +136,10 @@ class DefaultController extends Controller
     public function paymentsAction($invoiceId)
     {
         // Return all payments
-        return array('invoiceId' => $invoiceId);
+        $em = $this->getDoctrine()->getEntityManager();
+        $entities = $em->getRepository('SiwappInvoiceBundle:Payment')->findBy(array('invoice' => $invoiceId));
+		
+        return array('entities' => $entities, 'invoiceId' => $invoiceId);
     }
     
     /**

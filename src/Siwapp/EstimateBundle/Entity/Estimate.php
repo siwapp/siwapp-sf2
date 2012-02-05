@@ -21,7 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Estimate extends AbstractInvoice
 {
     /**
-     * @ORM\OneToMany(targetEntity="Item", mappedBy="estimate")
+     * @ORM\OneToMany(targetEntity="Item", mappedBy="estimate", orphanRemoval=true, cascade={"all"})
      */
     private $items;
     
@@ -119,7 +119,6 @@ class Estimate extends AbstractInvoice
     public function addItem(\Siwapp\CoreBundle\Entity\AbstractItem $item)
     {
         $this->items[] = $item;
-        $item->setEstimate($this);
     }
 
     /**
@@ -138,6 +137,14 @@ class Estimate extends AbstractInvoice
     const PENDING  = 1;
     const APPROVED = 2;
     const REJECTED = 3;
+
+    public function checkStatus()
+    {
+        if($this->getDraft())
+        {
+            $this->setStatus(Estimate::DRAFT);
+        }
+    }
 
     
 }

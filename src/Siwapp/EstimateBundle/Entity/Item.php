@@ -84,4 +84,19 @@ class Item extends AbstractItem
     {
         $this->taxes->removeElement($tax);
     }
+
+    /** *************** CUSTOM METHODS ************* **/
+
+    /** *************** RELATIONSHIP METHODS ********* **/
+
+    /**
+     * setParent
+     *
+     * @param \Siwapp\EstimateBundle\Entity\Estimate $est
+     * @author JoeZ99 <jzarate@gmail.com>
+     */
+    protected function setParent(\Siwapp\EstimateBundle\Entity\Estimate $est)
+    {
+        $this->setEstimate($est);
+    }
 }

@@ -84,4 +84,19 @@ class Item extends AbstractItem
     {
         $this->taxes->removeElement($tax);
     }
+
+    /** ************* CUSTOM METHODS ********** **/
+
+    /** ************* RELATIONSHIP METHODS *********** **/
+
+    /** 
+     * setParent
+     *
+     * @param \Siwapp\RecurringInvoiceBundle\Entity\RecurringInvoice $rinv
+     * @author JoeZ99 <jzarate@gmail.com>
+     */
+    protected function setParent(\Siwapp\RecurringInvoiceBundle\Entity\RecurringInvoice $rinv)
+    {
+        $this->setRecurringInvoice($rinv);
+    }
 }

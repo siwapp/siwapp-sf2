@@ -22,7 +22,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class RecurringInvoice extends AbstractInvoice
 {
   /**
-   *   @ORM\OneToMany(targetEntity="Item", mappedBy="recurring_invoice")
+   *   @ORM\OneToMany(targetEntity="Item", mappedBy="recurring_invoice", orphanRemoval=true, cascade={"all"})
    */
   private $items;
 
@@ -285,11 +285,10 @@ class RecurringInvoice extends AbstractInvoice
 
     /** 
      * Add items
-     * To be called from the ancestor's "addItem" method
      *
      * @param Siwapp\RecurringInvoiceBundle\Entity\Item $item
      */
-    public function addNewItem(\Siwapp\RecurringInvoiceBundle\Entity\Item $item)
+    public function addItem(\Siwapp\RecurringInvoiceBundle\Entity\Item $item)
     {
       $this->items[] = $item;
     }
@@ -304,31 +303,6 @@ class RecurringInvoice extends AbstractInvoice
         return $this->items;
     }
 
-    /**
-     * Remove an item from the item collection
-     * To be called from ancestor's removeItem method
-     *
-     * @param mixed $mixed \Siwapp\RecurringInvoiceBundle\Entity\Item or integer
-     */
-
-    public function removeThisItem($mixed = null)
-    {
-        if ($mixed instanceof \Siwapp\RecurringInvoiceBundle\Entity\Item)
-        {
-            foreach($this->items as $ref => $item)
-            {
-                if($item === $mixed)
-                {
-                    unset($this->items[$ref]);
-                    break;
-                }
-            }
-        }
-        else if(is_int($mixed))
-        {
-            unset($this->items[$mixed]);
-        }
-    }
 
     /** ********** CUSTOM METHODS AND PROPERTIES ************** **/
     /**
@@ -430,4 +404,5 @@ class RecurringInvoice extends AbstractInvoice
         $this->checkMustOccurrences();
         //TODO : End this
     }
+
 }

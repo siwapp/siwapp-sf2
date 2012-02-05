@@ -501,24 +501,23 @@ class AbstractInvoice
     /** ** RELATIONSHIPS ** */
 
     /**
-     * addItem
+     * addNewItem
      * adds an item and recalculcates amounts
-     * it needs to use the 'addNewItem' of the descendant
+     * it needs to use the 'addItem' of the descendant
      *
-     * @param \Siwapp\CoreBUndle\Entity\AbstractItem $item 
+     * @param \Siwapp\CoreBundle\Entity\AbstractItem $item 
      * @author JoeZ99 <jzarate@gmail.com>
      */
-    public function addItem(\Siwapp\CoreBundle\Entity\AbstractItem $item)
+    public function addNewItem(\Siwapp\CoreBundle\Entity\AbstractItem $item)
     {
-        $this->addNewItem($item);// this method is called from the descendant
-        $item->setInvoice($this);
+        $this->addItem($item);// this method is called from the descendant
+        $item->setParent($this);// this is to ensure relation is established
         $this->setAmounts();
     }
 
     /**
      * removeItem
      * removes an item and recalculcates amounts
-     * it needs to use the 'removeThisItem' of the descendant
      *
      * @param mixed $mixed : can be an integer or an item instance
      *                       - if an integer, removes the item with
@@ -528,7 +527,21 @@ class AbstractInvoice
      */
     public function removeItem($mixed)
     {
-        $this->removeThisItem($mixed);
+        if($mixed instanceof \Siwapp\CoreBundle\Entity\AbstractItem)
+        {
+            foreach($this->getItems() as $ref => $item)
+            {
+                if($item === $mixed)
+                {
+                    unset($this->items[$ref]);
+                    break;
+                }
+            }
+        }
+        else if(is_int($mixed))
+        {
+            unset($this->items[$mixed]);
+        }
         $this->setAmounts();
         
     }
@@ -622,24 +635,4 @@ class AbstractInvoice
         // TODO: check for customer matching and update it accordingly. (calling it's updateCustomer method)
     }
 
-    /**
-     * checkStatus is to be implemented by the classes than inherit 
-     * from this
-     */
-    protected function checkStatus()
-    {
-    }
-
-    /**
-     * @ORM\PostRemove
-     */
-    public function postDelete()
-    {
-        foreach($this->items as $it)
-        {
-            $it->delete();
-        }
-    }
-    
-    
 }

@@ -145,15 +145,8 @@ class AbstractItem
     $this->unitary_cost = $unitary_cost;
   }
 
-
-    /** **************** CUSTOM METHODS ************* */
-
-  /**
-   * This function is to be implemented on its descendants
-   */
-  public function getInvoice()
-  {
-  }
+  
+  /** **************** CUSTOM METHODS ************* */
 
 
   /**

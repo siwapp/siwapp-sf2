@@ -231,10 +231,10 @@ class Invoice extends AbstractInvoice
 
     /**
      * Add items
-     *
+     * 
      * @param Siwapp\InvoiceBundle\Entity\Item $item
      */
-    public function addNewItem(\Siwapp\InvoiceBundle\Entity\Item $item)
+    public function addItem(\Siwapp\InvoiceBundle\Entity\Item $item)
     {
         $this->items[] = $item;
     }
@@ -267,26 +267,6 @@ class Invoice extends AbstractInvoice
     public function getPayments()
     {
         return $this->payments;
-    }
-
-    /** ***************** RELATIONSHIP METHODS ************* **/
-    public function removeThisItem($mixed = null)
-    {
-        if ($mixed instanceof \Siwapp\InvoiceBundle\Entity\Item)
-        {
-            foreach($this->items as $ref => $item)
-            {
-                if ($item === $mixed)
-                {
-                    unset($this->items[$ref]);
-                    break;
-                }
-            }
-        } 
-        else if(is_int($mixed)) 
-        {
-            unset($this->items[$mixed]);
-        }
     }
 
     /** **************** CUSTOM METHODS AND PROPERTIES **************  */
@@ -445,4 +425,5 @@ class Invoice extends AbstractInvoice
             $this->setNumber($this->id);
         }
     }
+
 }

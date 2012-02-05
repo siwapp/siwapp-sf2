@@ -87,4 +87,21 @@ class Item extends AbstractItem
     {
         $this->taxes->removeElement($tax);
     }
+
+    /** ********** CUSTOM METHODS ********* **/
+
+    /** ********** RELATIONSHIP METHODS *** **/
+    
+    /**
+     * setParent
+     * Generic method to set the 'owner' of this item
+     * it can be either an invoice, recurriong invoice , estimate..
+     *
+     * @param \Siwapp\InvoiceBundle\Entity\Invoice $invoice
+     * @author JoeZ99 <jzarate@gmail.com>
+     */
+    protected function setParent(\Siwapp\InvoiceBundle\Entity\Invoice $invoice)
+    {
+        $this->setInvoice($invoice);
+    }
 }

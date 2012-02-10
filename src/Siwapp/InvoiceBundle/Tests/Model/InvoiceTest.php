@@ -34,7 +34,7 @@ class InvoiceTest extends SiwappBaseTest
         $new_item->setQuantity(1);
         $new_item->setDiscount(0);
         $this->em->persist($new_item);
-        $test_invoice->addItem($new_item);
+        $test_invoice->addNewItem($new_item);
         $this->em->flush();
         $this->assertEquals($test_invoice->getGrossAmount(),8172.36);
         // recalculate when updating item

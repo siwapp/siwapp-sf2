@@ -529,11 +529,12 @@ class AbstractInvoice
     {
         if($mixed instanceof \Siwapp\CoreBundle\Entity\AbstractItem)
         {
-            foreach($this->getItems() as $ref => $item)
+            $items = $this->getItems();
+            foreach($items as $ref => $item)
             {
                 if($item === $mixed)
                 {
-                    unset($this->items[$ref]);
+                    unset($items[$ref]);
                     break;
                 }
             }

@@ -1,7 +1,7 @@
 Estimate:
   Estimate_1:
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     number: '1'
     customer_name: 'Smith and Co.'
     customer_identification: 2450626775P
@@ -18,7 +18,7 @@ Estimate:
     updated_at: '2009-08-25 10:27:12'
   Estimate_2:
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     number: '2'
     customer_name: 'Rouster and Sideways'
     customer_identification: '1889335077'
@@ -35,7 +35,7 @@ Estimate:
     updated_at: '2009-08-25 10:27:12'
   Estimate_3:
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     number: '3'
     customer_name: 'Western Gas & Electric'
     customer_identification: 3924395949G
@@ -52,7 +52,7 @@ Estimate:
     updated_at: '2009-08-25 10:27:12'
   Estimate_4:
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     number: '4'
     customer_name: 'Osato Chemicals'
     customer_identification: 4499553670X
@@ -69,7 +69,7 @@ Estimate:
     updated_at: '2009-08-25 10:27:12'
   Estimate_5:
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     customer_name: '123 Warehousing'
     customer_identification: '77426541881'
     customer_email: cyrus_decker@example.com

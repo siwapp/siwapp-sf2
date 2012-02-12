@@ -24,6 +24,13 @@ class Estimate extends AbstractInvoice
      * @ORM\OneToMany(targetEntity="Item", mappedBy="estimate", orphanRemoval=true, cascade={"all"})
      */
     private $items;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\Siwapp\CoreBundle\Entity\Serie")
+     * 
+     * unidirectional one-to-many
+     */
+    private $serie;
     
     public function __construct()
     {
@@ -147,4 +154,24 @@ class Estimate extends AbstractInvoice
     }
 
     
+
+    /**
+     * Set serie
+     *
+     * @param Siwapp\CoreBundle\Entity\Serie $serie
+     */
+    public function setSerie(\Siwapp\CoreBundle\Entity\Serie $serie)
+    {
+        $this->serie = $serie;
+    }
+
+    /**
+     * Get serie
+     *
+     * @return Siwapp\CoreBundle\Entity\Serie 
+     */
+    public function getSerie()
+    {
+        return $this->serie;
+    }
 }

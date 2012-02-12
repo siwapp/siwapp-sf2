@@ -31,6 +31,14 @@ class Invoice extends AbstractInvoice
      *
      */
     private $payments;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Siwapp\CoreBundle\Entity\Serie")
+     *
+     * unidirectional many-to-one
+     */
+    private $serie;
+
   
     public function __construct()
     {
@@ -269,10 +277,31 @@ class Invoice extends AbstractInvoice
         return $this->payments;
     }
 
+    /**
+     * Set serie
+     *
+     * @param Siwapp\CoreBundle\Entity\Serie $serie
+     */
+    public function setSerie(\Siwapp\CoreBundle\Entity\Serie $serie)
+    {
+        $this->checkSerieChanged($serie);
+        $this->serie = $serie;
+    }
+
+    /**
+     * Get serie
+     *
+     * @return Siwapp\CoreBundle\Entity\Serie 
+     */
+    public function getSerie()
+    {
+        return $this->serie;
+    }
+
     /** **************** CUSTOM METHODS AND PROPERTIES **************  */
 
     /**
-     * TODO: provide the series .
+     * TODO: provide the serie .
      */
     public function __toString()
     {
@@ -286,7 +315,7 @@ class Invoice extends AbstractInvoice
     const OPENED   = 2;
     const OVERDUE  = 3;
 
-    private $series_changed = false;
+    private $serie_changed = false;
 
     public function getDueAmount()
     {
@@ -329,23 +358,20 @@ class Invoice extends AbstractInvoice
     }
 
     /**
-     * When setting series id, we check if there has been a series change,
+     * When setting serie id, we check if there has been a serie change,
      * because the invoice number will have to change later
      *
-     * TODO: Reiew this method when series object are available
+     * TODO: Reiew this method when serie object are available
      *
      * @author JoeZ99 <jzarate@gmail.com>
      * 
      */
-    public function setSeriesId($value)
+    private function checkSerieChanged(\Siwapp\CoreBundle\Entity\Serie $serie)
     {
-        // we check numeric value to prevent loading series by name in the tests
-        if($this->getNumber() && $value != $this->series_id &&
-           is_numeric($this->series_id) && is_numeric($value))
+        if($this->number>0 && $this->getSerie() != $serie)
         {
-            $this->series_changed = true;
+            $this->serie_changed = true;
         }
-        parent::setSeriesId($value);
     }
 
     /**
@@ -417,13 +443,15 @@ class Invoice extends AbstractInvoice
     {
         // compute the number of invoice
         if( (!$this->number && $this->status!=self::DRAFT) ||
-            ($this->series_changed && !$this->status!=self::DRAFT)
+            ($this->serie_changed && !$this->status!=self::DRAFT)
             )
         {
-            $this->series_changed = false;
-            // TODO set number as the next available number for that series
+            $this->serie_changed = false;
+            // TODO set number as the next available number for that serie
             $this->setNumber($this->id);
         }
     }
+
+
 
 }

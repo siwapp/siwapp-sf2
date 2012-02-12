@@ -1,6 +1,6 @@
 RecurringInvoice:
   RecurringInvoice_21:
-    Series: Series_3
+    Serie: Serie_3
     customer_name: Krustyco
     customer_identification: 7141253916O
     customer_email: deborah_hudson@example.com
@@ -17,7 +17,7 @@ RecurringInvoice:
     starting_date: '2006-06-30'
 
   RecurringInvoice_22:
-    Series: Series_2
+    Serie: Serie_2
     customer_name: Krustyco
     customer_identification: 6852996407X
     customer_email: valeria_starling@example.com
@@ -36,7 +36,7 @@ RecurringInvoice:
     finishing_date: '2037-06-04'
 
   RecurringInvoice_23:
-    Series: Series_2
+    Serie: Serie_2
     customer_name: 'Plow King'
     customer_identification: 7885556345D
     customer_email: jennifer_karidian@example.com

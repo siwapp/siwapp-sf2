@@ -19,7 +19,13 @@ class InvoiceTest extends SiwappBaseTest
 
         // test tax_amount_<tax_name> property
         $this->assertEquals($test_invoice->tax_amount_iva16, 862.64);
-        // TODO checks post save
+        // checks post save ??
+        $this->em->persist($test_invoice);
+        $this->em->flush();
+        $this->assertEquals($test_invoice->getBaseAmount(),7198.85);
+        $this->assertEquals($test_invoice->getNetAmount(),7198.85);
+        $this->assertEquals($test_invoice->getTaxAmount(),1034.7995);
+        $this->assertEquals($test_invoice->getGrossAmount(),8233.65);
 
         // recalculate when deleting item
         $items = $test_invoice->getItems();
@@ -42,6 +48,13 @@ class InvoiceTest extends SiwappBaseTest
         $item->setQuantity($item->getQuantity*2);
         $this->em->flush();
         $this->assertEquals($test_invoice->getGrossAmount(),6903.01);
+
+        // TODO: check number generation
+
+        // TODO: check that when changing series, the number changes
+
+        // TODO: check savings with modified customer data
+        
 
     }
 }

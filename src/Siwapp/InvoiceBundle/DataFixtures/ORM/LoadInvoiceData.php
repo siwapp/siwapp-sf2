@@ -33,6 +33,10 @@ class LoadInvoiceData extends AbstractFixture implements OrderedFixtureInterface
             $invoice = new Invoice();
             foreach($values as $fname => $fvalue)
             {
+                if($fname == 'Serie')
+                {
+                    $fvalue = $manager->merge($this->getReference($fvalue));
+                }
                 $method = 'set'.Inflector::camelize($fname);
                 if(is_callable(array($invoice, $method)))
                 {   

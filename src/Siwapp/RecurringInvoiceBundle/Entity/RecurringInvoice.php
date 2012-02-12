@@ -26,6 +26,13 @@ class RecurringInvoice extends AbstractInvoice
    */
   private $items;
 
+  /**
+   * @ORM\ManyToOne(targetEntity="Siwapp\CoreBundle\Entity\Serie")
+   *
+   * unidirectional many-to-one
+   */
+  private $serie;
+
   public function __construct()
   {
     $this->items = new ArrayCollection();
@@ -310,7 +317,7 @@ class RecurringInvoice extends AbstractInvoice
      */
     public function __toString()
     {
-        return (string) "Recurring Invoice: ".$this->id;
+        return (string) "Recurring Invoice: ".$this->serie." ".$this->customer_name;
     }
 
     const INACTIVE = 0;
@@ -405,4 +412,24 @@ class RecurringInvoice extends AbstractInvoice
         //TODO : End this
     }
 
+
+    /**
+     * Set serie
+     *
+     * @param Siwapp\CoreBundle\Entity\Serie $serie
+     */
+    public function setSerie(\Siwapp\CoreBundle\Entity\Serie $serie)
+    {
+        $this->serie = $serie;
+    }
+
+    /**
+     * Get serie
+     *
+     * @return Siwapp\CoreBundle\Entity\Serie 
+     */
+    public function getSerie()
+    {
+        return $this->serie;
+    }
 }

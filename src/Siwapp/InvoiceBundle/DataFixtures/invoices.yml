@@ -2,7 +2,7 @@ Invoice:
   Invoice_1:
     draft: false
     sent_by_email: false
-    Series: Series_2
+    Serie: Serie_2
     number: 1
     customer_name: 'Smith and Co.'
     customer_identification: 2450626775P
@@ -19,7 +19,7 @@ Invoice:
   Invoice_2:
     draft: false
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     number: 1
     customer_name: 'Rouster and Sideways'
     customer_identification: '1889335077'
@@ -36,7 +36,7 @@ Invoice:
   Invoice_3:
     draft: true
     sent_by_email: false
-    Series: Series_2
+    Serie: Serie_2
     customer_name: 'Western Gas & Electric'
     customer_identification: 3924395949G
     customer_email: marissa_peers@example.com
@@ -52,7 +52,7 @@ Invoice:
   Invoice_4:
     draft: false
     sent_by_email: false
-    Series: Series_3
+    Serie: Serie_3
     number: 1
     customer_name: 'Osato Chemicals'
     customer_identification: 4499553670X
@@ -69,7 +69,7 @@ Invoice:
   Invoice_5:
     draft: true
     sent_by_email: false
-    Series: Series_3
+    Serie: Serie_3
     customer_name: '123 Warehousing'
     customer_identification: '77426541881'
     customer_email: cyrus_decker@example.com
@@ -85,7 +85,7 @@ Invoice:
   Invoice_6:
     draft: false
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     number: 2
     customer_name: 'Allied Biscuit'
     customer_identification: 6787068643G
@@ -102,7 +102,7 @@ Invoice:
   Invoice_7:
     draft: false
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     number: 3
     customer_name: 'St. Anky Beer'
     customer_identification: '9295043937'
@@ -119,7 +119,7 @@ Invoice:
   Invoice_8:
     draft: false
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     number: 4
     customer_name: 'St. Anky Beer'
     customer_identification: '9295043937'
@@ -136,7 +136,7 @@ Invoice:
   Invoice_9:
     draft: false
     sent_by_email: false
-    Series: Series_2
+    Serie: Serie_2
     number: 2
     customer_name: 'The Krusty Krab'
     customer_identification: '8248936709'
@@ -153,7 +153,7 @@ Invoice:
   Invoice_10:
     draft: false
     sent_by_email: false
-    Series: Series_3
+    Serie: Serie_3
     number: 2
     customer_name: 'Big Kahuna Burger'
     customer_identification: 5714673104J
@@ -170,7 +170,7 @@ Invoice:
   Invoice_11:
     draft: false
     sent_by_email: false
-    Series: Series_3
+    Serie: Serie_3
     number: 3
     customer_name: SpringShield
     customer_identification: 4716162264W
@@ -187,7 +187,7 @@ Invoice:
   Invoice_12:
     draft: false
     sent_by_email: false
-    Series: Series_3
+    Serie: Serie_3
     number: 4
     customer_name: 'Sample, inc'
     customer_identification: 7863841633Q
@@ -204,7 +204,7 @@ Invoice:
   Invoice_13:
     draft: false
     sent_by_email: false
-    Series: Series_2
+    Serie: Serie_2
     number: 3
     customer_name: Tessier-Ashpool
     customer_identification: 3378474903M
@@ -221,7 +221,7 @@ Invoice:
   Invoice_14:
     draft: true
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     customer_name: 'Fake Brothers'
     customer_identification: 6009961348U
     customer_email: tristan_stone@example.com
@@ -237,7 +237,7 @@ Invoice:
   Invoice_15:
     draft: false
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     number: 5
     customer_name: 'Allied Biscuit'
     customer_identification: 6787068643G
@@ -254,7 +254,7 @@ Invoice:
   Invoice_16:
     draft: false
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     number: 6
     customer_name: 'Sonky Rubber Goods'
     customer_identification: '40487600161'
@@ -271,7 +271,7 @@ Invoice:
   Invoice_17:
     draft: false
     sent_by_email: false
-    Series: Series_3
+    Serie: Serie_3
     number: 5
     customer_name: 'BLAND Corporation'
     customer_identification: 6812087434H
@@ -288,7 +288,7 @@ Invoice:
   Invoice_18:
     draft: false
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     number: 7
     closed: true
     customer_name: Initech
@@ -306,7 +306,7 @@ Invoice:
   Invoice_19:
     draft: false
     sent_by_email: false
-    Series: Series_2
+    Serie: Serie_2
     number: 4
     customer_name: 'Big Kahuna Burger'
     customer_identification: 3641026692R
@@ -323,7 +323,7 @@ Invoice:
   Invoice_20:
     draft: false
     sent_by_email: false
-    Series: Series_1
+    Serie: Serie_1
     number: 8
     customer_name: 'Sample, inc'
     customer_identification: 7863841633Q

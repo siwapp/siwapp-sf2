@@ -33,7 +33,6 @@ class LoadItemData extends AbstractFixture implements OrderedFixtureInterface, C
         foreach($value['Item'] as $ref => $values)
         {
             $item = new Item();
-            $invoice = new Invoice();
             foreach($values as $fname => $fvalue)
             {
                 if($fname == 'Invoice')

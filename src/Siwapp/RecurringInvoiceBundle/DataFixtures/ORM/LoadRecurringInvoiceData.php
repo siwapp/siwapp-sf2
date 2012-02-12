@@ -35,6 +35,10 @@ class LoadRecurringInvoiceData extends AbstractFixture implements OrderedFixture
           $recurring_invoice = new RecurringInvoice();
           foreach($values as $fname => $fvalue)
           {
+              if($fname == 'Serie')
+              {
+                  $fvalue = $manager->merge($this->getReference($fvalue));
+              }
               $method = 'set'.Inflector::camelize($fname);
               if(is_callable(array($recurring_invoice, $method)))
               {

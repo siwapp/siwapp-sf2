@@ -30,20 +30,24 @@ class LoadEstimateData extends AbstractFixture implements OrderedFixtureInterfac
         $value = $yaml->parse(file_get_contents($bpath.'/DataFixtures/estimates.yml'));
       
         foreach($value['Estimate'] as $ref => $values)
+        {
+            $estimate = new Estimate();
+            foreach($values as $fname => $fvalue)
             {
-                $estimate = new Estimate();
-                foreach($values as $fname => $fvalue)
-                    {
-                        $method = 'set'.Inflector::camelize($fname);
-                        if(is_callable(array($estimate, $method)))
-                            {
-                                call_user_func(array($estimate, $method), $fvalue);
-                            }
-                    }
-                $manager->persist($estimate);
-                $manager->flush();
-                $this->addReference($ref, $estimate);
+                if($fname == 'Serie')
+                {
+                    $fvalue = $manager->merge($this->getReference($fvalue));
+                }
+                $method = 'set'.Inflector::camelize($fname);
+                if(is_callable(array($estimate, $method)))
+                {
+                    call_user_func(array($estimate, $method), $fvalue);
+                }
             }
+            $manager->persist($estimate);
+            $manager->flush();
+            $this->addReference($ref, $estimate);
+        }
 
     }
 

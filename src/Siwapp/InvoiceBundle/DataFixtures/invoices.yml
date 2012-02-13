@@ -1,6 +1,6 @@
 Invoice:
   Invoice_1:
-    draft: false
+    status: 1  # closed
     sent_by_email: false
     Serie: Serie_2
     number: 1
@@ -17,7 +17,7 @@ Invoice:
     created_at: '2009-04-17 09:45:36'
     updated_at: '2009-08-25 10:27:12'
   Invoice_2:
-    draft: false
+    status: 2 # open
     sent_by_email: false
     Serie: Serie_1
     number: 1
@@ -34,7 +34,7 @@ Invoice:
     created_at: '2009-04-17 09:45:36'
     updated_at: '2009-08-25 10:27:12'
   Invoice_3:
-    draft: true
+    status: 0 # draft
     sent_by_email: false
     Serie: Serie_2
     customer_name: 'Western Gas & Electric'
@@ -50,7 +50,7 @@ Invoice:
     created_at: '2009-04-17 09:45:36'
     updated_at: '2009-08-25 10:27:12'
   Invoice_4:
-    draft: false
+    status: 3 # overdue
     sent_by_email: false
     Serie: Serie_3
     number: 1
@@ -67,7 +67,7 @@ Invoice:
     created_at: '2009-04-17 09:45:36'
     updated_at: '2009-08-25 10:27:12'
   Invoice_5:
-    draft: true
+    status: 0 # draft
     sent_by_email: false
     Serie: Serie_3
     customer_name: '123 Warehousing'
@@ -100,7 +100,7 @@ Invoice:
     created_at: '2009-04-17 09:45:36'
     updated_at: '2009-08-25 10:27:12'
   Invoice_7:
-    draft: false
+    status: 1 # closed
     sent_by_email: false
     Serie: Serie_1
     number: 3
@@ -117,7 +117,7 @@ Invoice:
     created_at: '2009-04-17 09:45:36'
     updated_at: '2009-08-25 10:27:13'
   Invoice_8:
-    draft: false
+    status: 2 # opened
     sent_by_email: false
     Serie: Serie_1
     number: 4
@@ -134,7 +134,7 @@ Invoice:
     created_at: '2009-04-17 09:45:37'
     updated_at: '2009-08-25 10:27:13'
   Invoice_9:
-    draft: false
+    status: 3 # overdue
     sent_by_email: false
     Serie: Serie_2
     number: 2
@@ -151,7 +151,7 @@ Invoice:
     created_at: '2009-04-17 09:45:37'
     updated_at: '2009-08-25 10:27:13'
   Invoice_10:
-    draft: false
+    status: 1 # closed
     sent_by_email: false
     Serie: Serie_3
     number: 2
@@ -168,7 +168,7 @@ Invoice:
     created_at: '2009-04-17 09:45:37'
     updated_at: '2009-08-25 10:27:13'
   Invoice_11:
-    draft: false
+    status: 2 # opened
     sent_by_email: false
     Serie: Serie_3
     number: 3
@@ -185,7 +185,7 @@ Invoice:
     created_at: '2009-04-17 09:45:37'
     updated_at: '2009-08-25 10:27:13'
   Invoice_12:
-    draft: false
+    status: 2 # opened
     sent_by_email: false
     Serie: Serie_3
     number: 4
@@ -202,7 +202,7 @@ Invoice:
     created_at: '2009-04-17 09:45:37'
     updated_at: '2009-08-25 10:27:14'
   Invoice_13:
-    draft: false
+    status: 2 #opened
     sent_by_email: false
     Serie: Serie_2
     number: 3
@@ -219,7 +219,7 @@ Invoice:
     created_at: '2009-04-17 09:45:37'
     updated_at: '2009-08-25 10:27:14'
   Invoice_14:
-    draft: true
+    status: 0  # draft
     sent_by_email: false
     Serie: Serie_1
     customer_name: 'Fake Brothers'
@@ -235,7 +235,7 @@ Invoice:
     created_at: '2009-04-17 09:45:37'
     updated_at: '2009-08-25 10:27:14'
   Invoice_15:
-    draft: false
+    status: 1 # closed
     sent_by_email: false
     Serie: Serie_1
     number: 5
@@ -252,7 +252,7 @@ Invoice:
     created_at: '2009-04-17 09:45:37'
     updated_at: '2009-08-25 10:27:14'
   Invoice_16:
-    draft: false
+    status: 2 # opened
     sent_by_email: false
     Serie: Serie_1
     number: 6
@@ -269,7 +269,7 @@ Invoice:
     created_at: '2009-04-17 09:45:37'
     updated_at: '2009-08-25 10:27:14'
   Invoice_17:
-    draft: false
+    status: 3 # overdue
     sent_by_email: false
     Serie: Serie_3
     number: 5
@@ -286,7 +286,7 @@ Invoice:
     created_at: '2009-04-17 09:45:37'
     updated_at: '2009-08-25 10:27:15'
   Invoice_18:
-    draft: false
+    status: 2 # opened
     sent_by_email: false
     Serie: Serie_1
     number: 7
@@ -304,7 +304,7 @@ Invoice:
     created_at: '2009-04-17 09:45:37'
     updated_at: '2009-08-25 10:27:15'
   Invoice_19:
-    draft: false
+    status: 1 # closed
     sent_by_email: false
     Serie: Serie_2
     number: 4
@@ -321,7 +321,7 @@ Invoice:
     created_at: '2009-04-17 09:45:38'
     updated_at: '2009-08-25 10:27:15'
   Invoice_20:
-    draft: false
+    status: 1 # closed
     sent_by_email: false
     Serie: Serie_1
     number: 8

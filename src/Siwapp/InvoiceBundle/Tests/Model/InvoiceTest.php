@@ -50,6 +50,21 @@ class InvoiceTest extends SiwappBaseTest
         $this->assertEquals($test_invoice->getGrossAmount(),6903.01);
 
         // TODO: check number generation
+        $internet_serie = $this->getRepo('serie')->findOneBy(array('name'=>'Internet'));
+        $design_serie = $this->getRepo('serie')->findOneBy(array('name'=>'Design'));
+        $others_serie = $this->getRepo('serie')->findOneBy(array('name'=>'Others'));
+        $this->assertEquals(
+            $this->getRepo('invoice')->getNextNumber($internet_serie),
+            9
+                            );
+        $this->assertEquals(
+            $this->getRepo('invoice')->getNextNumber($design_serie),
+            5
+                            );
+        $this->assertEquals(
+            $this->getRepo('invoice')->getNextNumber($others_serie),
+            6
+                            );
 
         // TODO: check that when changing series, the number changes
 

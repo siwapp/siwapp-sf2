@@ -6,6 +6,9 @@ use Doctrine\ORM\EntityRepository;
 
 use Siwapp\CoreBundle\Repository\AbstractInvoiceRepository;
 
+use Siwapp\InvoiceBundle\Entity\Invoice;
+
+
 /**
  * InvoiceRepository
  *
@@ -14,4 +17,24 @@ use Siwapp\CoreBundle\Repository\AbstractInvoiceRepository;
  */
 class InvoiceRepository extends AbstractInvoiceRepository
 {
+    /** 
+     * getNextNumber
+     * Obtain the next numer available for the provided series
+     * @param \Siwapp\CoreBundle\Entity\Serie @serie
+     * @return integer
+     */
+    public function getNextNumber($serie)
+    {
+        $em = $this->getEntityManager();
+        $number = $em->createQuery('SELECT MAX(i.number)  
+            FROM \Siwapp\InvoiceBundle\Entity\Invoice i  JOIN i.serie s
+            WHERE i.status!=:draft AND i.serie=:serie')
+            ->setParameters(array(
+                                  'draft'=>Invoice::DRAFT, 
+                                  'serie'=>$serie))
+            ->getSingleScalarResult();
+
+        return $number ? intval($number) + 1: $serie->getFirstNumber();
+        
+    }
 }

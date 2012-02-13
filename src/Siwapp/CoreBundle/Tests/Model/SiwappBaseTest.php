@@ -11,6 +11,7 @@ class SiwappBaseTest extends \PHPUnit_Framework_TestCase
     protected $em;
 
     protected $_tax_repo;
+    protected $_serie_repo;
     protected $_invoice_repo;
     protected $_recurring_invoice_repo;
     protected $_estimate_repo;
@@ -51,6 +52,13 @@ class SiwappBaseTest extends \PHPUnit_Framework_TestCase
                     $this->_tax_repo = $this->em->getRepository('SiwappCoreBundle:Tax');
                 }
                 return $this->_tax_repo;
+                break;
+            case 'serie':
+                if(!$this->_serie_repo)
+                {
+                    $this->_serie_repo = $this->em->getRepository('SiwappCoreBundle:Serie');
+                }
+                return $this->_serie_repo;
                 break;
             case 'invoice':
                 if(!$this->_invoice_repo)

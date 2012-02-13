@@ -141,9 +141,9 @@ class AbstractInvoice
     /**
      * @var smallint $status
      *
-     * @ORM\Column(name="status", type="smallint", nullable="true", columnDefinition="SMALLINT NULL DEFAULT 0")
+     * @ORM\Column(name="status", type="smallint", nullable="true")
      */
-    private $status;
+    private $status = 0;
 
     /**
      * Get id

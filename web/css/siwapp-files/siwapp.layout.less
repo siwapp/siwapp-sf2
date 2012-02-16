@@ -4,7 +4,7 @@
 html, body {
     padding:0;
     margin:0;
-    min-width:1024px;
+    min-width:1000px;
 }
 
 li {
@@ -122,6 +122,13 @@ li {
     
     h2 {
         margin:0.5em 0 0.25em;
+    }
+    
+    .container {
+        &.invoice-like {
+            margin-left:@layoutPadding * 1.5;
+            margin-right:0;
+        }
     }
 }
 

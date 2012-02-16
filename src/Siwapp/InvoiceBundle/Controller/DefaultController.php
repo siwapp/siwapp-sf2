@@ -53,9 +53,11 @@ class DefaultController extends Controller
      */
     public function newAction()
     {
-        $form = $this->createForm(new InvoiceType());
+        $entity = new InvoiceType();
+        $form = $this->createForm($entity);
         return array(
             'form' => $form->createView(),
+            'entity' => $entity,
         );
     }
     

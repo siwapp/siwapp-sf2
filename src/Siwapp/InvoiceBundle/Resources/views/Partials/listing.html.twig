@@ -48,9 +48,9 @@
         <td class="status">
           {# Use these CSS class names after .label for different statuses:
             DRAFT   => (no class)
-            CLOSED  => .success
-            OPENED  => .warning
-            OVERDUE => .important
+            CLOSED  => .paid
+            OPENED  => .pending
+            OVERDUE => .overdue
             ???     => .notice -> informational and not used
           #}
           <span class="label {{ entity }}">{% trans with { '%status%': entity } %}%status%{% endtrans %}</span>

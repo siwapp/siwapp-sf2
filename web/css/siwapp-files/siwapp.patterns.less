@@ -29,6 +29,24 @@
         background-color:lighten(@blue, 25%);
         border-color:@blue;
     }
+    
+    &.tax {
+        font-size:@basefont * .8;
+        @taxred:darken(red, 10%);
+        color:@taxred;
+        background-color:@white;
+        border-color:@taxred;
+        
+        a {
+            text-decoration:none;
+            font-size:8px;
+            line-height:8px;
+            margin:0 5px 0 0;
+            position:relative;
+            top:-1px;
+            display:inline-block;
+        }
+    }
 }
 
 //

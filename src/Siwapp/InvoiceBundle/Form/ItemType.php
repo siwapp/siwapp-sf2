@@ -14,7 +14,7 @@ class ItemType extends AbstractItemType
         parent::buildForm($builder, $options);
         
         $builder
-            ->add('invoice')
+            ->add('invoice', 'hidden')
         ;
     }
     

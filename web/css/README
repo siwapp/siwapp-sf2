@@ -41,6 +41,8 @@ KENDO UI FILES
 SIWAPP FILES
 ================================================================================
 
-  + siwapp.less // Our own bootstrap LESS file.
+  + siwapp.less          // Our own bootstrap LESS file.
+  + siwapp-files/*.less  // Custom styles
+  + siwapp-files/fonts/* // Iconic Fonts: http://somerandomdude.com/work/iconic/
 
 ================================================================================

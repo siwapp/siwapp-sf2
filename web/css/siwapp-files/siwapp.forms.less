@@ -60,3 +60,64 @@ form {
         }
     }
 }
+
+//
+// Invoice-Like Forms
+//
+
+.invoice-like {
+    .form-stacked {
+        padding-left:0px;
+        
+        textarea {
+            &.address {
+                min-height:@baseline * 5;
+            }
+            &.terms {
+                min-height:@baseline * 8;
+            }
+        }
+    }
+    
+    .form-inline {
+        label {
+            padding-top: 6px;
+            font-size: 13px;
+            line-height: 18px;
+            float: left;
+            width: 130px;
+            text-align: right;
+        }
+        .clearfix {
+            .input {
+                margin-left:150px;
+            }
+        }
+    }
+    
+    table.invoice-items {
+        margin:0;
+        border-top:1px solid @grayDark;
+        border-bottom:1px solid @grayDark;
+        
+        .input {
+            display:inline-block;
+            margin:0;
+            
+            input[type="text"] {
+                margin:(@baseline * -1) 0 0 0;
+            }
+        }
+    }
+    
+    .row {
+        &.totals {
+            a.add {
+                margin-top:@baseline;
+            }
+            table {
+                margin:0;
+            }
+        }
+    }
+}

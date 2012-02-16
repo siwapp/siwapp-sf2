@@ -17,13 +17,13 @@ class InvoiceType extends AbstractInvoiceType
         parent::buildForm($builder, $options);
         
         $builder
-            ->add('draft')
-            ->add('closed')
-            ->add('sent_by_email')
+            ->add('draft', 'hidden')
+            ->add('closed', 'hidden')
+            ->add('sent_by_email', 'hidden')
             ->add('number')
-            ->add('recurring_invoice_id')
-            ->add('issue_date')
-            ->add('due_date')
+            ->add('recurring_invoice_id', 'hidden')
+            ->add('issue_date', 'date', array('widget' => 'single_text'))
+            ->add('due_date', 'date', array('widget' => 'single_text'))
         ;
         
         $builder->add('items', 'collection', array(

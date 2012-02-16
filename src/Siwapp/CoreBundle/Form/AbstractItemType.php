@@ -10,10 +10,10 @@ class AbstractItemType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('quantity')
-            ->add('discount')
+            ->add('quantity', 'number')
+            ->add('discount', 'percent')
             ->add('description')
-            ->add('unitary_cost')
+            ->add('unitary_cost', 'money')
         ;
     }
 

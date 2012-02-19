@@ -1,7 +1,6 @@
 imports:
     - { resource: parameters.ini }
     - { resource: security.yml }
-    - { resource: @SiwappInvoiceBundle/Resources/config/services.yml }
 
 framework:
     #esi:             ~

@@ -358,10 +358,10 @@ class Invoice extends AbstractInvoice
     }
 
     /**
-     * When setting serie id, we check if there has been a serie change,
+     * When setting serie, we check if there has been a serie change,
      * because the invoice number will have to change later
      *
-     * TODO: Reiew this method when serie object are available
+     * TODO: Review this method when serie object are available
      *
      * @author JoeZ99 <jzarate@gmail.com>
      * 

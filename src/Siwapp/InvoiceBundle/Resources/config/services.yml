@@ -1,0 +1,6 @@
+services:
+    invoice_save.listener:
+        class: Siwapp\InvoiceBundle\Listener\InvoiceSaveListener
+        tags: 
+          - {name: doctrine.event_listener, event: prePersist }
+          - {name: doctrine.event_listener, event: preUpdate }

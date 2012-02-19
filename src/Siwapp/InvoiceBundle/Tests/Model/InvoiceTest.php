@@ -9,7 +9,7 @@ class InvoiceTest extends SiwappBaseTest
 {
     public function testTrial()
     {
-        $test_invoice = $this->getRepo('invoice')->find(1);
+        $test_invoice = $this->getRepo('invoice')->find(array('customer_name'=>'Smith and Co.', 'customer_identification'=>'2450626775P'));
         // test amounts calculation
         $test_invoice->setAmounts();
         $this->assertEquals($test_invoice->getBaseAmount(),7198.85);
@@ -53,20 +53,16 @@ class InvoiceTest extends SiwappBaseTest
         $internet_serie = $this->getRepo('serie')->findOneBy(array('name'=>'Internet'));
         $design_serie = $this->getRepo('serie')->findOneBy(array('name'=>'Design'));
         $others_serie = $this->getRepo('serie')->findOneBy(array('name'=>'Others'));
-        $this->assertEquals(
-            $this->getRepo('invoice')->getNextNumber($internet_serie),
-            9
-                            );
-        $this->assertEquals(
-            $this->getRepo('invoice')->getNextNumber($design_serie),
-            5
-                            );
-        $this->assertEquals(
-            $this->getRepo('invoice')->getNextNumber($others_serie),
-            6
-                            );
-
+        $this->assertEquals($this->getRepo('invoice')->getNextNumber($internet_serie),9);
+        $this->assertEquals($this->getRepo('invoice')->getNextNumber($design_serie),5);
+        $this->assertEquals($this->getRepo('invoice')->getNextNumber($others_serie),6);
         // TODO: check that when changing series, the number changes
+        $test_invoice->setSerie($internet_serie);
+        $this->em->flush();
+        $this->assertEquals($test_invoice->getNumber(),9);
+        $test_invoice->setSerie($design_serie);
+        $this->em->flush();
+        $this->assertEquals($test_invoice->getNumber(), 5);
 
         // TODO: check savings with modified customer data
         

@@ -143,7 +143,7 @@ class AbstractInvoice
      *
      * @ORM\Column(name="status", type="smallint", nullable="true")
      */
-    private $status = 0;
+    protected $status = 0;
 
     /**
      * Get id

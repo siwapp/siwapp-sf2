@@ -368,7 +368,7 @@ class Invoice extends AbstractInvoice
      */
     private function checkSerieChanged(\Siwapp\CoreBundle\Entity\Serie $serie)
     {
-        if($this->number>0 && $this->getSerie() != $serie)
+        if($this->number>0 && $this->serie && $this->serie != $serie)
         {
             $this->serie_changed = true;
         }
@@ -432,6 +432,22 @@ class Invoice extends AbstractInvoice
         return $this;
     }
 
+    /**
+     * needsNumber
+     *
+     * checks if invoice need number asignment or reasignment
+     * either it has not one yet, and it's not draft  or
+     * it's serie has changed and need new numeration
+     *
+     * @author JoeZ
+     * @return boolean
+     */
+    public function needsNumber()
+    {
+
+        return (!$this->number && $this->status!=self::DRAFT) ||
+            ($this->serie_changed && $this->status!=self::DRAFT);
+    }
 
 
     /* ********** LIFECYCLE CALLBACKS *********** */
@@ -443,7 +459,7 @@ class Invoice extends AbstractInvoice
     {
         // compute the number of invoice
         if( (!$this->number && $this->status!=self::DRAFT) ||
-            ($this->serie_changed && !$this->status!=self::DRAFT)
+            ($this->serie_changed && $this->status!=self::DRAFT)
             )
         {
             $this->serie_changed = false;

@@ -22,30 +22,53 @@ table {
     }
     
     td, th {
-        &.check {
+        &.cell-size-tiny {
             width:16px;
         }
-        &.date {
-            width:100px;
+        &.cell-size-tiny-small {
+            width:25px;
         }
-        &.status {
+        &.cell-size-small {
+            width:50px;
+        }
+        &.cell-size-small-medium {
             width:75px;
-            text-align:center;
         }
-        &.currency {
+        &.cell-size-medium {
             width:100px;
+        }
+        &.cell-size-medium-large {
+            width:120px;
+        }
+        &.cell-size-large {
+            width:150px;
+        }
+        &.cell-size-xlarge {
+            width:280px;
+        }
+        &.cell-size-x2large {
+            width:360px;
+        }
+        &.cell-size-x3large {
+            width:460px;
+        }
+        &.cell-size-xxlarge {
+            width:540px;
+        }
+        
+        
+        &.cell-align-left {
+            text-align:left;
+        }
+        &.cell-align-right {
             text-align:right;
         }
-        &.payments {
-            width:120px;
+        &.cell-align-center {
             text-align:center;
-        }
-        &.number {
-            width:100px;
         }
     }
     
-    &.zebra-striped {
+    &.table-striped {
         &[data-type] {
             tbody {
                 td {

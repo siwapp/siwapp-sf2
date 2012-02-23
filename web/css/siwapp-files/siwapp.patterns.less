@@ -4,7 +4,7 @@
 
 .label {
     padding: 1px 5px 2px;
-    font-size:@basefont *.85;
+    font-size:@baseFontSize *.85;
     color:@draftGrayTx;
     border:1px solid @draftGrayBd;
     background-color:@draftGrayBg;
@@ -31,7 +31,7 @@
     }
     
     &.tax {
-        font-size:@basefont * .8;
+        font-size:@baseFontSize * .8;
         @taxred:darken(red, 10%);
         color:@taxred;
         background-color:@white;
@@ -175,22 +175,3 @@ input[type=submit].button { -webkit-appearance: none; }
 /* Disabled ---------- */
 .button.disabled, .button[disabled] { opacity: 0.6; cursor: default; }
 
-//
-// Rightmost toolbar
-//
-
-#toolbar {
-    a {
-        visibility:hidden;
-        font-family: @iconFontFamily;
-        background:transparent no-repeat center center;
-        
-        &.remove:before { visibility:visible; content:"5"; }
-        &.print:before  { visibility:visible; content:"M"; }
-        &.pdf:before    { visibility:visible; content:"1"; }
-        &.email:before  { visibility:visible; content:"k"; }
-    }
-    a:hover {
-        text-decoration:none;
-    }
-}

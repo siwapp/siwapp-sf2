@@ -2,36 +2,14 @@
 
 
 {% form_theme form _self %}
-{% use 'form_div_layout.html.twig' with
-  textarea_widget as base_textarea_widget,
-  choice_widget as base_choice_widget,
-  date_widget as base_date_widget
-%}
+{% use 'form_div_layout.html.twig' with date_widget as base_date_widget %}
 
 {% block field_widget %}
 {% spaceless %}
   {% set type = type|default('text') %}
-  {% if type != 'hidden' %}<div class="input">{% endif %}
-    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %} placeholder="{{ label }}"/>
-  {% if type != 'hidden' %}</div>{% endif %}
+  <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}{% if type != 'hidden' %} placeholder="{{ label }}"{% endif %}/>
 {% endspaceless %}
 {% endblock %}
-
-{% block textarea_widget %}
-{% spaceless %}
-  <div class="input">
-    {{ block('base_textarea_widget') }}
-  </div>
-{% endspaceless %}
-{% endblock textarea_widget %}
-
-{% block choice_widget %}
-{% spaceless %}
-  <div class="input">
-    {{ block('base_choice_widget') }}
-  </div>
-{% endspaceless %}
-{% endblock choice_widget %}
 
 {% block date_widget %}
 {% spaceless %}
@@ -44,18 +22,33 @@
 {% endspaceless %}
 {% endblock date_widget %}
 
+{% block form_errors %}
+{% spaceless %}
+  {% if errors|length > 0 %}
+  <div class="row">
+    <div id="invoice-like-form-errors" class="span12">
+      <ul class="error_list">
+        {% for error in errors %}
+          <li>{{ error.messageTemplate|trans(error.messageParameters, 'validators') }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
 
-{% block searchform %}{% endblock %}
+{% block searchform_container %}{% endblock %}
 
 {% block body %}
   
   {# {% form_theme form "SiwappInvoiceBundle:Form:invoice.html.twig" %} #}
   
-  <article class="container invoice-like">
+  <article class="invoice-like">
     
-    <header class="title">
+    <header id="invoice-like-title">
       <h2>Invoice #10</h2>
-      <ul class="labels">
+      <ul id="invoice-like-status" class="unstyled">
         <li>
           <span class="label pending">Pending</span>
         </li>
@@ -67,52 +60,53 @@
     
     <form action="{{ path('invoice_update', { 'id': entity.id }) }}" method="post" class="form-stacked" {{ form_enctype(form) }}>
       
-      <div class="row" style="background:orange;">
-        <div class="span16">
-          {{ form_errors(form) }}
-        </div>
-      </div>
+      {{ form_errors(form) }}
       
-      <div class="row" style="background:yellow;">
-        <div class="span10">
+      <div class="row">
+        <div id="invoice-like-customer-data" class="span8">
           
           <h3>{% trans %}Customer Data{% endtrans %}</h3>
           
-          <div class="row" style="background:purple;">
-            <div class="span6 clearfix">
+          <div class="row">
+            <div class="span3 clearfix">
               {{ form_label(form.customer_name) }}
-              {{ form_widget(form.customer_name, {'attr': {'class': 'span6'}}) }}
+              {{ form_widget(form.customer_name, {'attr': {'class': 'span3'}}) }}
               {{ form_errors(form.customer_name) }}
             </div>
-            <div class="span4 clearfix">
+            <div class="span2 clearfix">
               {{ form_label(form.customer_identification) }}
-              {{ form_widget(form.customer_identification, {'attr': {'class': 'span4'}}) }}
+              {{ form_widget(form.customer_identification, {'attr': {'class': 'span2'}}) }}
               {{ form_errors(form.customer_identification) }}
             </div>
-            <div class="span5 clearfix">
-              {{ form_label(form.customer_email) }}
-              {{ form_widget(form.customer_email, {'attr': {'class': 'span5'}}) }}
-              {{ form_errors(form.customer_email) }}
-            </div>
-            <div class="span5 clearfix">
+            <div class="span3 clearfix">
               {{ form_label(form.contact_person) }}
-              {{ form_widget(form.contact_person, {'attr': {'class': 'span5'}}) }}
+              {{ form_widget(form.contact_person, {'attr': {'class': 'span3'}}) }}
               {{ form_errors(form.contact_person) }}
             </div>
-            <div class="span5 clearfix">
+            
+            <div class="span8 clearfix">
+              {{ form_label(form.customer_email) }}
+              <div class="input-prepend">
+                <span class="add-on"><i class="icon-envelope"></i></span>
+                {{ form_widget(form.customer_email, {'attr': {'class': 'span3'}}) }}
+              </div>
+              {{ form_errors(form.customer_email) }}
+            </div>
+            
+            <div class="span4 clearfix">
               {{ form_label(form.invoicing_address) }}
-              {{ form_widget(form.invoicing_address, {'attr': {'class': 'span5 address'}}) }}
+              {{ form_widget(form.invoicing_address, {'attr': {'class': 'span4 address'}}) }}
               {{ form_errors(form.invoicing_address) }}
             </div>
-            <div class="span5 clearfix">
+            <div class="span4 clearfix">
               {{ form_label(form.shipping_address) }}
-              {{ form_widget(form.shipping_address, {'attr': {'class': 'span5 address'}}) }}
+              {{ form_widget(form.shipping_address, {'attr': {'class': 'span4 address'}}) }}
               {{ form_errors(form.shipping_address) }}
             </div>
           </div><!-- inner row -->
         </div><!-- span10 -->
         
-        <div class="span5 offset1" style="background:pink;">
+        <div id="invoice-like-properties" class="span4" style="background:pink;">
           
           <h3>{% trans %}Invoice Properties{% endtrans %}</h3>
           
@@ -143,46 +137,60 @@
         </div><!-- span5 -->
       </div>
       
-      <div class="row" style="background:cyan;">
-        <div class="span16">
+      <div class="row">
+        <div class="span12">
           
-          <table class="invoice-items">
+          <h3>{% trans %}Invoice items{% endtrans %}</h3>
+          
+          <table id="invoice-like-items" class="table table-condensed table-striped align-middle">
             <thead>
               <tr>
-                <th>{% trans %}Concept{% endtrans %}</th>
-                <th>{% trans %}Qty/Hours{% endtrans %}</th>
-                <th>{% trans %}Unitary Cost{% endtrans %}</th>
-                <th>{% trans %}Discount{% endtrans %}</th>
-                <th>{% trans %}Taxes{% endtrans %}</th>
-                <th class="currency">{% trans %}Line Total{% endtrans %}</th>
+                <th class="cell-size-tiny-small"></th>
+                <th class="cell-size-x2large">{% trans %}Concept{% endtrans %}</th>
+                <th class="cell-size-small cell-align-center">{% trans %}Qty/Hours{% endtrans %}</th>
+                <th class="cell-size-small-medium cell-align-center">{% trans %}Price{% endtrans %}</th>
+                <th class="cell-size-small-medium cell-align-center">{% trans %}Discount{% endtrans %}</th>
+                <th class="cell-align-left">{% trans %}Taxes{% endtrans %}</th>
+                <th colspan="2" class="cell-size-small-medium cell-align-right">{% trans %}Line Total{% endtrans %}</th>
               </tr>
             </thead>
             <tbody data-prototype="{{ form_widget(form.items.get('prototype'))|e }}">
               {% for item in form.items %}
               <tr>
+                <td class="btn-group">
+                  {# TODO: Make this pretty for row actions (add tax, add item before, add item after...) #}
+                  <a class="btn btn-primary btn-mini" data-toggle="dropdown" href="#"><i class="icon-cog icon-white"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"><i class="icon-arrow-up"></i> Add before</a></li>
+                    <li><a href="#"><i class="icon-arrow-down"></i> Add after</a></li>
+                    <li><a href="#"><i class="icon-plus"></i> Add Tax</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+                  </ul>
+                </td>
                 <td>
                   {{ form_widget(item.invoice) }}
-                  {{ form_widget(item.description, { 'attr': { 'class': 'span8' } }) }}
+                  {{ form_widget(item.description, { 'attr': { 'class': 'input-x2large' } }) }}
                 </td>
-                <td>
-                  {{ form_widget(item.quantity, { 'attr': { 'class': 'span2' } }) }}
+                <td class="cell-align-right">
+                  {{ form_widget(item.quantity, { 'attr': { 'class': 'span1' } }) }}
                 </td>
-                <td>
-                  {{ form_widget(item.unitary_cost, { 'attr': { 'class': 'span2' } }) }}
+                <td class="cell-align-right">
+                  {{ form_widget(item.unitary_cost, { 'attr': { 'class': 'span1' } }) }}
                 </td>
-                <td>
-                  {{ form_widget(item.discount, { 'attr': { 'class': 'span2' } }) }}
+                <td class="cell-align-right">
+                  {{ form_widget(item.discount, { 'attr': { 'class': 'span1' } }) }}
                 </td>
-                <td>
+                <td class="taxes">
                   <span class="label tax"><a href="#" class="iconic x"></a>VAT 18%</span>
                   <span class="label tax"><a href="#" class="iconic x"></a>VAT 8%</span>
-                  <a href="#" class="iconic add">Add</a>
                 </td>
-                <td class="currency">
+                <td class="cell-align-right">
                   LINE TOTAL
                 </td>
               </tr>
               {% endfor %}
+              {# TODO: Action buttons: add/remove items, taxes, sort... #}
             </tbody>
           </table>
           
@@ -190,71 +198,62 @@
       </div>
       
       <div class="row totals">
-        <div class="span8">
+        <div class="span6">
           
-          <a href="#" class="btn icon add addItem">Add Item</a>
+          <a id="invoice-like-add-item" href="#" class="btn btn-info"><i class="icon-plus icon-white"></i> Add Item</a>
           <script type="text/javascript">
-              $('a.addItem').live('click', function(event){
+              $('#invoice-like-add-item').live('click', function(event){
                   event.preventDefault();
-                  var collectionHolder = $('#siwapp_invoicebundle_invoicetype_items');
+                  var collectionHolder = $('#invoice-like-items tbody');
                   var prototype = collectionHolder.attr('data-prototype');
                   form = prototype.replace(/\$\$name\$\$/g, collectionHolder.children().length);
                   collectionHolder.append(form);
               });
           </script>
+          {# TODO: Action buttons: add items. PROTOTYPE MUST BE CUSTOMIZED. #}
           
         </div>
-        <div class="span5 offset3" style="background:green;">
-          <table>
+        <div class="span4 offset2">
+          <table id="invoice-like-totals" class="table table-condensed table-striped">
             <tbody>
               <tr>
-                <th>{% trans %}Subtotal{% endtrans %}</th>
-                <td class="currency">€ 405.00</td>
+                <th class="cell-size-large">{% trans %}Subtotal{% endtrans %}</th>
+                <td class="cell-align-right">€ 405.00</td>
               </tr>
               <tr>
                 <th>VAT 18%</th>
-                <td class="currency">€ 72.90</td>
+                <td class="cell-align-right">€ 72.90</td>
               </tr>
               <tr>
                 <th>VAT 8%</th>
-                <td class="currency">€ 32.4</td>
+                <td class="cell-align-right">€ 32.4</td>
               </tr>
               <tr>
                 <th>Invoice Total (EUR)</th>
-                <td class="currency">€ 510.30</td>
+                <td class="cell-align-right">€ 510.30</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
       
-      <div class="row">
-        <div class="span8">
-          <div class="clearfix">
-            {{ form_label(form.terms) }}
-            {{ form_widget(form.terms, {'attr': {'class': 'span8 terms'}}) }}
-            {{ form_errors(form.terms) }}
-          </div>
+      <div id="invoice-like-notes" class="row">
+        <div class="span6">
+          {{ form_label(form.terms) }}
+          {{ form_widget(form.terms, {'attr': {'class': 'span6 terms'}}) }}
+          {{ form_errors(form.terms) }}
         </div>
-        <div class="span8">
-          <div class="clearfix">
-            {{ form_label(form.notes) }}
-            {{ form_widget(form.notes, {'attr': {'class': 'span8 terms'}}) }}
-            {{ form_errors(form.notes) }}
-          </div>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="span16" style="background-color:red;">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="span6">
+          {{ form_label(form.notes) }}
+          {{ form_widget(form.notes, {'attr': {'class': 'span6 terms'}}) }}
+          {{ form_errors(form.notes) }}
         </div>
       </div>
       
       {{ form_rest(form) }}
       
-      <div class="actions">
-        <button type="submit" class="btn primary">{% trans %}Save{% endtrans %}</button>
+      <div>
+        <button type="submit" class="btn btn-primary">{% trans %}Save{% endtrans %}</button>
       </div>
     </form>
     

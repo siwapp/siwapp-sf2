@@ -10,22 +10,22 @@
   {% set table_columns = table_columns + 1 %}
 {% endif %}
 
-<table class="condensed-table zebra-striped align-middle" data-type="invoices">
+<table class="table table-condensed table-striped align-middle" data-type="invoices">
   <thead>
     <tr>
       {% if table_selectable %}
-      <th class="check">
+      <th class="cell-size-tiny cell-align-center">
         <input type="checkbox" name="all" />
       </th>
       {% endif %}
-      <th class="number">{% trans %}Number{% endtrans %}</th>
+      <th class="cell-size-medium">{% trans %}Number{% endtrans %}</th>
       <th>{% trans %}Customer{% endtrans %}</th>
-      <th class="date">{% trans %}Date{% endtrans %}</th>
-      <th class="date">{% trans %}Due Date{% endtrans %}</th>
-      <th class="status">{% trans %}Status{% endtrans %}</th>
-      <th class="currency">{% trans %}Due{% endtrans %}</th>
-      <th class="currency">{% trans %}Total{% endtrans %}</th>
-      <th class="payments"></th>
+      <th class="cell-size-medium">{% trans %}Date{% endtrans %}</th>
+      <th class="cell-size-medium">{% trans %}Due Date{% endtrans %}</th>
+      <th class="cell-size-small-medium cell-align-center">{% trans %}Status{% endtrans %}</th>
+      <th class="cell-size-medium cell-align-right">{% trans %}Due{% endtrans %}</th>
+      <th class="cell-size-medium cell-align-right">{% trans %}Total{% endtrans %}</th>
+      <th class="cell-size-medium"></th>
     </tr>
   </thead>
   <tbody>
@@ -37,15 +37,15 @@
     {% for entity in entities %}
       <tr data-link="{{ path('invoice_show', { 'id': entity.id }) }}">
         {% if table_selectable %}
-        <td class="check">
+        <td class="cell-align-center">
           <input type="checkbox" name="id[]" value="{{ entity.id }}" />
         </td>
         {% endif %}
-        <td class="number">{{ entity.number }}</td>
+        <td class="cell-size-medium cell-align-center">{{ entity.number }}</td>
         <td>{{ entity.getCustomerName }}</td>
-        <td class="date">{{ entity }}</td>
-        <td class="date">{{ entity }}</td>
-        <td class="status">
+        <td>{{ entity }}</td>
+        <td>{{ entity }}</td>
+        <td class="cell-align-center">
           {# Use these CSS class names after .label for different statuses:
             DRAFT   => (no class)
             CLOSED  => .paid
@@ -55,9 +55,9 @@
           #}
           <span class="label {{ entity }}">{% trans with { '%status%': entity } %}%status%{% endtrans %}</span>
         </td>
-        <td class="currency">{{ entity }}</td>
-        <td class="currency">{{ entity }}</td>
-        <td class="payments">
+        <td class="cell-align-right">{{ entity }}</td>
+        <td class="cell-align-right">{{ entity }}</td>
+        <td class="cell-align-right payments">
           <a href="{{ path('invoice_payments', { 'invoiceId': entity.id }) }}" class="btn secondary icon clock payments" title="Payments" data-invoice-id="{{ entity.id }}">{% trans %}Payments{% endtrans %}</a>
         </td>
       </tr>

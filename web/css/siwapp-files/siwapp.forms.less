@@ -2,59 +2,28 @@
 // Forms
 //
 
+// General classes for quick sizes (see bootstrap-files/forms.less)
+.input-x2large    { width: 350px; }
+.input-x3large    { width: 450px; }
+
 form {
     &.search {
-        margin:0 0 5px;
+        margin:0 0 0;
         
-        ul.unstyled {
-            margin:0;
-            .clearfix;
-            
-            li {
-                overflow:hidden;
-                float:left;
-                margin:0;
-                .clearfix;
-            }
-            li + li {
-                margin-left:1em;
-            }
-            
-            label {
-                width:auto;
-                margin-right:1em;
-                font-weight:bold;
-            }
-            
-            div.input {
-                float:left;
-                margin-left:0;
-            }
-            
-            .k-datepicker {
-                float:left;
-            }
-            
-            .buttons {
-                float:right;
-            }
-        }
-        
-        fieldset {
-            margin:0;
-            padding:0;
-        }
         fieldset + fieldset {
             margin-top:10px;
         }
         
-        &#searchform-invoices {
-            label {
-                &[for="search-term"], &[for="search-customer"] {
-                    width:85px;
-                }
-                &[for="search-date-from"], &[for="search-series"] {
-                    width:45px;
+        .btn-toolbar {
+            margin:0;
+            text-align:right;
+        }
+        
+        #search-advanced {
+            &.active {
+                .caret {
+                    border-top:0;
+                    border-bottom:4px solid @black;
                 }
             }
         }
@@ -66,58 +35,71 @@ form {
 //
 
 .invoice-like {
-    .form-stacked {
-        padding-left:0px;
+    
+    h3 {
+        margin:@baseLineHeight 0 @baseLineHeight/2;
+    }
+    
+    label {
+        font-weight:bold;
+        white-space:nowrap;
+    }
+    
+    #invoice-like-title {
+        
+        #invoice-like-status {
+            .clearfix();
+            
+            li {
+                float:left;
+            }
+            
+            li + li {
+                margin-left:@baseLineHeight/2;
+            }
+        }
+    }
+    
+    textarea {
+        resize:none;
+    }
+    
+    #invoice-like-form-errors {
+    }
+    
+    #invoice-like-customer-data {
+        textarea {
+            height:@baseLineHeight * 4;
+        }
+    }
+    
+    #invoice-like-properties {
+    }
+    
+    #invoice-like-items {
+        margin:0;
+        border-top:1px solid @grayLight;
+        border-bottom:1px solid @grayLight;
+        
+        input, textarea, select, .uneditable-input {
+            margin:0;
+        }
+    }
+    
+    #invoice-like-totals {
+        border-bottom:1px solid @grayLight;
+    }
+    
+    #invoice-like-add-item {
+        margin:@baseLineHeight 0 0 @baseLineHeight;
+    }
+    
+    #invoice-like-notes {
+        margin-top:@baseLineHeight*2;
+        margin-bottom:@baseLineHeight*2;
         
         textarea {
-            &.address {
-                min-height:@baseline * 5;
-            }
-            &.terms {
-                min-height:@baseline * 8;
-            }
-        }
-    }
-    
-    .form-inline {
-        label {
-            padding-top: 6px;
-            font-size: 13px;
-            line-height: 18px;
-            float: left;
-            width: 130px;
-            text-align: right;
-        }
-        .clearfix {
-            .input {
-                margin-left:150px;
-            }
-        }
-    }
-    
-    table.invoice-items {
-        margin:0;
-        border-top:1px solid @grayDark;
-        border-bottom:1px solid @grayDark;
-        
-        .input {
-            display:inline-block;
-            margin:0;
-            
-            input[type="text"] {
-                margin:(@baseline * -1) 0 0 0;
-            }
-        }
-    }
-    
-    .row {
-        &.totals {
-            a.add {
-                margin-top:@baseline;
-            }
-            table {
-                margin:0;
-            }
+            height:@baseLineHeight*8;
         }
     }
 }

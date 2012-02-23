@@ -18,11 +18,13 @@
   
   <div id="dashboard-summary">
     
-    <table class="bordered-table payments horizontal">
-      <tbody>
+    <table class="table table-bordered sw-table-horizontal payments">
+      <thead>
         <tr>
           <th colspan="2">{% trans %}Payments Summary{% endtrans %}</th>
         </tr>
+      </thead>
+      <tbody>
         <tr class="receipts">
           <th>{% trans %}Receipts{% endtrans %}</th>
           <td>$491,969.17</td>
@@ -38,11 +40,13 @@
       </tbody>
     </table>
     
-    <table class="bordered-table balance horizontal">
-      <tbody>
+    <table class="table table-bordered sw-table-horizontal balance">
+      <thead>
         <tr>
           <th colspan="2">{% trans %}Balance{% endtrans %}</th>
         </tr>
+      </thead>
+      <tbody>
         <tr class="total">
           <th>{% trans %}Total{% endtrans %}</th>
           <td>$598,390.67</td>
@@ -58,11 +62,13 @@
       </tbody>
     </table>
 
-    <table class="bordered-table taxes horizontal">
-      <tbody>
+    <table class="table table-bordered sw-table-horizontal taxes">
+      <thead>
         <tr>
           <th colspan="2">{% trans %}Withholding Taxes{% endtrans %}</th>
         </tr>
+      </thead>
+      <tbody>
         {# TODO: Iterate over taxes and totals and show here #}
         <tr>
           <th>IVA 18%</th>

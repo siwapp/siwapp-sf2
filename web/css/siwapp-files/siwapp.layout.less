@@ -4,7 +4,7 @@
 html, body {
     padding:0;
     margin:0;
-    min-width:1000px;
+    min-width:960px;
 }
 
 li {
@@ -26,10 +26,13 @@ li {
 #hd {
     #gradient > .vertical(rgba(254,254,254,1), rgba(240,240,240,1));
     margin-bottom:@layoutPadding*0.5;
+    background-image:url('/img/px/ddd.png');
+    background-repeat:repeat-x;
+    background-position:bottom left;
     
     h1 {
         float:left;
-        margin:@layoutPadding;
+        margin:@layoutPadding @layoutPadding @layoutPadding 0;
         line-height:19px;
         height:19px;
         
@@ -50,12 +53,12 @@ li {
     }
     
     nav {
-        overflow:hidden;
+        .clearfix();
         
         &.user {
             float:right;
             font-size:12px;
-            margin:@layoutPadding;
+            margin:@layoutPadding 0;
             
             li {
                 float:left;
@@ -70,20 +73,26 @@ li {
         &.main {
             clear:both;
             position:relative;
+            padding-top:8px;
             
-            .btn.add {
+            #create-button {
                 position:absolute;
-                right:@layoutPadding;
+                right:0;
                 bottom:8px;
+                
+                .dropdown-menu {
+                    left:auto;
+                    right:0;
+                }
             }
             
-            .tabs {
-                padding-left:@layoutPadding;
+            .nav-tabs {
+                padding-left:0;
                 padding-right:@layoutPadding * 15;
                 margin-bottom:0;
                 
                 > li {
-                    font-size:@basefont * 1.2;
+                    font-size:@baseFontSize * 1.2;
                     font-weight:bold;
                     
                     > a {
@@ -111,7 +120,7 @@ li {
 //
 
 #bd {
-    padding:0 @layoutPadding;
+    padding:0;
     
     .searchform {
         margin:0 @layoutPadding * -1 @layoutPadding * 1.5;
@@ -123,13 +132,6 @@ li {
     h2 {
         margin:0.5em 0 0.25em;
     }
-    
-    .container {
-        &.invoice-like {
-            margin-left:@layoutPadding * 1.5;
-            margin-right:0;
-        }
-    }
 }
 
 //
@@ -137,14 +139,6 @@ li {
 //
 
 body.with-toolbar {
-    #bd {
-        @N:5;
-        padding-right:@layoutPadding * @N;
-        
-        .searchform {
-            margin-right:@layoutPadding * @N * -1;
-        }
-    }
     
     #toolbar {
         @iconWidth:16px;

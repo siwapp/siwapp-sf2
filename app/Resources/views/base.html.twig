@@ -7,83 +7,120 @@
   <link rel="stylesheet/less" href="{{ asset('css/siwapp.less') }}" type="text/css" media="screen" title="Siwapp Styles" charset="utf-8" />
   {% block stylesheets %}{% endblock %}
   
+  <script type="text/javascript" charset="utf-8">
+    less = { env: 'development' };
+  </script>
+  
   {% javascripts
-    'js/less-1.2.1.min.js'
+    'js/jquery-1.7.1.min.js'
     'js/modernizr.custom.js'
-    'js/jquery-1.6.4.min.js'
+    'js/less-1.2.2.min.js'
     output='js/min/core.js'
     filter='?yui_js'
   %}
   <script type="text/javascript" charset="utf-8" src="{{ asset_url }}"></script>
   {% endjavascripts %}
-  
   <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 </head>
 {% block bodytag %}<body>{% endblock %}
-  
-  {% block header %}
-    <header id="hd">
-      <h1>
-        <a href="{{ path('dashboard_index') }}">
-          <img src="{{ asset('img/logo.png') }}" alt="Siwapp" />
-          <span class="version">v.1.0-DEV</span>
+
+{% block header %}
+  <header id="hd">
+    
+    <div class="container">
+    <h1>
+      <a href="{{ path('dashboard_index') }}">
+        <img src="{{ asset('img/logo.png') }}" alt="Siwapp" />
+        <span class="version">v.1.0-DEV</span>
+      </a>
+    </h1>
+    
+    <nav class="user">
+      <ul class="unstyled">
+        <li>{% trans with {'%username%': 'test' } %}Wellcome, %username%!{% endtrans %}</li>
+        <li>
+          <a href="{{ path('global_settings') }}" data-shortcut="alt+g, s">
+            <i class="icon-cog"></i>
+            {% trans %}Settings{% endtrans %}
+          </a>
+        </li>
+        <li>
+          <a href="{{ path('dashboard_index') }}" data-shortcut="alt+g, q">{% trans %}Logout{% endtrans %}</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <nav class="main">
+      
+      <div id="create-button" class="btn-group">
+        <a href="{{ path('invoice_add') }}" class="btn btn-primary">
+          <i class="icon-plus icon-white"></i>
+          {% trans %}New Invoice{% endtrans %}
         </a>
-      </h1>
-      
-      <nav class="user">
-        <ul class="unstyled">
-          <li>{% trans with {'%username%': 'test' } %}Wellcome, %username%!{% endtrans %}</li>
+        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
           <li>
-            <a href="{{ path('global_settings') }}" data-shortcut="alt+g, s">{% trans %}Settings{% endtrans %}</a>
+            <a href="{{ path('invoice_add') }}">{% trans %}New Estimate{% endtrans %}</a>
           </li>
           <li>
-            <a href="{{ path('dashboard_index') }}" data-shortcut="alt+g, q">{% trans %}Logout{% endtrans %}</a>
+            <a href="{{ path('invoice_add') }}">{% trans %}New Recurring Invoice{% endtrans %}</a>
           </li>
         </ul>
-      </nav>
+      </div>
       
-      <nav class="main">
-        
-        <a href="{{ path('invoice_add') }}" class="btn primary icon add alternative" data-shortcut="alt+g, n">{% trans %}New Invoice{% endtrans %}</a>
-        
-        {% set routename = app.request.attributes.get('_route') %}
-        
-        <ul class="tabs">
-          <li class="{{ routename|menu_active_tab('dashboard_') }}">
-            <a href="{{ path('dashboard_index') }}" data-shortcut="alt+g, d">{% trans %}Dashboard{% endtrans %}</a>
-          </li>
-          <li class="{{ routename|menu_active_tab('invoice_') }}">
-            <a href="{{ path('invoice_index') }}" data-shortcut="alt+g, i">{% trans %}Invoices{% endtrans %}</a>
-          </li>
-          <li class="{{ routename|menu_active_tab('recurring_') }}">
-            <a href="{{ path('recurring_index') }}" data-shortcut="alt+g, r">{% trans %}Recurring Invoices{% endtrans %}</a>
-          </li>
-          <li class="{{ routename|menu_active_tab('estimate_') }}">
-            <a href="{{ path('estimate_index') }}" data-shortcut="alt+g, e">{% trans %}Estimates{% endtrans %}</a>
-          </li>
-          <li class="{{ routename|menu_active_tab('customer_') }}">
-            <a href="{{ path('dashboard_index') }}" data-shortcut="alt+g, c">{% trans %}Customers{% endtrans %}</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-  {% endblock %}
+      
+      {% set routename = app.request.attributes.get('_route') %}
+      
+      <ul class="nav nav-tabs">
+        <li class="{{ routename|menu_active_tab('dashboard_') }}">
+          <a href="{{ path('dashboard_index') }}" data-shortcut="alt+g, d">{% trans %}Dashboard{% endtrans %}</a>
+        </li>
+        <li class="{{ routename|menu_active_tab('invoice_') }}">
+          <a href="{{ path('invoice_index') }}" data-shortcut="alt+g, i">{% trans %}Invoices{% endtrans %}</a>
+        </li>
+        <li class="{{ routename|menu_active_tab('recurring_') }}">
+          <a href="{{ path('recurring_index') }}" data-shortcut="alt+g, r">{% trans %}Recurring Invoices{% endtrans %}</a>
+        </li>
+        <li class="{{ routename|menu_active_tab('estimate_') }}">
+          <a href="{{ path('estimate_index') }}" data-shortcut="alt+g, e">{% trans %}Estimates{% endtrans %}</a>
+        </li>
+        <li class="{{ routename|menu_active_tab('customer_') }}">
+          <a href="{{ path('dashboard_index') }}" data-shortcut="alt+g, c">{% trans %}Customers{% endtrans %}</a>
+        </li>
+      </ul>
+    </nav>
+    
+    </div>
+  </header>
+{% endblock %}
   
   <section id="bd">
-    {% block searchform %}
+    {% block searchform_container %}
       <div class="searchform">
-        <strong>SEARCHFORM:</strong> Check ::base.html.twig. Override the <em>searchform</em> block in your templates to set it or remove it.
+        <div class="container">
+          {% block searchform %}
+          <p><strong>SEARCHFORM:</strong> Check ::base.html.twig.</p>
+          <ul>
+            <li>To remove the <em>searchform</em> override the <em>searchform_container</em> block in your template.</li>
+            <li>To add your own <em>searchform</em> code override the <em>searchform</em>block in your template.</li>
+          {% endblock %}
+        </div>
       </div>
     {% endblock %}
     
-    {% block body %}{% endblock %}
+    <div class="container">
+      {% block body %}{% endblock %}
+    </div>
   </section>
   
   <footer id="ft">
   </footer>
   
   {% javascripts
-    'js/bootstrap/bootstrap-twipsy.js'
+    'js/bootstrap/bootstrap-transition.js'
+    'js/bootstrap/bootstrap-tooltip.js'
     'js/bootstrap/bootstrap-*.js'
     'js/kendoui/kendo.core.min.js'
     'js/kendoui/kendo.data.min.js'
@@ -109,5 +146,6 @@
   {% block javascripts %}{% endblock %}
   
   {% block toolbar %}{% endblock %}
+  
 </body>
 </html>
